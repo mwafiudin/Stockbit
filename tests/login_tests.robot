@@ -12,7 +12,7 @@ ${validPassword}    mwafiudin165
 
 *** Test Cases ***
 Scenario: Valid login credential
-    Given Login page opened
-    When User input username and password   ${validUsername}    ${validPassword}
-    And Click login button
-    Then User directed to home page
+    Login page opened
+    User input username and password   ${validUsername}    ${validPassword}
+    Click login button
+    User directed to home page

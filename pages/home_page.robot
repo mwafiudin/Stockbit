@@ -11,7 +11,7 @@ ${watchlistPage}        //*[@id="main-container"]/div/div[2]/div[2]/div/div/div/
 *** Keywords ***
 User directed to home page
     wait until element is visible   ${homeStockbitLogo}     10
-    element should be visible       ${homeSearchBar}
+    element should be visible       ${homeStockbitLogo}
     wait until element is visible   ${homeSearchBar}        10
     element should be visible       ${homeSearchBar}
     wait until element is visible   ${profileIcon}        10
@@ -23,4 +23,3 @@ User click menu Watchlist
 
 User should be directed to Watchlist page
     wait until page contains element    ${watchlistPage}    10
-

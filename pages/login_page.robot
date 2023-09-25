@@ -3,6 +3,7 @@ Library                             SeleniumLibrary
 Resource                            ../pages/landing_page.robot
 
 *** Variables ***
+${url_login}        https:/stockbit.com/login
 ${usernameField}    //*[@id="username"]
 ${passwordField}    //*[@id="password"]
 ${loginButton}      //*[@id="email-login-button"]
@@ -11,6 +12,11 @@ ${loginButton}      //*[@id="email-login-button"]
 Login page opened
     Landing page opened
     User click login button
+    User should be directed to login page
+
+Login page opened (shortcut)
+    open browser    ${url_login}  chrome
+    maximize browser window
     User should be directed to login page
 
 Input username

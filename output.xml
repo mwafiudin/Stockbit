@@ -1,274 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.9.2 on win32)" generated="20230920 22:00:14.001" rpa="false" schemaversion="3">
-<suite id="s1" name="Screening test" source="C:\Users\haris\Downloads\Stockbit\tests\Screening_test.robot">
-<test id="s1-t1" name="Scenario 1: Valid login credential" line="15">
-<kw name="Login page opened" library="login_page">
-<kw name="Landing page opened" library="landing_page">
-<kw name="Open Browser" library="SeleniumLibrary">
-<arg>${url}</arg>
-<arg>chrome</arg>
-<doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230920 22:00:14.630" level="INFO">Opening browser 'chrome' to base url 'https:/stockbit.com'.</msg>
-<status status="PASS" starttime="20230920 22:00:14.630" endtime="20230920 22:01:06.954"/>
-</kw>
-<kw name="Maximize Browser Window" library="SeleniumLibrary">
-<doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230920 22:01:06.954" endtime="20230920 22:01:07.415"/>
-</kw>
-<status status="PASS" starttime="20230920 22:00:14.630" endtime="20230920 22:01:07.415"/>
-</kw>
-<kw name="User click login button" library="landing_page">
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>${loginMenu}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230920 22:01:07.416" endtime="20230920 22:01:07.540"/>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on darwin)" generated="20230924 19:57:02.227" rpa="false" schemaversion="4">
+<suite id="s1" name="Tes2" source="/Users/wafi/VSCode/Stockbit/tests/tes2.robot">
+<test id="s1-t1" name="Scenario 3 : Auto Buy" line="15">
+<kw name="User Activates Trading Area (Virtual)" library="trading_area_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${tradingAreaButton}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<msg timestamp="20230924 19:57:02.333" level="INFO">Cannot capture screenshot because no browser is open.</msg>
+<msg timestamp="20230924 19:57:02.334" level="FAIL">No browser is open.</msg>
+<status status="FAIL" starttime="20230924 19:57:02.332" endtime="20230924 19:57:02.336"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>${loginMenu}</arg>
+<arg>${tradingAreaButton}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230920 22:01:07.541" level="INFO">Clicking element '//*[@id="landing-wrapper"]/div[1]/div/div[2]/div/div[2]/div/div[1]/a'.</msg>
-<status status="PASS" starttime="20230920 22:01:07.540" endtime="20230920 22:01:40.057"/>
+<status status="NOT RUN" starttime="20230924 19:57:02.336" endtime="20230924 19:57:02.336"/>
 </kw>
-<status status="PASS" starttime="20230920 22:01:07.415" endtime="20230920 22:01:40.057"/>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${virtualTradingButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230924 19:57:02.336" endtime="20230924 19:57:02.336"/>
 </kw>
-<kw name="User should be directed to login page" library="landing_page">
-<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
-<arg>${loginPage}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20230920 22:01:40.057" endtime="20230920 22:01:40.118"/>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230924 19:57:02.336" endtime="20230924 19:57:02.336"/>
 </kw>
-<status status="PASS" starttime="20230920 22:01:40.057" endtime="20230920 22:01:40.118"/>
-</kw>
-<status status="PASS" starttime="20230920 22:00:14.630" endtime="20230920 22:01:40.119"/>
-</kw>
-<kw name="User input username and password" library="login_steps">
-<arg>${validUsername}</arg>
-<arg>${validPassword}</arg>
-<kw name="Input username" library="login_page">
-<arg>${username}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${usernameField}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230920 22:01:40.122" endtime="20230920 22:01:40.295"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${usernameField}</arg>
-<arg>${username}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230920 22:01:40.297" level="INFO">Typing text 'm.izzul.h.w@gmail.com' into text field '//*[@id="username"]'.</msg>
-<status status="PASS" starttime="20230920 22:01:40.295" endtime="20230920 22:01:40.774"/>
-</kw>
-<status status="PASS" starttime="20230920 22:01:40.121" endtime="20230920 22:01:40.774"/>
-</kw>
-<kw name="Input password" library="login_page">
-<arg>${password}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${passwordField}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230920 22:01:40.775" endtime="20230920 22:01:40.822"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${passwordField}</arg>
-<arg>${password}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20230920 22:01:40.824" level="INFO">Typing text 'mwafiudin165' into text field '//*[@id="password"]'.</msg>
-<status status="PASS" starttime="20230920 22:01:40.823" endtime="20230920 22:01:41.058"/>
-</kw>
-<status status="PASS" starttime="20230920 22:01:40.774" endtime="20230920 22:01:41.059"/>
-</kw>
-<status status="PASS" starttime="20230920 22:01:40.120" endtime="20230920 22:01:41.059"/>
-</kw>
-<kw name="Click login button" library="login_page">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${loginButton}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230920 22:01:41.060" endtime="20230920 22:01:41.102"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${loginButton}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230920 22:01:41.115" level="INFO">Clicking element '//*[@id="email-login-button"]'.</msg>
-<status status="PASS" starttime="20230920 22:01:41.102" endtime="20230920 22:01:41.261"/>
-</kw>
-<status status="PASS" starttime="20230920 22:01:41.060" endtime="20230920 22:01:41.261"/>
-</kw>
-<kw name="User directed to home page" library="home_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
-<arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230920 22:01:41.267" endtime="20230920 22:01:46.132"/>
+<status status="NOT RUN" starttime="20230924 19:57:02.336" endtime="20230924 19:57:02.336"/>
 </kw>
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>${homeSearchBar}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20230920 22:01:46.192" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form/div/div/span[1]' is displayed.</msg>
-<status status="PASS" starttime="20230920 22:01:46.147" endtime="20230920 22:01:46.192"/>
+<status status="FAIL" starttime="20230924 19:57:02.332" endtime="20230924 19:57:02.336"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${homeSearchBar}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230920 22:01:46.192" endtime="20230920 22:01:46.232"/>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{data_order}</value>
+<iter>
+<var name="${row}"/>
+<kw name="Set Variable" library="BuiltIn">
+<var>${symbol}</var>
+<arg>${row}[0]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20230924 19:57:02.337" endtime="20230924 19:57:02.337"/>
 </kw>
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>${homeSearchBar}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20230920 22:01:46.258" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form/div/div/span[1]' is displayed.</msg>
-<status status="PASS" starttime="20230920 22:01:46.232" endtime="20230920 22:01:46.258"/>
+<kw name="Log" library="BuiltIn">
+<arg>${symbol}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20230924 19:57:02.337" endtime="20230924 19:57:02.337"/>
 </kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${profileIcon}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230920 22:01:46.258" endtime="20230920 22:01:46.828"/>
-</kw>
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>${profileIcon}</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20230920 22:01:46.875" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[2]/div[3]/div' is displayed.</msg>
-<status status="PASS" starttime="20230920 22:01:46.828" endtime="20230920 22:01:46.875"/>
-</kw>
-<status status="PASS" starttime="20230920 22:01:41.265" endtime="20230920 22:01:46.875"/>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<var>${is visible}</var>
-<arg>//*[@id="modalnewavatar-button-skip"]</arg>
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<kw name="//*[@id=&quot;modalnewavatar-button-skip&quot;]">
-<msg timestamp="20230920 22:01:46.895" level="FAIL">No keyword with name '//*[@id="modalnewavatar-button-skip"]' found.</msg>
-<status status="FAIL" starttime="20230920 22:01:46.895" endtime="20230920 22:01:46.895"/>
-</kw>
-<msg timestamp="20230920 22:01:46.896" level="INFO">${is visible} = False</msg>
-<status status="PASS" starttime="20230920 22:01:46.875" endtime="20230920 22:01:46.896"/>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<arg>${is visible}</arg>
-<arg>Click Button</arg>
-<arg>//*[@id="modalnewavatar-button-skip"]</arg>
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<status status="PASS" starttime="20230920 22:01:46.900" endtime="20230920 22:01:46.901"/>
-</kw>
-<status status="PASS" starttime="20230920 22:00:14.630" endtime="20230920 22:01:46.902"/>
+<status status="NOT RUN" starttime="20230924 19:57:02.337" endtime="20230924 19:57:02.337"/>
+</iter>
+<status status="NOT RUN" starttime="20230924 19:57:02.336" endtime="20230924 19:57:02.337"/>
+</for>
+<status status="FAIL" starttime="20230924 19:57:02.332" endtime="20230924 19:57:02.337">No browser is open.</status>
 </test>
-<test id="s1-t2" name="Scenario 2: Screening Watchlist Page" line="25">
-<kw name="User click menu Watchlist" library="home_page">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${watchlistMenu}</arg>
-<arg>20</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230920 22:01:46.926" endtime="20230920 22:01:47.032"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>${watchlistMenu}</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230920 22:01:47.032" level="INFO">Clicking element '//*[@id="stockbit-header-web"]/div[1]/div[2]/div[1]/div[3]/a/a[2]'.</msg>
-<msg timestamp="20230920 22:01:49.327" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20230920 22:01:49.327" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;a color="inherit" pl="5px" weight="normal" height="normal" align="left" padding="0" family="regular" class="sc-crXcEl grgmhb"&gt;...&lt;/a&gt; is not clickable at point (260, 81). Other element would receive the click: &lt;div tabindex="-1" class="ant-modal-wrap ant-modal-centered"&gt;...&lt;/div&gt;
-  (Session info: chrome=117.0.5938.89)
-Stacktrace:
-	GetHandleVerifier [0x00007FF7B76078A2+54818]
-	(No symbol) [0x00007FF7B7576AD2]
-	(No symbol) [0x00007FF7B742DA3B]
-	(No symbol) [0x00007FF7B74747CB]
-	(No symbol) [0x00007FF7B7472B99]
-	(No symbol) [0x00007FF7B7470968]
-	(No symbol) [0x00007FF7B746FA23]
-	(No symbol) [0x00007FF7B746571F]
-	(No symbol) [0x00007FF7B748EAAA]
-	(No symbol) [0x00007FF7B7465036]
-	(No symbol) [0x00007FF7B748ECC0]
-	(No symbol) [0x00007FF7B74A75A2]
-	(No symbol) [0x00007FF7B748E883]
-	(No symbol) [0x00007FF7B7463691]
-	(No symbol) [0x00007FF7B74648D4]
-	GetHandleVerifier [0x00007FF7B796B9A2+3610402]
-	GetHandleVerifier [0x00007FF7B79C1870+3962352]
-	GetHandleVerifier [0x00007FF7B79B9D5F+3930847]
-	GetHandleVerifier [0x00007FF7B76A3656+693206]
-	(No symbol) [0x00007FF7B7581638]
-	(No symbol) [0x00007FF7B757D944]
-	(No symbol) [0x00007FF7B757DA72]
-	(No symbol) [0x00007FF7B756E123]
-	BaseThreadInitThunk [0x00007FFF8E8B7614+20]
-	RtlUserThreadStart [0x00007FFF8F5026B1+33]
-</msg>
-<status status="FAIL" starttime="20230920 22:01:47.032" endtime="20230920 22:01:49.343"/>
-</kw>
-<status status="FAIL" starttime="20230920 22:01:46.925" endtime="20230920 22:01:49.343"/>
-</kw>
-<kw name="User should be directed to Watchlist page" library="home_page">
-<status status="NOT RUN" starttime="20230920 22:01:49.343" endtime="20230920 22:01:49.343"/>
-</kw>
-<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
-<arg>//*[@id="main-container"]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/table/thead/tr/th[2]</arg>
-<doc>Waits until the element ``locator`` is enabled.</doc>
-<status status="NOT RUN" starttime="20230920 22:01:49.343" endtime="20230920 22:01:49.343"/>
-</kw>
-<kw name="Double Click Element" library="SeleniumLibrary">
-<arg>//*[@id="main-container"]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/table/thead/tr/th[2]</arg>
-<doc>Double clicks the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20230920 22:01:49.343" endtime="20230920 22:01:49.343"/>
-</kw>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>xpath://*[@id="main-container"]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/table/tbody</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="NOT RUN" starttime="20230920 22:01:49.343" endtime="20230920 22:01:49.343"/>
-</kw>
-<kw name="Get Element Count" library="SeleniumLibrary">
-<var>${count_baris_tabel}</var>
-<arg>xpath://*[@id="main-container"]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/table/tbody/tr</arg>
-<doc>Returns the number of elements matching ``locator``.</doc>
-<status status="NOT RUN" starttime="20230920 22:01:49.343" endtime="20230920 22:01:49.343"/>
-</kw>
-<kw name="Log To Console" library="BuiltIn">
-<arg>${count_baris_tabel}</arg>
-<doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" starttime="20230920 22:01:49.343" endtime="20230920 22:01:49.343"/>
-</kw>
-<status status="FAIL" starttime="20230920 22:01:46.923" endtime="20230920 22:01:49.343">ElementClickInterceptedException: Message: element click intercepted: Element &lt;a color="inherit" pl="5px" weight="normal" height="normal" align="left" padding="0" family="regular" class="sc-crXcEl grgmhb"&gt;...&lt;/a&gt; is not clickable at point (260, 81). Other element would receive the click: &lt;div tabindex="-1" class="ant-modal-wrap ant-modal-centered"&gt;...&lt;/div&gt;
-  (Session info: chrome=117.0.5938.89)
-Stacktrace:
-	GetHandleVerifier [0x00007FF7B76078A2+54818]
-	(No symbol) [0x00007FF7B7576AD2]
-	(No symbol) [0x00007FF7B742DA3B]
-	(No symbol) [0x00007FF7B74747CB]
-	(No symbol) [0x00007FF7B7472B99]
-	(No symbol) [0x00007FF7B7470968]
-	(No symbol) [0x00007FF7B746FA23]
-	(No symbol) [0x00007FF7B746571F]
-	(No symbol) [0x00007FF7B748EAAA]
-	(No symbol) [0x00007FF7B7465036]
-	(No symbol) [0x00007FF7B748ECC0]
-	(No symbol) [0x00007FF7B74A75A2]
-	(No symbol) [0x00007FF7B748E883]
-	(No symbol) [0x00007FF7B7463691]
-	(No symbol) [0x00007FF7B74648D4]
-	GetHandleVerifier [0x00007FF7B796B9A2+3610402]
-	GetHandleVerifier [0x00007FF7B79C1870+3962352]
-	GetHandleVerifier [0x00007FF7B79B9D5F+3930847]
-	GetHandleVerifier [0x00007FF7B76A3656+693206]
-	(No symbol) [0x00007FF7B7581638]
-	(No symbol) [0x00007FF7B757D944]
-	(No symbol) [0x00007FF7B757DA72]
-	(No symbol) [0x00007FF7B756E123]
-	BaseThreadInitThunk [0x00007FFF8E8B7614+20]
-	RtlUserThreadStart [0x00007FFF8F5026B1+33]
-</status>
-</test>
-<doc>Stockbit Login Tests</doc>
-<status status="FAIL" starttime="20230920 22:00:14.008" endtime="20230920 22:01:49.367"/>
+<status status="FAIL" starttime="20230924 19:57:02.230" endtime="20230924 19:57:02.338"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="1" skip="0">All Tests</stat>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="1" skip="0" id="s1" name="Screening test">Screening test</stat>
+<stat pass="0" fail="1" skip="0" id="s1" name="Tes2">Tes2</stat>
 </suite>
 </statistics>
 <errors>

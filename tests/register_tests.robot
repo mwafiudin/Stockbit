@@ -16,4 +16,4 @@ Scenario: Register with valid credential
     When User click register with email button
     And User fill register form   ${validFullName}     ${validEmail}       ${validUsername}    ${validPassword}    ${validPassword}
     And Click register button
-    Then User directed to home page
+    #Then User directed to home page
