@@ -14,8 +14,10 @@ Resource            ../pages/trading_area_page.robot
 
 
 *** Variables ***
-${validUsername}    m.izzul.h.w@gmail.com
-${validPassword}    mwafiudin165    
+# ${validUsername}    m.izzul.h.w@gmail.com
+# ${validPassword}    mwafiudin165    
+${validUsername}    farrezalhakim@gmail.com
+${validPassword}    tonytonychopper123    
 ${data_watchlist}
 ${result_filtered}    ${EMPTY}
 
@@ -69,11 +71,48 @@ Scenario 2: Screening Watchlist Page
         Run Keyword If    ${result_filtered_len} != 0
         ...    Append To List    ${data_order}    ${result_filtered}
         
-        #Filter Data 2 (Fraksi)     
+
+        ${data_watchlist_length}    Get Length    ${data_watchlist}
+        ${data_watchlist_length}    Get Length    ${data_watchlist}[0]
+        Log    ${data_watchlist_length}
+        Log    ${data_watchlist}
+        Log    ${element}
+        Log    ${element-2}
+        Log    ${data_watchlist}[${element-2}]
+        Log    ${data_watchlist}[${element-2}][3]
+        Log    ${data_watchlist}[0]
+        Log    ${data_watchlist}[0][3]
+
+        # Filter Data 2 (Fraksi)     
+        ${parse_filtered_price} =    Convert To Integer    ${data_watchlist[${element-2}][3]}
+        ${result_prioritised}    Create List
+        Run Keyword If    ${parse_filtered_price} >= 100 and ${parse_filtered_price} <= 135    Append To List    ${data_watchlist}    1
+            ...    ELSE IF    ${parse_filtered_price} >= 200and ${parse_filtered_price} <= 270    Append ToList    ${data_watchlist}    2
+            ...    ELSE IF    ${parse_filtered_price} >= 500and ${parse_filtered_price} <= 675    Append ToList    ${data_watchlist}    3
+            ...    ELSE IF    ${parse_filtered_price} >= 136and ${parse_filtered_price} <= 169    Append ToList    ${data_watchlist}    4
+            ...    ELSE IF    ${parse_filtered_price} >= 300and ${parse_filtered_price} <= 338    Append ToList    ${data_watchlist}    5
+            ...    ELSE IF    ${parse_filtered_price} >= 750and ${parse_filtered_price} <= 845    Append ToList    ${data_watchlist}    6
+            ...    ELSE IF    ${parse_filtered_price} >= 170and ${parse_filtered_price} <= 199    Append ToList    ${data_watchlist}    7
+            ...    ELSE IF    ${parse_filtered_price} >= 340and ${parse_filtered_price} <= 498    Append ToList    ${data_watchlist}    8
+            ...    ELSE IF    ${parse_filtered_price} >= 850and ${parse_filtered_price} <= 1620    Append ToList    ${data_watchlist}    9
+            ...    ELSE    Append To List    ${data_watchlist}    10
+            
+        Log    ${data_watchlist}
+        
+        # ${result_filtered_len}    Get Length    ${result_prioritised}
+        # Run Keyword If    ${result_filtered_len} != 0
+        # ...    Append To List    ${data_order}    ${result_prioritised}
     END
     
-    Log List    ${data_watchlist}
-    Log List    ${data_order}
+    Log    ${data_watchlist}[1][3]
+    Log    ${data_watchlist}
+    # Log    ${data_order}
+    # Log    ${result_filtered}
+    # Log    ${result_filtered}
+    # Log List    ${data_watchlist}[1][3]
+    # Log List    ${data_order}
+    # Log To Console    ${data_order}
+    # Log To Console    ${data_watchlist}
 
 
 

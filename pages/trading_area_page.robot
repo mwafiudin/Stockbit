@@ -6,14 +6,15 @@ Resource                            ../pages/home_page.robot
 *** Variables ***
 ${tradingAreaButton}    //*[@id="stockbit-header-web"]/div[2]/div[1]/div
 ${virtualTradingButton}    //button[@data-cy='virtual-trading-button-auth']
-${placeOrderForm}        //*[@id="main-container"]/div[4]/div[2]/div[1]/div[2]/div[1]
+${placeOrderForm}        xpath=//p[text()='Trading Balance']
 #${url_stock_page}       https://stockbit.com/symbol/${symbol}
 #${symbol}               AALI
 ${user_pin_field}       /html/body/div[6]/div/div[2]/div/div[2]/div/div/div[1]
 #${user_pin}             101010
-${addPriceTick}        //*[@id="main-container"]/div[4]/div[2]/div[1]/div[2]/div[1]/div[4]/div/div/div[1]/span[1]    
+${addPriceTick}        //*[@id="main-container"]/div[4]/div[2]/div[1]/div[2]/div[1]/div[4]/div/div/div[1]/span[1]   
+                        
 ${orderLotField}        //*[@id="main-container"]/div[4]/div[2]/div[1]/div[2]/div[1]/div[5]/div/div/div[2]/input
-#${orderLotInput}        10
+# ${orderLotInput}        10
 ${placeOrderButton}    //*[@id="main-container"]/div[4]/div[2]/div[1]/div[2]/div[2]/button
 ${placeOrderTable}    //*[@id="main-container"]/div[2]/div[3]/div/div/div
 
@@ -36,11 +37,9 @@ Input PIN and Submit
     input text                      ${user_pin_field}    ${user_pin}
 
 Place Stock Order (Buy)
-    [Arguments]                       ${numberOfTicks}    ${orderLotInput}
+    [Arguments]    ${orderLotInput}
+    # Scroll Element Into View    //*[@id="main-container"]/div[4]/div[2]/div[3]/div[1]
     Wait Until Element Is Visible     ${placeOrderForm}
-    #FOR    ${i}    IN RANGE    ${numberOfTicks}   #Tambah 3 tick
-    #    Click Element    ${addPriceTick}
-    #END
     Input Text    ${orderLotField}    ${orderLotInput}
     Click Button    ${placeOrderButton}
 

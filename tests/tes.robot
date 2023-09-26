@@ -20,6 +20,6 @@ Scenario 1: Valid login credential
 Scenario 3 : Auto Buy
     User Activates Trading Area (Virtual)
     Stock Page Opened    AALI
-    Place Stock Order (Buy)    3    10
-    User directed to Trade Order Page
+    Place Stock Order (Buy)    10
+    User directed 
     #Repeat order bila rejected
