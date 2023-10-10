@@ -11,8 +11,9 @@ Resource            ../steps/login_steps.robot
 
 *** Variables ***
 @{data_order}
-...    [
-...    'Kawasan Industri Jababeka Tbk.', 'Buy', '169', '13', '8.33']
+...    ['CUAN', 'Petrindo Jaya Kreasi Tbk.', 'Buy', '3020', '270', '9.82']
+...    ['ADHI', 'Adhi Karya (Persero) Tbk.', 'Buy', '505', '39', '8.37']
+...    ['KIJA', 'Kawasan Industri Jababeka Tbk.', 'Buy', '169', '13', '8.33']
 
 *** Keywords ***   
 
@@ -20,7 +21,7 @@ Resource            ../steps/login_steps.robot
 *** Test Cases ***
 Scenario 1: Valid login credential
     Login page opened (shortcut)
-    User input username and password    m.izzul.h.w@gmail.com    mwafiudin165
+    User input username and password    hidayatullohharis@gmail.com    harisganteng
     Click login button
     User directed to home page 
 
@@ -45,4 +46,4 @@ Scenario 3 : Auto Buy
         Log    ${Status}
     END
     
-    Log List    ${symbol}
+    Log List    ${symbol}
