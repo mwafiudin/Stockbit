@@ -80,7 +80,7 @@ function classNames(...classes: string[]) {
 }
 
 export default function Home() {
-  const [selected, setSelected] = useState(publishingOptions[0]);
+  
 
   return (
     <>
