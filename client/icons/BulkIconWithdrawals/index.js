@@ -1,0 +1,1 @@
+export { BulkIconWithdrawals } from "./BulkIconWithdrawals";
