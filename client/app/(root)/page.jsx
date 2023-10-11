@@ -123,25 +123,101 @@ export default function Home() {
         </div>
       </div>
 
-        {/* Box recent activity header */}
-        <div className="flex justify-between m-5 p-5">
-            <span>Recent Activity</span>
-            <img src="" alt="Filter icon" />
-        </div>
+      {/* Box recent activity header */}
+      <div className="flex justify-between m-5 p-5">
+        <span>Recent Activity</span>
+        <img src="" alt="Filter icon" />
+      </div>
 
-        {/* Box recent activity */}
-        <div className="flex flex-col">
-          <ul>
-            <li>
-              <a href="">
-              <img src="" alt="BuySell Icon" />
-              <div>
-              <span>SEMA</span>
+      {/* Box recent activity */}
+      <div className="flex flex-col">
+        <ul>
+          <li className="m-5">
+            <img src="" alt="BuySell Icon" className="" />
+            <a href="" >
+              <div className="flex justify-between">
+                <span>SEMA</span>
+                <span>2021-08-02 04:39:26</span>
               </div>
-              </a>
-            </li>
-          </ul>
-        </div>
+              <div className="flex justify-between">
+                <span>Lot/Amount</span>
+                <span>32/15.000.000</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Price</span>
+                <span>2652.00</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Status</span>
+                <span>Match</span>
+              </div>
+            </a>
+          </li>
+          <li className="m-5">
+            <img src="" alt="BuySell Icon" className="" />
+            <a href="" >
+              <div className="flex justify-between">
+                <span>SEMA</span>
+                <span>2021-08-02 04:39:26</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Lot/Amount</span>
+                <span>32/15.000.000</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Price</span>
+                <span>2652.00</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Status</span>
+                <span>Match</span>
+              </div>
+            </a>
+          </li>
+          <li className="m-5">
+            <img src="" alt="BuySell Icon" className="" />
+            <a href="" >
+              <div className="flex justify-between">
+                <span>SEMA</span>
+                <span>2021-08-02 04:39:26</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Lot/Amount</span>
+                <span>32/15.000.000</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Price</span>
+                <span>2652.00</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Status</span>
+                <span>Match</span>
+              </div>
+            </a>
+          </li>
+          <li className="m-5">
+            <img src="" alt="BuySell Icon" className="" />
+            <a href="" >
+              <div className="flex justify-between">
+                <span>SEMA</span>
+                <span>2021-08-02 04:39:26</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Lot/Amount</span>
+                <span>32/15.000.000</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Price</span>
+                <span>2652.00</span>
+              </div>
+              <div className="flex justify-between">
+                <span>Status</span>
+                <span>Match</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
     </main>
   );
 }
