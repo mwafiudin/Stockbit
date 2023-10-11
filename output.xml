@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 <robot generator="Robot 6.0.2 (Python 3.9.2 on win32)" generated="20231010 21:43:09.343" rpa="false" schemaversion="3">
 <suite id="s1" name="Tes2" source="C:\Users\haris\Documents\Python\Stockbit\tests\tes2.robot">
 <test id="s1-t1" name="Scenario 1: Valid login credential" line="22">
@@ -345,9 +346,27 @@
 <doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
 <<<<<<< HEAD
 <status status="NOT RUN" starttime="20231010 21:43:47.594" endtime="20231010 21:43:47.594"/>
+=======
+<robot generator="Robot 6.0.2 (Python 3.9.2 on win32)" generated="20231011 21:54:32.771" rpa="false" schemaversion="3">
+<suite id="s1" name="Tes2" source="C:\Users\haris\Documents\Python\Stockbit\tests\tes2.robot">
+<test id="s1-t1" name="For Testing" line="29">
+<kw name="Show List Buy" library="autobuy">
+<var>${result}</var>
+<arg>${data_order}</arg>
+<arg>${total_balance}</arg>
+<arg>${max_percent_used_balance}</arg>
+<msg timestamp="20231011 21:54:33.321" level="INFO">${result} = 1353</msg>
+<status status="PASS" starttime="20231011 21:54:33.321" endtime="20231011 21:54:33.321"/>
 </kw>
-<status status="FAIL" starttime="20231010 21:43:37.293" endtime="20231010 21:43:47.595">Element '//div[@class="sc-54e4f53e-4 dRszHO"]' not visible after 5 seconds.</status>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${result}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231011 21:54:33.321" endtime="20231011 21:54:33.321"/>
+>>>>>>> haris_branch
+</kw>
+<status status="PASS" starttime="20231011 21:54:33.321" endtime="20231011 21:54:33.321"/>
 </test>
+<<<<<<< HEAD
 <status status="FAIL" starttime="20231010 21:43:09.347" endtime="20231010 21:43:47.598"/>
 =======
 <status status="NOT RUN" starttime="20231011 22:00:26.129" endtime="20231011 22:00:26.129"/>
@@ -356,15 +375,18 @@
 </test>
 <status status="FAIL" starttime="20231011 22:00:26.021" endtime="20231011 22:00:26.130"/>
 >>>>>>> e6a75a45c583502be56d2edd98817d1055b3a2bd
+=======
+<status status="PASS" starttime="20231011 21:54:32.787" endtime="20231011 21:54:33.334"/>
+>>>>>>> haris_branch
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="1" skip="0" id="s1" name="Tes2">Tes2</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Tes2">Tes2</stat>
 </suite>
 </statistics>
 <errors>
