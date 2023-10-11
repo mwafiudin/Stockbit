@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.5 on darwin)" generated="20231005 21:05:46.916" rpa="false" schemaversion="4">
-<suite id="s1" name="Tes2" source="/Users/wafi/VSCode/Stockbit/tests/tes2.robot">
-<test id="s1-t1" name="Scenario 1: Valid login credential" line="22">
+<robot generator="Robot 6.1.1 (Python 3.11.5 on darwin)" generated="20231011 21:51:18.661" rpa="false" schemaversion="4">
+<suite id="s1" name="tes Auto Sell" source="/Users/wafi/VSCode/Stockbit/tests/tes_Auto_Sell.robot">
+<test id="s1-t1" name="Scenario 1: Valid login credential" line="23">
 <kw name="Login page opened (shortcut)" library="login_page">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url_login}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231005 21:05:47.021" level="INFO">Opening browser 'chrome' to base url 'https:/stockbit.com/login'.</msg>
-<status status="PASS" starttime="20231005 21:05:47.020" endtime="20231005 21:06:00.372"/>
+<msg timestamp="20231011 21:51:18.766" level="INFO">Opening browser 'chrome' to base url 'https:/stockbit.com/login'.</msg>
+<status status="PASS" starttime="20231011 21:51:18.765" endtime="20231011 21:51:24.207"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20231005 21:06:00.372" endtime="20231005 21:06:00.640"/>
+<status status="PASS" starttime="20231011 21:51:24.208" endtime="20231011 21:51:24.477"/>
 </kw>
 <kw name="User should be directed to login page" library="landing_page">
 <kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
 <arg>${loginPage}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20231005 21:06:00.640" endtime="20231005 21:06:00.652"/>
+<status status="PASS" starttime="20231011 21:51:24.478" endtime="20231011 21:51:24.502"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:00.640" endtime="20231005 21:06:00.652"/>
+<status status="PASS" starttime="20231011 21:51:24.478" endtime="20231011 21:51:24.502"/>
 </kw>
-<status status="PASS" starttime="20231005 21:05:47.020" endtime="20231005 21:06:00.652"/>
+<status status="PASS" starttime="20231011 21:51:18.765" endtime="20231011 21:51:24.502"/>
 </kw>
 <kw name="User input username and password" library="login_steps">
 <arg>m.izzul.h.w@gmail.com</arg>
@@ -33,87 +33,87 @@
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${usernameField}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:00.653" endtime="20231005 21:06:00.667"/>
+<status status="PASS" starttime="20231011 21:51:24.503" endtime="20231011 21:51:24.516"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${usernameField}</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:00.668" level="INFO">Typing text 'm.izzul.h.w@gmail.com' into text field '//*[@id="username"]'.</msg>
-<status status="PASS" starttime="20231005 21:06:00.667" endtime="20231005 21:06:01.039"/>
+<msg timestamp="20231011 21:51:24.516" level="INFO">Typing text 'm.izzul.h.w@gmail.com' into text field '//*[@id="username"]'.</msg>
+<status status="PASS" starttime="20231011 21:51:24.516" endtime="20231011 21:51:24.723"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:00.652" endtime="20231005 21:06:01.039"/>
+<status status="PASS" starttime="20231011 21:51:24.503" endtime="20231011 21:51:24.723"/>
 </kw>
 <kw name="Input password" library="login_page">
 <arg>${password}</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${passwordField}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:01.040" endtime="20231005 21:06:01.054"/>
+<status status="PASS" starttime="20231011 21:51:24.723" endtime="20231011 21:51:24.734"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${passwordField}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:01.055" level="INFO">Typing text 'mwafiudin165' into text field '//*[@id="password"]'.</msg>
-<status status="PASS" starttime="20231005 21:06:01.055" endtime="20231005 21:06:01.164"/>
+<msg timestamp="20231011 21:51:24.735" level="INFO">Typing text 'mwafiudin165' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20231011 21:51:24.735" endtime="20231011 21:51:24.779"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:01.039" endtime="20231005 21:06:01.164"/>
+<status status="PASS" starttime="20231011 21:51:24.723" endtime="20231011 21:51:24.779"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:00.652" endtime="20231005 21:06:01.164"/>
+<status status="PASS" starttime="20231011 21:51:24.502" endtime="20231011 21:51:24.779"/>
 </kw>
 <kw name="Click login button" library="login_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${loginButton}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:01.165" endtime="20231005 21:06:01.175"/>
+<status status="PASS" starttime="20231011 21:51:24.779" endtime="20231011 21:51:24.790"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loginButton}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:01.176" level="INFO">Clicking element '//*[@id="email-login-button"]'.</msg>
-<status status="PASS" starttime="20231005 21:06:01.176" endtime="20231005 21:06:01.231"/>
+<msg timestamp="20231011 21:51:24.790" level="INFO">Clicking element '//*[@id="email-login-button"]'.</msg>
+<status status="PASS" starttime="20231011 21:51:24.790" endtime="20231011 21:51:24.824"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:01.164" endtime="20231005 21:06:01.231"/>
+<status status="PASS" starttime="20231011 21:51:24.779" endtime="20231011 21:51:24.824"/>
 </kw>
 <kw name="User directed to home page" library="home_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:01.231" endtime="20231005 21:06:02.805"/>
+<status status="PASS" starttime="20231011 21:51:24.824" endtime="20231011 21:51:25.565"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231005 21:06:02.899" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/a' is displayed.</msg>
-<status status="PASS" starttime="20231005 21:06:02.806" endtime="20231005 21:06:02.899"/>
+<msg timestamp="20231011 21:51:25.596" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/a' is displayed.</msg>
+<status status="PASS" starttime="20231011 21:51:25.567" endtime="20231011 21:51:25.596"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeSearchBar}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:02.899" endtime="20231005 21:06:02.989"/>
+<status status="PASS" starttime="20231011 21:51:25.596" endtime="20231011 21:51:25.610"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${homeSearchBar}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231005 21:06:03.009" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form/div/div/span[1]' is displayed.</msg>
-<status status="PASS" starttime="20231005 21:06:02.989" endtime="20231005 21:06:03.009"/>
+<msg timestamp="20231011 21:51:25.648" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form/div/div/span[1]' is displayed.</msg>
+<status status="PASS" starttime="20231011 21:51:25.610" endtime="20231011 21:51:25.648"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${profileIcon}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:03.009" endtime="20231005 21:06:03.475"/>
+<status status="PASS" starttime="20231011 21:51:25.648" endtime="20231011 21:51:25.657"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${profileIcon}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231005 21:06:03.483" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[2]/div[3]/div' is displayed.</msg>
-<status status="PASS" starttime="20231005 21:06:03.475" endtime="20231005 21:06:03.484"/>
+<msg timestamp="20231011 21:51:25.666" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[2]/div[3]/div' is displayed.</msg>
+<status status="PASS" starttime="20231011 21:51:25.657" endtime="20231011 21:51:25.667"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:01.231" endtime="20231005 21:06:03.484"/>
+<status status="PASS" starttime="20231011 21:51:24.824" endtime="20231011 21:51:25.667"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" library="BuiltIn">
 <arg>Click Element</arg>
@@ -122,353 +122,1282 @@
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath=//*[@id="modalnewavatar-button-skip"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:03.484" level="INFO">Clicking element 'xpath=//*[@id="modalnewavatar-button-skip"]'.</msg>
-<status status="PASS" starttime="20231005 21:06:03.484" endtime="20231005 21:06:03.513"/>
+<msg timestamp="20231011 21:51:25.667" level="INFO">Clicking element 'xpath=//*[@id="modalnewavatar-button-skip"]'.</msg>
+<status status="PASS" starttime="20231011 21:51:25.667" endtime="20231011 21:51:25.691"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:03.484" endtime="20231005 21:06:03.513"/>
+<status status="PASS" starttime="20231011 21:51:25.667" endtime="20231011 21:51:25.691"/>
 </kw>
-<status status="PASS" starttime="20231005 21:05:47.020" endtime="20231005 21:06:03.513"/>
+<status status="PASS" starttime="20231011 21:51:18.765" endtime="20231011 21:51:25.691"/>
 </test>
-<test id="s1-t2" name="Scenario 2: Trading Area (Virtual) Page" line="30">
+<test id="s1-t2" name="Scenario 2: Trading Area (Virtual) Page" line="31">
 <kw name="User Activates Trading Area (Virtual)" library="trading_area_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${tradingAreaButton}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:03.514" endtime="20231005 21:06:03.525"/>
+<status status="PASS" starttime="20231011 21:51:25.692" endtime="20231011 21:51:25.782"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${tradingAreaButton}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:03.526" level="INFO">Clicking element '//*[@id="stockbit-header-web"]/div[2]/div[1]/div'.</msg>
-<status status="PASS" starttime="20231005 21:06:03.526" endtime="20231005 21:06:03.951"/>
+<msg timestamp="20231011 21:51:25.783" level="INFO">Clicking element '//*[@id="stockbit-header-web"]/div[2]/div[1]/div'.</msg>
+<status status="PASS" starttime="20231011 21:51:25.782" endtime="20231011 21:51:26.168"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>3</arg>
+<arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231005 21:06:06.955" level="INFO">Slept 3 seconds</msg>
-<status status="PASS" starttime="20231005 21:06:03.951" endtime="20231005 21:06:06.957"/>
+<msg timestamp="20231011 21:51:28.169" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231011 21:51:26.168" endtime="20231011 21:51:28.169"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${virtualTradingButton}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:06.961" level="INFO">Clicking button '//button[@data-cy="virtual-trading-button-auth"]'.</msg>
-<status status="PASS" starttime="20231005 21:06:06.959" endtime="20231005 21:06:07.026"/>
+<msg timestamp="20231011 21:51:28.170" level="INFO">Clicking button '//button[@data-cy="virtual-trading-button-auth"]'.</msg>
+<status status="PASS" starttime="20231011 21:51:28.170" endtime="20231011 21:51:28.230"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>4</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231005 21:06:11.028" level="INFO">Slept 4 seconds</msg>
-<status status="PASS" starttime="20231005 21:06:07.026" endtime="20231005 21:06:11.028"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${virtualTradingAreaTitle}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:28.230" endtime="20231011 21:51:35.168"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:11.029" endtime="20231005 21:06:11.045"/>
+<status status="PASS" starttime="20231011 21:51:35.168" endtime="20231011 21:51:35.178"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:03.514" endtime="20231005 21:06:11.045"/>
+<status status="PASS" starttime="20231011 21:51:25.691" endtime="20231011 21:51:35.178"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:03.514" endtime="20231005 21:06:11.045"/>
+<status status="PASS" starttime="20231011 21:51:25.691" endtime="20231011 21:51:35.178"/>
 </test>
-<test id="s1-t3" name="Scenario 3 : Auto Buy" line="33">
-<kw name="Create List" library="BuiltIn">
-<var>@{symbol}</var>
-<doc>Returns a list containing given items.</doc>
-<msg timestamp="20231005 21:06:11.046" level="INFO">@{symbol} = [ ]</msg>
-<status status="PASS" starttime="20231005 21:06:11.046" endtime="20231005 21:06:11.046"/>
+<test id="s1-t3" name="Scenario 3 : Auto Sell" line="34">
+<kw name="Portofolio Page Opened" library="portofolio_page">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url_portofolio_page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231011 21:51:35.179" level="INFO">Opening url 'https://stockbit.com/trade/portfolio'</msg>
+<status status="PASS" starttime="20231011 21:51:35.179" endtime="20231011 21:51:35.848"/>
 </kw>
-<kw name="Get Length" library="BuiltIn">
-<var>${data_order_len}</var>
-<arg>${data_order}</arg>
-<doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20231005 21:06:11.046" level="INFO">Length is 3</msg>
-<msg timestamp="20231005 21:06:11.046" level="INFO">${data_order_len} = 3</msg>
-<status status="PASS" starttime="20231005 21:06:11.046" endtime="20231005 21:06:11.046"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[1]/td[1]/div/p</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:35.849" endtime="20231011 21:51:36.069"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231011 21:51:39.070" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231011 21:51:36.069" endtime="20231011 21:51:39.071"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:35.179" endtime="20231011 21:51:39.071"/>
+</kw>
+<kw name="Get Portofolio Table Column Count" library="portofolio_page">
+<var>${lastCol}</var>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${table_portofolio_page}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:39.072" endtime="20231011 21:51:39.090"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${countColPortofolio}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[1]/td</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231011 21:51:39.098" level="INFO">${countColPortofolio} = 10</msg>
+<status status="PASS" starttime="20231011 21:51:39.091" endtime="20231011 21:51:39.098"/>
+</kw>
+<return>
+<value>${countColPortofolio}z</value>
+<status status="PASS" starttime="20231011 21:51:39.098" endtime="20231011 21:51:39.098"/>
+</return>
+<msg timestamp="20231011 21:51:39.099" level="INFO">${lastCol} = 10z</msg>
+<status status="PASS" starttime="20231011 21:51:39.071" endtime="20231011 21:51:39.099"/>
+</kw>
+<kw name="Get Portofolio Table row Count" library="portofolio_page">
+<var>${lastRow}</var>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${table_portofolio_page}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:39.099" endtime="20231011 21:51:39.109"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${countRowPortofolio}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20231011 21:51:39.116" level="INFO">${countRowPortofolio} = 7</msg>
+<status status="PASS" starttime="20231011 21:51:39.109" endtime="20231011 21:51:39.116"/>
+</kw>
+<return>
+<value>${countRowPortofolio}</value>
+<status status="PASS" starttime="20231011 21:51:39.116" endtime="20231011 21:51:39.116"/>
+</return>
+<msg timestamp="20231011 21:51:39.116" level="INFO">${lastRow} = 7</msg>
+<status status="PASS" starttime="20231011 21:51:39.099" endtime="20231011 21:51:39.116"/>
 </kw>
 <for flavor="IN RANGE">
-<var>${index}</var>
-<value>0</value>
-<value>${data_order_len}</value>
+<var>${element}</var>
+<value>1</value>
+<value>${lastRow}</value>
 <iter>
-<var name="${index}">0</var>
+<var name="${element}">1</var>
 <kw name="Log" library="BuiltIn">
-<arg>${data_order[${index}][2:6]}</arg>
+<arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231005 21:06:11.050" level="INFO">CUAN</msg>
-<status status="PASS" starttime="20231005 21:06:11.049" endtime="20231005 21:06:11.050"/>
+<msg timestamp="20231011 21:51:39.119" level="INFO">1</msg>
+<status status="PASS" starttime="20231011 21:51:39.119" endtime="20231011 21:51:39.119"/>
 </kw>
-<kw name="Append To List" library="Collections">
-<arg>${symbol}</arg>
-<arg>${data_order[${index}][2:6]}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20231005 21:06:11.050" endtime="20231005 21:06:11.050"/>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${element} != ${1}</arg>
+<arg>Portofolio Page Opened</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" starttime="20231011 21:51:39.119" endtime="20231011 21:51:39.120"/>
 </kw>
-<kw name="Stock Page Opened" library="trading_area_page">
-<arg>${data_order[${index}][2:6]}</arg>
-<kw name="Go To" library="SeleniumLibrary">
-<arg>https://stockbit.com/symbol/${symbol}</arg>
-<doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231005 21:06:11.051" level="INFO">Opening url 'https://stockbit.com/symbol/CUAN'</msg>
-<status status="PASS" starttime="20231005 21:06:11.051" endtime="20231005 21:06:12.028"/>
+<kw name="Get Portofolio Symbol" library="portofolio_page">
+<var>${inputSymbol}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${symbol}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[1]/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:39.134" level="INFO">${symbol} = AALI</msg>
+<status status="PASS" starttime="20231011 21:51:39.120" endtime="20231011 21:51:39.134"/>
+</kw>
+<return>
+<value>${symbol}</value>
+<status status="PASS" starttime="20231011 21:51:39.134" endtime="20231011 21:51:39.134"/>
+</return>
+<msg timestamp="20231011 21:51:39.134" level="INFO">${inputSymbol} = AALI</msg>
+<status status="PASS" starttime="20231011 21:51:39.120" endtime="20231011 21:51:39.135"/>
+</kw>
+<kw name="Get Portofolio Avalilable Lot" library="portofolio_page">
+<var>${inputLot}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${availableLot}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[3]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:39.148" level="INFO">${availableLot} = 10</msg>
+<status status="PASS" starttime="20231011 21:51:39.135" endtime="20231011 21:51:39.148"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${availableLot}</var>
+<arg>${availableLot}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20231011 21:51:39.148" level="INFO">${availableLot} = 10</msg>
+<status status="PASS" starttime="20231011 21:51:39.148" endtime="20231011 21:51:39.148"/>
+</kw>
+<return>
+<value>${availableLot}</value>
+<status status="PASS" starttime="20231011 21:51:39.148" endtime="20231011 21:51:39.148"/>
+</return>
+<msg timestamp="20231011 21:51:39.148" level="INFO">${inputLot} = 10</msg>
+<status status="PASS" starttime="20231011 21:51:39.135" endtime="20231011 21:51:39.148"/>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<arg>${inputLot} == ${0}</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20231011 21:51:39.148" endtime="20231011 21:51:39.148"/>
+</kw>
+<kw name="Get Portofolio Current Price" library="portofolio_page">
+<var>${currentPrice}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${currentPrice}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[5]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:39.159" level="INFO">${currentPrice} = 7,350</msg>
+<status status="PASS" starttime="20231011 21:51:39.149" endtime="20231011 21:51:39.159"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<arg>,</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20231011 21:51:39.159" level="INFO">${currentPrice} = 7350</msg>
+<status status="PASS" starttime="20231011 21:51:39.159" endtime="20231011 21:51:39.159"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20231011 21:51:39.159" level="INFO">${currentPrice} = 7350.0</msg>
+<status status="PASS" starttime="20231011 21:51:39.159" endtime="20231011 21:51:39.159"/>
+</kw>
+<return>
+<value>${currentPrice}</value>
+<status status="PASS" starttime="20231011 21:51:39.159" endtime="20231011 21:51:39.159"/>
+</return>
+<msg timestamp="20231011 21:51:39.159" level="INFO">${currentPrice} = 7350.0</msg>
+<status status="PASS" starttime="20231011 21:51:39.149" endtime="20231011 21:51:39.159"/>
+</kw>
+<kw name="Click Pop Up Sell Button" library="portofolio_page">
+<arg>${element}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[10]/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:39.160" level="INFO">Clicking element '//div[@class="ant-table-content"]/table/tbody/tr[1]/td[10]/div/button'.</msg>
+<status status="PASS" starttime="20231011 21:51:39.159" endtime="20231011 21:51:39.192"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:39.159" endtime="20231011 21:51:39.192"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${homeStockbitLogo}</arg>
-<arg>20</arg>
+<arg>${sellModal}</arg>
+<arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:12.029" endtime="20231005 21:06:12.160"/>
+<status status="PASS" starttime="20231011 21:51:39.192" endtime="20231011 21:51:40.090"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:11.050" endtime="20231005 21:06:12.160"/>
+<kw name="Double Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:40.091" level="INFO">Double clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:51:40.091" endtime="20231011 21:51:40.395"/>
 </kw>
-<kw name="Place Stock Order (Buy)" library="trading_area_page">
-<arg>3</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${placeOrderForm}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:12.160" endtime="20231005 21:06:12.210"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:40.396" level="INFO">Clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:51:40.395" endtime="20231011 21:51:40.427"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
-<arg>${orderLotField}</arg>
-<arg>${orderLotInput}</arg>
+<arg>${sellLotInputModal}</arg>
+<arg>${inputLot}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:12.210" level="INFO">Typing text '3' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
-<status status="PASS" starttime="20231005 21:06:12.210" endtime="20231005 21:06:12.409"/>
+<msg timestamp="20231011 21:51:40.427" level="INFO">Typing text '10' into text field '//div[@class="sc-gKXOVf jtzWDU"][3]/div/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20231011 21:51:40.427" endtime="20231011 21:51:40.477"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
-<arg>${placeOrderButton}</arg>
+<arg>${sellButtonModal}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:12.409" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
-<status status="PASS" starttime="20231005 21:06:12.409" endtime="20231005 21:06:12.457"/>
+<msg timestamp="20231011 21:51:40.477" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-secondary ant-btn-block sc-ivTmOn egUydP"]'.</msg>
+<status status="PASS" starttime="20231011 21:51:40.477" endtime="20231011 21:51:40.513"/>
 </kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231005 21:06:14.458" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231005 21:06:12.457" endtime="20231005 21:06:14.458"/>
-</kw>
-<status status="PASS" starttime="20231005 21:06:12.160" endtime="20231005 21:06:14.458"/>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<msg timestamp="20231011 21:51:40.797" level="INFO">Suppressing StaleElementReferenceException from Selenium.</msg>
+<status status="PASS" starttime="20231011 21:51:40.513" endtime="20231011 21:51:41.015"/>
 </kw>
 <kw name="User directed to Trade Order Page" library="trading_area_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:14.459" endtime="20231005 21:06:14.477"/>
+<status status="PASS" starttime="20231011 21:51:41.015" endtime="20231011 21:51:41.028"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231005 21:06:14.486" level="INFO">Element '//*[@id="main-container"]/div[2]/div[3]/div/div/div' is displayed.</msg>
-<status status="PASS" starttime="20231005 21:06:14.477" endtime="20231005 21:06:14.486"/>
+<msg timestamp="20231011 21:51:41.037" level="INFO">Element '//table[@style="table-layout: auto;"]' is displayed.</msg>
+<status status="PASS" starttime="20231011 21:51:41.028" endtime="20231011 21:51:41.037"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:14.458" endtime="20231005 21:06:14.486"/>
+<status status="PASS" starttime="20231011 21:51:41.015" endtime="20231011 21:51:41.037"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${statusOrderBuy}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:41.037" endtime="20231011 21:51:41.048"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${Status}</var>
 <arg>${statusOrderBuy}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:14.501" level="INFO">${Status} = REJECTED</msg>
-<status status="PASS" starttime="20231005 21:06:14.486" endtime="20231005 21:06:14.502"/>
+<msg timestamp="20231011 21:51:41.058" level="INFO">${Status} = REJECTED</msg>
+<status status="PASS" starttime="20231011 21:51:41.048" endtime="20231011 21:51:41.058"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${Status}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231005 21:06:14.502" level="INFO">REJECTED</msg>
-<status status="PASS" starttime="20231005 21:06:14.502" endtime="20231005 21:06:14.502"/>
+<msg timestamp="20231011 21:51:41.058" level="INFO">REJECTED</msg>
+<status status="PASS" starttime="20231011 21:51:41.058" endtime="20231011 21:51:41.058"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:11.049" endtime="20231005 21:06:14.502"/>
+<status status="PASS" starttime="20231011 21:51:39.119" endtime="20231011 21:51:41.058"/>
 </iter>
 <iter>
-<var name="${index}">1</var>
+<var name="${element}">2</var>
 <kw name="Log" library="BuiltIn">
-<arg>${data_order[${index}][2:6]}</arg>
+<arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231005 21:06:14.502" level="INFO">ADHI</msg>
-<status status="PASS" starttime="20231005 21:06:14.502" endtime="20231005 21:06:14.502"/>
+<msg timestamp="20231011 21:51:41.058" level="INFO">2</msg>
+<status status="PASS" starttime="20231011 21:51:41.058" endtime="20231011 21:51:41.058"/>
 </kw>
-<kw name="Append To List" library="Collections">
-<arg>${symbol}</arg>
-<arg>${data_order[${index}][2:6]}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20231005 21:06:14.502" endtime="20231005 21:06:14.503"/>
-</kw>
-<kw name="Stock Page Opened" library="trading_area_page">
-<arg>${data_order[${index}][2:6]}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${element} != ${1}</arg>
+<arg>Portofolio Page Opened</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Portofolio Page Opened" library="portofolio_page">
 <kw name="Go To" library="SeleniumLibrary">
-<arg>https://stockbit.com/symbol/${symbol}</arg>
+<arg>${url_portofolio_page}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231005 21:06:14.503" level="INFO">Opening url 'https://stockbit.com/symbol/ADHI'</msg>
-<status status="PASS" starttime="20231005 21:06:14.503" endtime="20231005 21:06:15.067"/>
+<msg timestamp="20231011 21:51:41.059" level="INFO">Opening url 'https://stockbit.com/trade/portfolio'</msg>
+<status status="PASS" starttime="20231011 21:51:41.058" endtime="20231011 21:51:41.539"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${homeStockbitLogo}</arg>
-<arg>20</arg>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[1]/td[1]/div/p</arg>
+<arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:15.067" endtime="20231005 21:06:15.075"/>
-</kw>
-<status status="PASS" starttime="20231005 21:06:14.503" endtime="20231005 21:06:15.075"/>
-</kw>
-<kw name="Place Stock Order (Buy)" library="trading_area_page">
-<arg>3</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${placeOrderForm}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:15.075" endtime="20231005 21:06:15.512"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${orderLotField}</arg>
-<arg>${orderLotInput}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:15.512" level="INFO">Typing text '3' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
-<status status="PASS" starttime="20231005 21:06:15.512" endtime="20231005 21:06:15.724"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${placeOrderButton}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:15.725" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
-<status status="PASS" starttime="20231005 21:06:15.725" endtime="20231005 21:06:15.790"/>
+<status status="PASS" starttime="20231011 21:51:41.539" endtime="20231011 21:51:41.762"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>2</arg>
+<arg>3</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231005 21:06:17.791" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231005 21:06:15.791" endtime="20231005 21:06:17.791"/>
+<msg timestamp="20231011 21:51:44.763" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231011 21:51:41.762" endtime="20231011 21:51:44.764"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:15.075" endtime="20231005 21:06:17.791"/>
+<status status="PASS" starttime="20231011 21:51:41.058" endtime="20231011 21:51:44.764"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:41.058" endtime="20231011 21:51:44.765"/>
+</kw>
+<kw name="Get Portofolio Symbol" library="portofolio_page">
+<var>${inputSymbol}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${symbol}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[1]/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:44.782" level="INFO">${symbol} = KIJA</msg>
+<status status="PASS" starttime="20231011 21:51:44.766" endtime="20231011 21:51:44.782"/>
+</kw>
+<return>
+<value>${symbol}</value>
+<status status="PASS" starttime="20231011 21:51:44.782" endtime="20231011 21:51:44.782"/>
+</return>
+<msg timestamp="20231011 21:51:44.782" level="INFO">${inputSymbol} = KIJA</msg>
+<status status="PASS" starttime="20231011 21:51:44.765" endtime="20231011 21:51:44.782"/>
+</kw>
+<kw name="Get Portofolio Avalilable Lot" library="portofolio_page">
+<var>${inputLot}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${availableLot}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[3]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:44.794" level="INFO">${availableLot} = 3</msg>
+<status status="PASS" starttime="20231011 21:51:44.782" endtime="20231011 21:51:44.794"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${availableLot}</var>
+<arg>${availableLot}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20231011 21:51:44.794" level="INFO">${availableLot} = 3</msg>
+<status status="PASS" starttime="20231011 21:51:44.794" endtime="20231011 21:51:44.794"/>
+</kw>
+<return>
+<value>${availableLot}</value>
+<status status="PASS" starttime="20231011 21:51:44.794" endtime="20231011 21:51:44.794"/>
+</return>
+<msg timestamp="20231011 21:51:44.794" level="INFO">${inputLot} = 3</msg>
+<status status="PASS" starttime="20231011 21:51:44.782" endtime="20231011 21:51:44.794"/>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<arg>${inputLot} == ${0}</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20231011 21:51:44.794" endtime="20231011 21:51:44.795"/>
+</kw>
+<kw name="Get Portofolio Current Price" library="portofolio_page">
+<var>${currentPrice}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${currentPrice}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[5]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:44.805" level="INFO">${currentPrice} = 150</msg>
+<status status="PASS" starttime="20231011 21:51:44.795" endtime="20231011 21:51:44.805"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<arg>,</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20231011 21:51:44.805" level="INFO">${currentPrice} = 150</msg>
+<status status="PASS" starttime="20231011 21:51:44.805" endtime="20231011 21:51:44.805"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20231011 21:51:44.805" level="INFO">${currentPrice} = 150.0</msg>
+<status status="PASS" starttime="20231011 21:51:44.805" endtime="20231011 21:51:44.805"/>
+</kw>
+<return>
+<value>${currentPrice}</value>
+<status status="PASS" starttime="20231011 21:51:44.805" endtime="20231011 21:51:44.805"/>
+</return>
+<msg timestamp="20231011 21:51:44.806" level="INFO">${currentPrice} = 150.0</msg>
+<status status="PASS" starttime="20231011 21:51:44.795" endtime="20231011 21:51:44.806"/>
+</kw>
+<kw name="Click Pop Up Sell Button" library="portofolio_page">
+<arg>${element}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[10]/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:44.806" level="INFO">Clicking element '//div[@class="ant-table-content"]/table/tbody/tr[2]/td[10]/div/button'.</msg>
+<status status="PASS" starttime="20231011 21:51:44.806" endtime="20231011 21:51:44.838"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:44.806" endtime="20231011 21:51:44.838"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:44.838" endtime="20231011 21:51:45.921"/>
+</kw>
+<kw name="Double Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:45.922" level="INFO">Double clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:51:45.921" endtime="20231011 21:51:46.222"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:46.223" level="INFO">Clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:51:46.222" endtime="20231011 21:51:46.260"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${sellLotInputModal}</arg>
+<arg>${inputLot}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:46.260" level="INFO">Typing text '3' into text field '//div[@class="sc-gKXOVf jtzWDU"][3]/div/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20231011 21:51:46.260" endtime="20231011 21:51:46.300"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${sellButtonModal}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:46.300" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-secondary ant-btn-block sc-ivTmOn egUydP"]'.</msg>
+<status status="PASS" starttime="20231011 21:51:46.300" endtime="20231011 21:51:46.327"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" starttime="20231011 21:51:46.327" endtime="20231011 21:51:46.821"/>
 </kw>
 <kw name="User directed to Trade Order Page" library="trading_area_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:17.792" endtime="20231005 21:06:17.804"/>
+<status status="PASS" starttime="20231011 21:51:46.821" endtime="20231011 21:51:46.831"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231005 21:06:17.813" level="INFO">Element '//*[@id="main-container"]/div[2]/div[3]/div/div/div' is displayed.</msg>
-<status status="PASS" starttime="20231005 21:06:17.804" endtime="20231005 21:06:17.814"/>
+<msg timestamp="20231011 21:51:46.838" level="INFO">Element '//table[@style="table-layout: auto;"]' is displayed.</msg>
+<status status="PASS" starttime="20231011 21:51:46.831" endtime="20231011 21:51:46.839"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:17.792" endtime="20231005 21:06:17.814"/>
+<status status="PASS" starttime="20231011 21:51:46.821" endtime="20231011 21:51:46.839"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${statusOrderBuy}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:46.839" endtime="20231011 21:51:47.058"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${Status}</var>
 <arg>${statusOrderBuy}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:17.823" level="INFO">${Status} = REJECTED</msg>
-<status status="PASS" starttime="20231005 21:06:17.814" endtime="20231005 21:06:17.823"/>
+<msg timestamp="20231011 21:51:47.067" level="INFO">${Status} = REJECTED</msg>
+<status status="PASS" starttime="20231011 21:51:47.058" endtime="20231011 21:51:47.067"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${Status}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231005 21:06:17.823" level="INFO">REJECTED</msg>
-<status status="PASS" starttime="20231005 21:06:17.823" endtime="20231005 21:06:17.823"/>
+<msg timestamp="20231011 21:51:47.068" level="INFO">REJECTED</msg>
+<status status="PASS" starttime="20231011 21:51:47.068" endtime="20231011 21:51:47.068"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:14.502" endtime="20231005 21:06:17.823"/>
+<status status="PASS" starttime="20231011 21:51:41.058" endtime="20231011 21:51:47.068"/>
 </iter>
 <iter>
-<var name="${index}">2</var>
+<var name="${element}">3</var>
 <kw name="Log" library="BuiltIn">
-<arg>${data_order[${index}][2:6]}</arg>
+<arg>${element}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231005 21:06:17.824" level="INFO">KIJA</msg>
-<status status="PASS" starttime="20231005 21:06:17.823" endtime="20231005 21:06:17.824"/>
+<msg timestamp="20231011 21:51:47.068" level="INFO">3</msg>
+<status status="PASS" starttime="20231011 21:51:47.068" endtime="20231011 21:51:47.068"/>
 </kw>
-<kw name="Append To List" library="Collections">
-<arg>${symbol}</arg>
-<arg>${data_order[${index}][2:6]}</arg>
-<doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20231005 21:06:17.824" endtime="20231005 21:06:17.824"/>
-</kw>
-<kw name="Stock Page Opened" library="trading_area_page">
-<arg>${data_order[${index}][2:6]}</arg>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${element} != ${1}</arg>
+<arg>Portofolio Page Opened</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Portofolio Page Opened" library="portofolio_page">
 <kw name="Go To" library="SeleniumLibrary">
-<arg>https://stockbit.com/symbol/${symbol}</arg>
+<arg>${url_portofolio_page}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231005 21:06:17.825" level="INFO">Opening url 'https://stockbit.com/symbol/KIJA'</msg>
-<status status="PASS" starttime="20231005 21:06:17.824" endtime="20231005 21:06:21.366"/>
+<msg timestamp="20231011 21:51:47.069" level="INFO">Opening url 'https://stockbit.com/trade/portfolio'</msg>
+<status status="PASS" starttime="20231011 21:51:47.068" endtime="20231011 21:51:47.767"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${homeStockbitLogo}</arg>
-<arg>20</arg>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[1]/td[1]/div/p</arg>
+<arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:21.366" endtime="20231005 21:06:21.424"/>
-</kw>
-<status status="PASS" starttime="20231005 21:06:17.824" endtime="20231005 21:06:21.424"/>
-</kw>
-<kw name="Place Stock Order (Buy)" library="trading_area_page">
-<arg>3</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${placeOrderForm}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:21.424" endtime="20231005 21:06:21.438"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${orderLotField}</arg>
-<arg>${orderLotInput}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:21.439" level="INFO">Typing text '3' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
-<status status="PASS" starttime="20231005 21:06:21.438" endtime="20231005 21:06:21.649"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${placeOrderButton}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:21.649" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
-<status status="PASS" starttime="20231005 21:06:21.649" endtime="20231005 21:06:21.690"/>
+<status status="PASS" starttime="20231011 21:51:47.767" endtime="20231011 21:51:47.794"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>2</arg>
+<arg>3</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231005 21:06:23.691" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231005 21:06:21.690" endtime="20231005 21:06:23.692"/>
+<msg timestamp="20231011 21:51:50.796" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231011 21:51:47.794" endtime="20231011 21:51:50.797"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:21.424" endtime="20231005 21:06:23.692"/>
+<status status="PASS" starttime="20231011 21:51:47.068" endtime="20231011 21:51:50.797"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:47.068" endtime="20231011 21:51:50.797"/>
+</kw>
+<kw name="Get Portofolio Symbol" library="portofolio_page">
+<var>${inputSymbol}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${symbol}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[1]/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:50.815" level="INFO">${symbol} = ANTM</msg>
+<status status="PASS" starttime="20231011 21:51:50.799" endtime="20231011 21:51:50.815"/>
+</kw>
+<return>
+<value>${symbol}</value>
+<status status="PASS" starttime="20231011 21:51:50.815" endtime="20231011 21:51:50.815"/>
+</return>
+<msg timestamp="20231011 21:51:50.815" level="INFO">${inputSymbol} = ANTM</msg>
+<status status="PASS" starttime="20231011 21:51:50.798" endtime="20231011 21:51:50.815"/>
+</kw>
+<kw name="Get Portofolio Avalilable Lot" library="portofolio_page">
+<var>${inputLot}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${availableLot}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[3]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:50.827" level="INFO">${availableLot} = 10</msg>
+<status status="PASS" starttime="20231011 21:51:50.816" endtime="20231011 21:51:50.827"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${availableLot}</var>
+<arg>${availableLot}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20231011 21:51:50.827" level="INFO">${availableLot} = 10</msg>
+<status status="PASS" starttime="20231011 21:51:50.827" endtime="20231011 21:51:50.827"/>
+</kw>
+<return>
+<value>${availableLot}</value>
+<status status="PASS" starttime="20231011 21:51:50.827" endtime="20231011 21:51:50.827"/>
+</return>
+<msg timestamp="20231011 21:51:50.827" level="INFO">${inputLot} = 10</msg>
+<status status="PASS" starttime="20231011 21:51:50.815" endtime="20231011 21:51:50.827"/>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<arg>${inputLot} == ${0}</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20231011 21:51:50.827" endtime="20231011 21:51:50.828"/>
+</kw>
+<kw name="Get Portofolio Current Price" library="portofolio_page">
+<var>${currentPrice}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${currentPrice}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[5]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:50.839" level="INFO">${currentPrice} = 1,815</msg>
+<status status="PASS" starttime="20231011 21:51:50.828" endtime="20231011 21:51:50.839"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<arg>,</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20231011 21:51:50.840" level="INFO">${currentPrice} = 1815</msg>
+<status status="PASS" starttime="20231011 21:51:50.839" endtime="20231011 21:51:50.840"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20231011 21:51:50.840" level="INFO">${currentPrice} = 1815.0</msg>
+<status status="PASS" starttime="20231011 21:51:50.840" endtime="20231011 21:51:50.840"/>
+</kw>
+<return>
+<value>${currentPrice}</value>
+<status status="PASS" starttime="20231011 21:51:50.840" endtime="20231011 21:51:50.840"/>
+</return>
+<msg timestamp="20231011 21:51:50.840" level="INFO">${currentPrice} = 1815.0</msg>
+<status status="PASS" starttime="20231011 21:51:50.828" endtime="20231011 21:51:50.840"/>
+</kw>
+<kw name="Click Pop Up Sell Button" library="portofolio_page">
+<arg>${element}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[10]/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:50.840" level="INFO">Clicking element '//div[@class="ant-table-content"]/table/tbody/tr[3]/td[10]/div/button'.</msg>
+<status status="PASS" starttime="20231011 21:51:50.840" endtime="20231011 21:51:50.876"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:50.840" endtime="20231011 21:51:50.876"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:50.876" endtime="20231011 21:51:51.932"/>
+</kw>
+<kw name="Double Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:51.932" level="INFO">Double clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:51:51.932" endtime="20231011 21:51:52.204"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:52.204" level="INFO">Clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:51:52.204" endtime="20231011 21:51:52.233"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${sellLotInputModal}</arg>
+<arg>${inputLot}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:52.234" level="INFO">Typing text '10' into text field '//div[@class="sc-gKXOVf jtzWDU"][3]/div/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20231011 21:51:52.233" endtime="20231011 21:51:52.279"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${sellButtonModal}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:52.279" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-secondary ant-btn-block sc-ivTmOn egUydP"]'.</msg>
+<status status="PASS" starttime="20231011 21:51:52.279" endtime="20231011 21:51:52.306"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" starttime="20231011 21:51:52.306" endtime="20231011 21:51:52.764"/>
 </kw>
 <kw name="User directed to Trade Order Page" library="trading_area_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231005 21:06:23.692" endtime="20231005 21:06:23.711"/>
+<status status="PASS" starttime="20231011 21:51:52.764" endtime="20231011 21:51:52.774"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231005 21:06:23.723" level="INFO">Element '//*[@id="main-container"]/div[2]/div[3]/div/div/div' is displayed.</msg>
-<status status="PASS" starttime="20231005 21:06:23.711" endtime="20231005 21:06:23.723"/>
+<msg timestamp="20231011 21:51:52.782" level="INFO">Element '//table[@style="table-layout: auto;"]' is displayed.</msg>
+<status status="PASS" starttime="20231011 21:51:52.774" endtime="20231011 21:51:52.782"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:23.692" endtime="20231005 21:06:23.723"/>
+<status status="PASS" starttime="20231011 21:51:52.764" endtime="20231011 21:51:52.782"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${statusOrderBuy}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:52.782" endtime="20231011 21:51:53.000"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${Status}</var>
 <arg>${statusOrderBuy}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20231005 21:06:23.734" level="INFO">${Status} = REJECTED</msg>
-<status status="PASS" starttime="20231005 21:06:23.723" endtime="20231005 21:06:23.735"/>
+<msg timestamp="20231011 21:51:53.010" level="INFO">${Status} = REJECTED</msg>
+<status status="PASS" starttime="20231011 21:51:53.000" endtime="20231011 21:51:53.010"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${Status}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231005 21:06:23.735" level="INFO">REJECTED</msg>
-<status status="PASS" starttime="20231005 21:06:23.735" endtime="20231005 21:06:23.735"/>
+<msg timestamp="20231011 21:51:53.010" level="INFO">REJECTED</msg>
+<status status="PASS" starttime="20231011 21:51:53.010" endtime="20231011 21:51:53.010"/>
 </kw>
-<status status="PASS" starttime="20231005 21:06:17.823" endtime="20231005 21:06:23.735"/>
+<status status="PASS" starttime="20231011 21:51:47.068" endtime="20231011 21:51:53.010"/>
 </iter>
-<status status="PASS" starttime="20231005 21:06:11.046" endtime="20231005 21:06:23.735"/>
+<iter>
+<var name="${element}">4</var>
+<kw name="Log" library="BuiltIn">
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 21:51:53.011" level="INFO">4</msg>
+<status status="PASS" starttime="20231011 21:51:53.010" endtime="20231011 21:51:53.011"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${element} != ${1}</arg>
+<arg>Portofolio Page Opened</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Portofolio Page Opened" library="portofolio_page">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url_portofolio_page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231011 21:51:53.011" level="INFO">Opening url 'https://stockbit.com/trade/portfolio'</msg>
+<status status="PASS" starttime="20231011 21:51:53.011" endtime="20231011 21:51:53.701"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[1]/td[1]/div/p</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:53.701" endtime="20231011 21:51:53.927"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231011 21:51:56.929" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231011 21:51:53.927" endtime="20231011 21:51:56.929"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:53.011" endtime="20231011 21:51:56.930"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:53.011" endtime="20231011 21:51:56.930"/>
+</kw>
+<kw name="Get Portofolio Symbol" library="portofolio_page">
+<var>${inputSymbol}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${symbol}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[1]/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:56.950" level="INFO">${symbol} = NIKL</msg>
+<status status="PASS" starttime="20231011 21:51:56.932" endtime="20231011 21:51:56.950"/>
+</kw>
+<return>
+<value>${symbol}</value>
+<status status="PASS" starttime="20231011 21:51:56.950" endtime="20231011 21:51:56.950"/>
+</return>
+<msg timestamp="20231011 21:51:56.950" level="INFO">${inputSymbol} = NIKL</msg>
+<status status="PASS" starttime="20231011 21:51:56.931" endtime="20231011 21:51:56.950"/>
+</kw>
+<kw name="Get Portofolio Avalilable Lot" library="portofolio_page">
+<var>${inputLot}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${availableLot}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[3]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:56.961" level="INFO">${availableLot} = 41</msg>
+<status status="PASS" starttime="20231011 21:51:56.950" endtime="20231011 21:51:56.961"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${availableLot}</var>
+<arg>${availableLot}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20231011 21:51:56.962" level="INFO">${availableLot} = 41</msg>
+<status status="PASS" starttime="20231011 21:51:56.961" endtime="20231011 21:51:56.962"/>
+</kw>
+<return>
+<value>${availableLot}</value>
+<status status="PASS" starttime="20231011 21:51:56.962" endtime="20231011 21:51:56.962"/>
+</return>
+<msg timestamp="20231011 21:51:56.962" level="INFO">${inputLot} = 41</msg>
+<status status="PASS" starttime="20231011 21:51:56.950" endtime="20231011 21:51:56.962"/>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<arg>${inputLot} == ${0}</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20231011 21:51:56.962" endtime="20231011 21:51:56.962"/>
+</kw>
+<kw name="Get Portofolio Current Price" library="portofolio_page">
+<var>${currentPrice}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${currentPrice}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[5]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:56.973" level="INFO">${currentPrice} = 364</msg>
+<status status="PASS" starttime="20231011 21:51:56.962" endtime="20231011 21:51:56.973"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<arg>,</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20231011 21:51:56.973" level="INFO">${currentPrice} = 364</msg>
+<status status="PASS" starttime="20231011 21:51:56.973" endtime="20231011 21:51:56.973"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20231011 21:51:56.973" level="INFO">${currentPrice} = 364.0</msg>
+<status status="PASS" starttime="20231011 21:51:56.973" endtime="20231011 21:51:56.973"/>
+</kw>
+<return>
+<value>${currentPrice}</value>
+<status status="PASS" starttime="20231011 21:51:56.974" endtime="20231011 21:51:56.974"/>
+</return>
+<msg timestamp="20231011 21:51:56.974" level="INFO">${currentPrice} = 364.0</msg>
+<status status="PASS" starttime="20231011 21:51:56.962" endtime="20231011 21:51:56.974"/>
+</kw>
+<kw name="Click Pop Up Sell Button" library="portofolio_page">
+<arg>${element}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[10]/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:56.974" level="INFO">Clicking element '//div[@class="ant-table-content"]/table/tbody/tr[4]/td[10]/div/button'.</msg>
+<status status="PASS" starttime="20231011 21:51:56.974" endtime="20231011 21:51:57.009"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:56.974" endtime="20231011 21:51:57.009"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:57.009" endtime="20231011 21:51:57.862"/>
+</kw>
+<kw name="Double Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:57.862" level="INFO">Double clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:51:57.862" endtime="20231011 21:51:58.159"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:58.159" level="INFO">Clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:51:58.159" endtime="20231011 21:51:58.188"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${sellLotInputModal}</arg>
+<arg>${inputLot}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:58.188" level="INFO">Typing text '41' into text field '//div[@class="sc-gKXOVf jtzWDU"][3]/div/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20231011 21:51:58.188" endtime="20231011 21:51:58.232"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${sellButtonModal}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:58.232" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-secondary ant-btn-block sc-ivTmOn egUydP"]'.</msg>
+<status status="PASS" starttime="20231011 21:51:58.232" endtime="20231011 21:51:58.259"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" starttime="20231011 21:51:58.259" endtime="20231011 21:51:58.537"/>
+</kw>
+<kw name="User directed to Trade Order Page" library="trading_area_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${placeOrderTable}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:58.537" endtime="20231011 21:51:58.547"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${placeOrderTable}</arg>
+<arg>10</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231011 21:51:58.555" level="INFO">Element '//table[@style="table-layout: auto;"]' is displayed.</msg>
+<status status="PASS" starttime="20231011 21:51:58.547" endtime="20231011 21:51:58.555"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:58.537" endtime="20231011 21:51:58.555"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${statusOrderBuy}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:58.555" endtime="20231011 21:51:58.769"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Status}</var>
+<arg>${statusOrderBuy}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:51:58.778" level="INFO">${Status} = REJECTED</msg>
+<status status="PASS" starttime="20231011 21:51:58.769" endtime="20231011 21:51:58.778"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 21:51:58.778" level="INFO">REJECTED</msg>
+<status status="PASS" starttime="20231011 21:51:58.778" endtime="20231011 21:51:58.778"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:53.010" endtime="20231011 21:51:58.779"/>
+</iter>
+<iter>
+<var name="${element}">5</var>
+<kw name="Log" library="BuiltIn">
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 21:51:58.779" level="INFO">5</msg>
+<status status="PASS" starttime="20231011 21:51:58.779" endtime="20231011 21:51:58.779"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${element} != ${1}</arg>
+<arg>Portofolio Page Opened</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Portofolio Page Opened" library="portofolio_page">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url_portofolio_page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231011 21:51:58.779" level="INFO">Opening url 'https://stockbit.com/trade/portfolio'</msg>
+<status status="PASS" starttime="20231011 21:51:58.779" endtime="20231011 21:51:59.250"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[1]/td[1]/div/p</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:51:59.250" endtime="20231011 21:51:59.477"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231011 21:52:02.478" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231011 21:51:59.478" endtime="20231011 21:52:02.479"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:58.779" endtime="20231011 21:52:02.479"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:58.779" endtime="20231011 21:52:02.479"/>
+</kw>
+<kw name="Get Portofolio Symbol" library="portofolio_page">
+<var>${inputSymbol}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${symbol}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[1]/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:02.499" level="INFO">${symbol} = UNVR</msg>
+<status status="PASS" starttime="20231011 21:52:02.481" endtime="20231011 21:52:02.499"/>
+</kw>
+<return>
+<value>${symbol}</value>
+<status status="PASS" starttime="20231011 21:52:02.499" endtime="20231011 21:52:02.499"/>
+</return>
+<msg timestamp="20231011 21:52:02.499" level="INFO">${inputSymbol} = UNVR</msg>
+<status status="PASS" starttime="20231011 21:52:02.480" endtime="20231011 21:52:02.499"/>
+</kw>
+<kw name="Get Portofolio Avalilable Lot" library="portofolio_page">
+<var>${inputLot}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${availableLot}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[3]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:02.511" level="INFO">${availableLot} = 51</msg>
+<status status="PASS" starttime="20231011 21:52:02.499" endtime="20231011 21:52:02.511"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${availableLot}</var>
+<arg>${availableLot}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20231011 21:52:02.511" level="INFO">${availableLot} = 51</msg>
+<status status="PASS" starttime="20231011 21:52:02.511" endtime="20231011 21:52:02.511"/>
+</kw>
+<return>
+<value>${availableLot}</value>
+<status status="PASS" starttime="20231011 21:52:02.511" endtime="20231011 21:52:02.511"/>
+</return>
+<msg timestamp="20231011 21:52:02.511" level="INFO">${inputLot} = 51</msg>
+<status status="PASS" starttime="20231011 21:52:02.499" endtime="20231011 21:52:02.511"/>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<arg>${inputLot} == ${0}</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20231011 21:52:02.511" endtime="20231011 21:52:02.511"/>
+</kw>
+<kw name="Get Portofolio Current Price" library="portofolio_page">
+<var>${currentPrice}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${currentPrice}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[5]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:02.523" level="INFO">${currentPrice} = 3,610</msg>
+<status status="PASS" starttime="20231011 21:52:02.512" endtime="20231011 21:52:02.523"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<arg>,</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20231011 21:52:02.523" level="INFO">${currentPrice} = 3610</msg>
+<status status="PASS" starttime="20231011 21:52:02.523" endtime="20231011 21:52:02.523"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20231011 21:52:02.523" level="INFO">${currentPrice} = 3610.0</msg>
+<status status="PASS" starttime="20231011 21:52:02.523" endtime="20231011 21:52:02.523"/>
+</kw>
+<return>
+<value>${currentPrice}</value>
+<status status="PASS" starttime="20231011 21:52:02.523" endtime="20231011 21:52:02.523"/>
+</return>
+<msg timestamp="20231011 21:52:02.523" level="INFO">${currentPrice} = 3610.0</msg>
+<status status="PASS" starttime="20231011 21:52:02.512" endtime="20231011 21:52:02.523"/>
+</kw>
+<kw name="Click Pop Up Sell Button" library="portofolio_page">
+<arg>${element}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[10]/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:02.524" level="INFO">Clicking element '//div[@class="ant-table-content"]/table/tbody/tr[5]/td[10]/div/button'.</msg>
+<status status="PASS" starttime="20231011 21:52:02.523" endtime="20231011 21:52:02.556"/>
+</kw>
+<status status="PASS" starttime="20231011 21:52:02.523" endtime="20231011 21:52:02.556"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:52:02.556" endtime="20231011 21:52:03.401"/>
+</kw>
+<kw name="Double Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:03.402" level="INFO">Double clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:52:03.402" endtime="20231011 21:52:03.693"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:03.694" level="INFO">Clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:52:03.693" endtime="20231011 21:52:03.723"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${sellLotInputModal}</arg>
+<arg>${inputLot}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:03.724" level="INFO">Typing text '51' into text field '//div[@class="sc-gKXOVf jtzWDU"][3]/div/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20231011 21:52:03.723" endtime="20231011 21:52:03.768"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${sellButtonModal}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:03.768" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-secondary ant-btn-block sc-ivTmOn egUydP"]'.</msg>
+<status status="PASS" starttime="20231011 21:52:03.768" endtime="20231011 21:52:03.796"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" starttime="20231011 21:52:03.796" endtime="20231011 21:52:04.224"/>
+</kw>
+<kw name="User directed to Trade Order Page" library="trading_area_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${placeOrderTable}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:52:04.224" endtime="20231011 21:52:04.234"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${placeOrderTable}</arg>
+<arg>10</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231011 21:52:04.243" level="INFO">Element '//table[@style="table-layout: auto;"]' is displayed.</msg>
+<status status="PASS" starttime="20231011 21:52:04.234" endtime="20231011 21:52:04.243"/>
+</kw>
+<status status="PASS" starttime="20231011 21:52:04.224" endtime="20231011 21:52:04.243"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${statusOrderBuy}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:52:04.243" endtime="20231011 21:52:04.253"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Status}</var>
+<arg>${statusOrderBuy}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:04.263" level="INFO">${Status} = REJECTED</msg>
+<status status="PASS" starttime="20231011 21:52:04.253" endtime="20231011 21:52:04.263"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 21:52:04.263" level="INFO">REJECTED</msg>
+<status status="PASS" starttime="20231011 21:52:04.263" endtime="20231011 21:52:04.263"/>
+</kw>
+<status status="PASS" starttime="20231011 21:51:58.779" endtime="20231011 21:52:04.263"/>
+</iter>
+<iter>
+<var name="${element}">6</var>
+<kw name="Log" library="BuiltIn">
+<arg>${element}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 21:52:04.263" level="INFO">6</msg>
+<status status="PASS" starttime="20231011 21:52:04.263" endtime="20231011 21:52:04.263"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<arg>${element} != ${1}</arg>
+<arg>Portofolio Page Opened</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Portofolio Page Opened" library="portofolio_page">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>${url_portofolio_page}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231011 21:52:04.263" level="INFO">Opening url 'https://stockbit.com/trade/portfolio'</msg>
+<status status="PASS" starttime="20231011 21:52:04.263" endtime="20231011 21:52:04.756"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[1]/td[1]/div/p</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:52:04.756" endtime="20231011 21:52:04.974"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231011 21:52:07.975" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231011 21:52:04.974" endtime="20231011 21:52:07.976"/>
+</kw>
+<status status="PASS" starttime="20231011 21:52:04.263" endtime="20231011 21:52:07.976"/>
+</kw>
+<status status="PASS" starttime="20231011 21:52:04.263" endtime="20231011 21:52:07.976"/>
+</kw>
+<kw name="Get Portofolio Symbol" library="portofolio_page">
+<var>${inputSymbol}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${symbol}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[1]/div/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:07.996" level="INFO">${symbol} = HOKI</msg>
+<status status="PASS" starttime="20231011 21:52:07.979" endtime="20231011 21:52:07.996"/>
+</kw>
+<return>
+<value>${symbol}</value>
+<status status="PASS" starttime="20231011 21:52:07.996" endtime="20231011 21:52:07.996"/>
+</return>
+<msg timestamp="20231011 21:52:07.996" level="INFO">${inputSymbol} = HOKI</msg>
+<status status="PASS" starttime="20231011 21:52:07.977" endtime="20231011 21:52:07.996"/>
+</kw>
+<kw name="Get Portofolio Avalilable Lot" library="portofolio_page">
+<var>${inputLot}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${availableLot}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[3]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:08.008" level="INFO">${availableLot} = 350</msg>
+<status status="PASS" starttime="20231011 21:52:07.997" endtime="20231011 21:52:08.008"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${availableLot}</var>
+<arg>${availableLot}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20231011 21:52:08.008" level="INFO">${availableLot} = 350</msg>
+<status status="PASS" starttime="20231011 21:52:08.008" endtime="20231011 21:52:08.008"/>
+</kw>
+<return>
+<value>${availableLot}</value>
+<status status="PASS" starttime="20231011 21:52:08.008" endtime="20231011 21:52:08.008"/>
+</return>
+<msg timestamp="20231011 21:52:08.008" level="INFO">${inputLot} = 350</msg>
+<status status="PASS" starttime="20231011 21:52:07.997" endtime="20231011 21:52:08.008"/>
+</kw>
+<kw name="Continue For Loop If" library="BuiltIn">
+<arg>${inputLot} == ${0}</arg>
+<doc>Skips the current FOR loop iteration if the ``condition`` is true.</doc>
+<status status="PASS" starttime="20231011 21:52:08.009" endtime="20231011 21:52:08.010"/>
+</kw>
+<kw name="Get Portofolio Current Price" library="portofolio_page">
+<var>${currentPrice}</var>
+<arg>${element}</arg>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${currentPrice}</var>
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[5]/p</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:08.021" level="INFO">${currentPrice} = 136</msg>
+<status status="PASS" starttime="20231011 21:52:08.010" endtime="20231011 21:52:08.021"/>
+</kw>
+<kw name="Remove String" library="String">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<arg>,</arg>
+<doc>Removes all ``removables`` from the given ``string``.</doc>
+<msg timestamp="20231011 21:52:08.021" level="INFO">${currentPrice} = 136</msg>
+<status status="PASS" starttime="20231011 21:52:08.021" endtime="20231011 21:52:08.021"/>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<var>${currentPrice}</var>
+<arg>${currentPrice}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<msg timestamp="20231011 21:52:08.021" level="INFO">${currentPrice} = 136.0</msg>
+<status status="PASS" starttime="20231011 21:52:08.021" endtime="20231011 21:52:08.021"/>
+</kw>
+<return>
+<value>${currentPrice}</value>
+<status status="PASS" starttime="20231011 21:52:08.021" endtime="20231011 21:52:08.021"/>
+</return>
+<msg timestamp="20231011 21:52:08.021" level="INFO">${currentPrice} = 136.0</msg>
+<status status="PASS" starttime="20231011 21:52:08.010" endtime="20231011 21:52:08.021"/>
+</kw>
+<kw name="Click Pop Up Sell Button" library="portofolio_page">
+<arg>${element}</arg>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//div[@class="ant-table-content"]/table/tbody/tr[${row}]/td[10]/div/button</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:08.022" level="INFO">Clicking element '//div[@class="ant-table-content"]/table/tbody/tr[6]/td[10]/div/button'.</msg>
+<status status="PASS" starttime="20231011 21:52:08.021" endtime="20231011 21:52:08.055"/>
+</kw>
+<status status="PASS" starttime="20231011 21:52:08.021" endtime="20231011 21:52:08.055"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:52:08.055" endtime="20231011 21:52:08.978"/>
+</kw>
+<kw name="Double Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Double clicks the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:08.978" level="INFO">Double clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:52:08.978" endtime="20231011 21:52:09.278"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${sellAddPriceInputModal}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:09.278" level="INFO">Clicking element '//div[@class="sc-gKXOVf jtzWDU"][4]/div/div/div[1]/span[1]'.</msg>
+<status status="PASS" starttime="20231011 21:52:09.278" endtime="20231011 21:52:09.308"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${sellLotInputModal}</arg>
+<arg>${inputLot}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:09.308" level="INFO">Typing text '350' into text field '//div[@class="sc-gKXOVf jtzWDU"][3]/div/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20231011 21:52:09.308" endtime="20231011 21:52:09.352"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${sellButtonModal}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:09.352" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-secondary ant-btn-block sc-ivTmOn egUydP"]'.</msg>
+<status status="PASS" starttime="20231011 21:52:09.352" endtime="20231011 21:52:09.379"/>
+</kw>
+<kw name="Wait Until Element Is Not Visible" library="SeleniumLibrary">
+<arg>${sellModal}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is not visible.</doc>
+<status status="PASS" starttime="20231011 21:52:09.379" endtime="20231011 21:52:09.809"/>
+</kw>
+<kw name="User directed to Trade Order Page" library="trading_area_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${placeOrderTable}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:52:09.809" endtime="20231011 21:52:09.818"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${placeOrderTable}</arg>
+<arg>10</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231011 21:52:09.827" level="INFO">Element '//table[@style="table-layout: auto;"]' is displayed.</msg>
+<status status="PASS" starttime="20231011 21:52:09.818" endtime="20231011 21:52:09.827"/>
+</kw>
+<status status="PASS" starttime="20231011 21:52:09.809" endtime="20231011 21:52:09.827"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${statusOrderBuy}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231011 21:52:09.827" endtime="20231011 21:52:10.045"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Status}</var>
+<arg>${statusOrderBuy}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231011 21:52:10.054" level="INFO">${Status} = REJECTED</msg>
+<status status="PASS" starttime="20231011 21:52:10.045" endtime="20231011 21:52:10.054"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231011 21:52:10.054" level="INFO">REJECTED</msg>
+<status status="PASS" starttime="20231011 21:52:10.054" endtime="20231011 21:52:10.054"/>
+</kw>
+<status status="PASS" starttime="20231011 21:52:04.263" endtime="20231011 21:52:10.054"/>
+</iter>
+<status status="PASS" starttime="20231011 21:51:39.116" endtime="20231011 21:52:10.054"/>
 </for>
-<kw name="Log List" library="Collections">
-<arg>${symbol}</arg>
-<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
-<msg timestamp="20231005 21:06:23.736" level="INFO">List length is 3 and it contains following items:
-0: CUAN
-1: ADHI
-2: KIJA</msg>
-<status status="PASS" starttime="20231005 21:06:23.736" endtime="20231005 21:06:23.736"/>
-</kw>
-<status status="PASS" starttime="20231005 21:06:11.046" endtime="20231005 21:06:23.736"/>
+<status status="PASS" starttime="20231011 21:51:35.178" endtime="20231011 21:52:10.054"/>
 </test>
-<status status="PASS" starttime="20231005 21:05:46.917" endtime="20231005 21:06:23.737"/>
+<status status="PASS" starttime="20231011 21:51:18.662" endtime="20231011 21:52:10.055"/>
 </suite>
 <statistics>
 <total>
@@ -477,7 +1406,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Tes2">Tes2</stat>
+<stat pass="3" fail="0" skip="0" id="s1" name="tes Auto Sell">tes Auto Sell</stat>
 </suite>
 </statistics>
 <errors>
