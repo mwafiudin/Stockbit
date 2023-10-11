@@ -11,8 +11,9 @@ Resource            ../steps/login_steps.robot
 
 *** Variables ***
 @{data_order}
-...    [
-...    'Kawasan Industri Jababeka Tbk.', 'Buy', '169', '13', '8.33']
+...    ['CUAN', 'Petrindo Jaya Kreasi Tbk.', 'Buy', '3020', '270', '9.82']
+...    ['ADHI', 'Adhi Karya (Persero) Tbk.', 'Buy', '505', '39', '8.37']
+...    ['KIJA', 'Kawasan Industri Jababeka Tbk.', 'Buy', '169', '13', '8.33']
 
 *** Keywords ***   
 

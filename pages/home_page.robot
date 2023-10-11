@@ -7,6 +7,7 @@ ${homeSearchBar}        //*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form
 ${profileIcon}          //*[@id="stockbit-header-web"]/div[1]/div[1]/div[2]/div[3]/div
 ${watchlistMenu}        //*[@id="stockbit-header-web"]/div[1]/div[2]/div[1]/div[3]/a/a[2]
 ${watchlistPage}        //*[@id="main-container"]/div/div[2]/div[2]/div/div/div/div/div/div/div/div/table/tbody
+${virtualTradingAreaTitle}    //p[@class="sc-crXcEl fyWLtG"]
 
 *** Keywords ***
 User directed to home page
