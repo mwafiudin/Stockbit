@@ -17,15 +17,18 @@ ${orderLotField}        //div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input
 # ${orderLotInput}        10
 ${placeOrderButton}    //button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]
 ${placeOrderTable}    //*[@id="main-container"]/div[2]/div[3]/div/div/div
+${popUpTradingArea}    //div[@class="ant-modal-body"]
 ${statusOrderBuy}    //tbody[@class="ant-table-tbody"]/tr[1]/td[2]
+${virtualTradingAreaTitle}    //p[@class="sc-crXcEl fyWLtG"]
 
 *** Keywords ***
 User Activates Trading Area (Virtual)
     Wait Until Element Is Visible    ${tradingAreaButton}
     Click Element                    ${tradingAreaButton}
-    Sleep    3
+    #Sleep    2
     Click Button    ${virtualTradingButton}
-    Sleep    4
+    Wait Until Element Is Visible    ${virtualTradingAreaTitle}    10
+    #Sleep    10
     Wait Until Element Is Visible    ${homeStockbitLogo}
 
 Stock Page Opened
@@ -49,4 +52,4 @@ Place Stock Order (Buy)
 
 User directed to Trade Order Page
     Wait Until Element Is Visible    ${placeOrderTable}    10
-    Element Should Be Visible        ${placeOrderTable}    10
+    Element Should Be Visible        ${placeOrderTable}    10
