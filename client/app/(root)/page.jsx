@@ -3,12 +3,12 @@ export default function Home() {
     <main className="bg-cuanbot text-white">
       {/* Header Nav*/}
       <nav>
-        <ul className="flex justify-between m-5">
+        <ul className="flex justify-between m-5 p-5">
           <li>
             <a href="">Profile</a>
           </li>
-          <li>
-            <a href="">Settings</a>
+          <li className="ml-auto mr-2">
+            <a href="" >Settings</a>
           </li>
           <li>
             <a href="">Notification</a>
@@ -18,12 +18,12 @@ export default function Home() {
 
       {/* Greetings header */}
       <header>
-        <div className="m-5">
+        <div className="m-5 p-5">
           <a href="">Hello, mwafiudin!</a>
         </div>
 
         {/* Page Option */}
-        <div className="m-5">
+        <div className="m-5 p-5">
           <ul>
             <li>
               <a href="">Screening List</a>
@@ -39,7 +39,7 @@ export default function Home() {
       </header>
 
       {/* Nav bot overview */}
-      <div>
+      <div className="m-5 p-5">
         <nav>
           <ul className="flex justify-around">
             <li>
@@ -60,7 +60,7 @@ export default function Home() {
         {/* Box bot overview */}
         <div>
           <ul>
-            <li className="m-5">
+            <li className="m-5 p-5">
               <a href="">
                 <div className="flex">
                   <img src="" alt="saham" />
@@ -77,7 +77,7 @@ export default function Home() {
                 </div>
               </a>
             </li>
-            <li className="m-5">
+            <li className="m-5 p-5">
               <a href="">
                 <div className="flex">
                   <img src="" alt="saham" />
@@ -94,7 +94,7 @@ export default function Home() {
                 </div>
               </a>
             </li>
-            <li className="m-5">
+            <li className="m-5 p-5">
               <a href="">
                 <div className="flex">
                   <img src="" alt="saham" />
@@ -115,7 +115,7 @@ export default function Home() {
         </div>
 
         {/* box run automation */}
-        <div className="border-4 border-dotted flex justify-center border-red-600 m-8 rounded-3xl">
+        <div className="border-4 border-dotted flex justify-center border-red-600 mx-auto rounded-3xl w-6/12">
           <a href="" className="flex p-5 m-5">
             <img src="" alt="add icon" className="mx-5" />
             <span>Run Automation</span>
@@ -124,15 +124,15 @@ export default function Home() {
       </div>
 
       {/* Box recent activity header */}
-      <div className="flex justify-between m-5 p-5">
+      <div className="flex justify-between mx-5">
         <span>Recent Activity</span>
         <img src="" alt="Filter icon" />
       </div>
 
       {/* Box recent activity */}
-      <div className="flex flex-col">
+      <div className="flex flex-col mx-5">
         <ul>
-          <li className="m-5">
+          <li className="m-5 p-5">
             <img src="" alt="BuySell Icon" className="" />
             <a href="" >
               <div className="flex justify-between">
@@ -153,7 +153,7 @@ export default function Home() {
               </div>
             </a>
           </li>
-          <li className="m-5">
+          <li className="m-5 p-5">
             <img src="" alt="BuySell Icon" className="" />
             <a href="" >
               <div className="flex justify-between">
@@ -174,7 +174,7 @@ export default function Home() {
               </div>
             </a>
           </li>
-          <li className="m-5">
+          <li className="m-5 p-5">
             <img src="" alt="BuySell Icon" className="" />
             <a href="" >
               <div className="flex justify-between">
@@ -195,7 +195,7 @@ export default function Home() {
               </div>
             </a>
           </li>
-          <li className="m-5">
+          <li className="m-5 p-5">
             <img src="" alt="BuySell Icon" className="" />
             <a href="" >
               <div className="flex justify-between">
