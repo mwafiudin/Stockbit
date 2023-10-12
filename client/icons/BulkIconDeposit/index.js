@@ -1,1 +1,0 @@
-export { BulkIconDeposit } from "./BulkIconDeposit";

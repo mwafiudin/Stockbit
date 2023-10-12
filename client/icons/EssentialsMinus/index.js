@@ -1,1 +1,0 @@
-export { EssentialsMinus } from "./EssentialsMinus";

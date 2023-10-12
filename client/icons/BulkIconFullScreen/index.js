@@ -1,1 +1,0 @@
-export { BulkIconFullScreen } from "./BulkIconFullScreen";
