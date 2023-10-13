@@ -19,7 +19,7 @@ Resource            ../steps/login_steps.robot
 ...    ['ADHI', 'Adhi Karya (Persero) Tbk.', '505', '39', '8.37']
 ...    ['KIJA', 'Kawasan Industri Jababeka Tbk.', '169', '13', '8.33']
 
-${total_balance}    ${5000000}
+${total_balance}    ${5000}
 ${max_percent_used_balance}    ${100}
 
 *** Keywords ***
