@@ -18,6 +18,12 @@ import SecuritiesProductOptionPage from "./pages/SecuritiesProductOption/Securit
 import SecuritiesProductDetailPage from "./pages/SecuritiesProductDetail/SecuritiesProductDetailPage";
 //end import securities product//
 
+//import dashboard menu//
+import ScreeningListPage from "./pages/ScreeningList/ScreeningListPage";
+import OrderListPage from "./pages/OrderList/OrderListPage";
+import PortfolioPage from "./pages/Portfolio/PortfolioPage";
+//end import dashboard menu//
+
 function App() {
   return (
     <div className="App">
@@ -38,6 +44,12 @@ function App() {
         <Route path="/securities/product" element={<SecuritiesProductOptionPage />} />
         <Route path="/securities/detail" element={<SecuritiesProductDetailPage />} />
         {/* end route securities-------------------------------------------------------- */}
+
+        {/* route dashboard menu-------------------------------------------------------- */}
+        <Route path="/screening-list" element={<ScreeningListPage />} />
+        <Route path="/order-list" element={<OrderListPage />} />
+        <Route path="/portfolio" element={<PortfolioPage />} />
+        {/* end route dashboard menu-------------------------------------------------------- */}
       </Routes>
     </div>
   );
