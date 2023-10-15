@@ -57,9 +57,6 @@ const DashboardBotOverviewMenu = ({ activeTab }) => {
       break;
     default:
       propsContent = botOverviewItems;
-      console.log("bot: " + botOverviewItems.length);
-      console.log("final: " + propsContent);
-      console.log("length all: " + propsContent.length);
       break;
   }
   return (

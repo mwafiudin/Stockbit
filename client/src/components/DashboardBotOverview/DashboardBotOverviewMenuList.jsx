@@ -40,7 +40,6 @@ const DashboardBotOverviewMenuList = ({ propsContent, activeTab }) => {
   return (
     <>
       <ul>
-        {console.log("props: " + propsContent)}
         {propsContent.length !== 0 ? (
           propsContent.map((item, index) => (
             <BotOverviewMenuItem
