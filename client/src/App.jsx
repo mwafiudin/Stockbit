@@ -26,7 +26,7 @@ import PortfolioPage from "./pages/Portfolio/PortfolioPage";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App select-none">
       <Routes>
         {/* route main-------------------------------------------------------- */}
         <Route path="/" element={<HomePage />} />
