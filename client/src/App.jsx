@@ -22,6 +22,8 @@ import SecuritiesProductDetailPage from "./pages/SecuritiesProductDetail/Securit
 import ScreeningListPage from "./pages/ScreeningList/ScreeningListPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
 import PortfolioPage from "./pages/Portfolio/PortfolioPage";
+import AutomationPage from "./pages/Automation/AutomationPage";
+import ActivityPage from "./pages/Activity/ActivityPage";
 //end import dashboard menu//
 
 function App() {
@@ -30,7 +32,9 @@ function App() {
       <Routes>
         {/* route main-------------------------------------------------------- */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/about-us" element={<AutomationPage />} />
+        <Route path="/automation" element={<ActivityPage />} />
+        <Route path="/activity" element={<AboutUsPage />} />
         {/* end route main-------------------------------------------------------- */}
 
         {/* route user-------------------------------------------------------- */}
