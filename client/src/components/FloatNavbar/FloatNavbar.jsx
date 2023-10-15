@@ -67,27 +67,29 @@ const FloatNavbar = () => {
 
   return (
     <>
-      <nav className="flex px-[45px] gap-[62px] items-center bg-cuanbot-light rounded-xl w-max fixed bottom-8 backdrop-blur-2xl mx-6">
-        {floatNavItem.map((item, index) => (
-          <Link
-            to={item.to}
-            key={index}
-            onClick={() => handleTabClick(item.title)}
-            className={`cursor-pointer mt-[11px] mb-[15px] rounded ${
-              activeTab === item.title ? "rounded-xl text-cuanbot-text-gray" : "text-cuanbot-gray"
-            }`}
-          >
-            <div
-              className={`flex flex-col justify-center items-center p-[10px] mx-auto ${
-                activeTab === item.title ? "bg-cuanbot-green rounded-xl shadow-cuanbot-green text-cuanbot-dark" : ""
+      <div className="flex">
+        <nav className="flex px-[30px] gap-[30px] items-center bg-cuanbot-light rounded-xl w-max-content fixed left-1/2 -translate-x-1/2 bottom-8 backdrop-blur-2xl">
+          {floatNavItem.map((item, index) => (
+            <Link
+              to={item.to}
+              key={index}
+              onClick={() => handleTabClick(item.title)}
+              className={`cursor-pointer mt-[11px] mb-[15px] rounded ${
+                activeTab === item.title ? "rounded-xl text-cuanbot-text-gray" : "text-cuanbot-gray"
               }`}
             >
-              {item.icon}
-              {item.title}
-            </div>
-          </Link>
-        ))}
-      </nav>
+              <div
+                className={`flex flex-col justify-center items-center p-[10px] ${
+                  activeTab === item.title ? "bg-cuanbot-green rounded-xl shadow-cuanbot-green text-cuanbot-dark" : ""
+                }`}
+              >
+                {item.icon}
+                {item.title}
+              </div>
+            </Link>
+          ))}
+        </nav>
+      </div>
     </>
   );
 };
