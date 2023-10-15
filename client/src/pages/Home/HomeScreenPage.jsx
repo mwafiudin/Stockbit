@@ -4,12 +4,14 @@ import DashboardGreeting from "../../components/DashboardGreeting/DashboardGreet
 import DashboardMenu from "../../components/DashboardMenu/DashboardMenu";
 import DashboardBotOverview from "../../components/DashboardBotOverview/DashboardBotOverview";
 import DashboardRecentActivity from "../../components/DashboardRecentActivity/DashboardRecentActivity";
+import FloatNavbar from "../../components/FloatNavbar/FloatNavbar";
 
 const HomePage = () => {
   return (
     <>
       <div className="flex flex-col bg-cuanbot-light">
         {/* <h1 className="text-3xl font-bold underline bg-red-600">Home</h1> */}
+        <FloatNavbar />
         <TopNavbar />
         <DashboardGreeting />
         <DashboardMenu />

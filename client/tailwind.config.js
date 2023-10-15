@@ -6,6 +6,9 @@ module.exports = {
       boxShadow: {
         "cuanbot-glow-tab": "0 0 10px -15px #3b82f6",
       },
+      // filter: {
+      //   glow: "url(#filter0_d_681_488)",
+      // },
     },
     colors: {
       "cuanbot-header": "hsla(208, 22%, 12%, 1)",
