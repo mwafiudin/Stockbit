@@ -15,6 +15,7 @@ const HomePage = () => {
         <DashboardMenu />
         <DashboardBotOverview />
         <DashboardRecentActivity />
+        <span className="bg-cuanbot-dark py-16"></span>
         {/* <img src={require("../../../public/assets/icons/setting.svg")} alt="settings" /> */}
       </div>
     </>
