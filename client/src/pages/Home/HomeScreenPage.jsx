@@ -3,6 +3,7 @@ import TopNavbar from "../../components/TopNavbar/TopNavbar";
 import DashboardGreeting from "../../components/DashboardGreeting/DashboardGreeting";
 import DashboardMenu from "../../components/DashboardMenu/DashboardMenu";
 import DashboardBotOverview from "../../components/DashboardBotOverview/DashboardBotOverview";
+import DashboardRecentActivity from "../../components/DashboardRecentActivity/DashboardRecentActivity";
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
         <DashboardGreeting />
         <DashboardMenu />
         <DashboardBotOverview />
+        <DashboardRecentActivity />
         {/* <img src={require("../../../public/assets/icons/setting.svg")} alt="settings" /> */}
       </div>
     </>
