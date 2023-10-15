@@ -3,8 +3,8 @@ import { ReactComponent as StockIcon } from "../../icons/bitcoin.svg";
 import DashboardBotOverviewMenuList from "./DashboardBotOverviewMenuList";
 
 const DashboardBotOverviewMenu = ({ activeTab }) => {
+  // botStatus: "active||done||idle"
   const botOverviewItems = [
-    // botStatus: "active||done||idle"
     {
       to: "",
       stockIcon: <StockIcon />,
@@ -42,6 +42,7 @@ const DashboardBotOverviewMenu = ({ activeTab }) => {
       isIncrease: true,
     },
   ];
+
   let propsContent;
 
   switch (activeTab) {
@@ -56,11 +57,14 @@ const DashboardBotOverviewMenu = ({ activeTab }) => {
       break;
     default:
       propsContent = botOverviewItems;
+      console.log("bot: " + botOverviewItems.length);
+      console.log("final: " + propsContent);
+      console.log("length all: " + propsContent.length);
       break;
   }
   return (
     <>
-      <DashboardBotOverviewMenuList botOverviewItems={propsContent} activeTab={activeTab} />
+      <DashboardBotOverviewMenuList propsContent={propsContent} activeTab={activeTab} />
     </>
   );
 };

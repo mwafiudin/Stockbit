@@ -36,13 +36,13 @@ const BotOverviewMenuItem = ({
   );
 };
 
-const DashboardBotOverviewMenuList = ({ botOverviewItems, activeTab }) => {
+const DashboardBotOverviewMenuList = ({ propsContent, activeTab }) => {
   return (
     <>
-      {/* <DashboardBotOverviewEmpty botStatus={activeTab} /> */}
       <ul>
-        {botOverviewItems.length > 0 ? (
-          botOverviewItems.map((item, index, arr) => (
+        {console.log("props: " + propsContent)}
+        {propsContent.length !== 0 ? (
+          propsContent.map((item, index) => (
             <BotOverviewMenuItem
               key={index}
               to={item.to}
