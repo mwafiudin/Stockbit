@@ -13,6 +13,7 @@ module.exports = {
       "cuanbot-dark": "#161C22",
       "cuanbot-gray": "#777777",
       "cuanbot-text-gray": "#C1C7CD",
+      "cuanbot-light-gray": "#A7AFB7",
       "cuanbot-white": "#FFFFFC",
       "cuanbot-green": "#5ED5A8",
       "cuanbot-red": "#DD4B4B",
