@@ -4,7 +4,13 @@ import { Route, Routes } from "react-router-dom";
 //import main//
 import HomePage from "./pages/Home/HomeScreenPage";
 import AboutUsPage from "./pages/AboutUs/AboutUsPage";
+import AutomationPage from "./pages/Automation/AutomationPage";
+import ActivityPage from "./pages/Activity/ActivityPage";
 //end import main//
+
+//import float navbar//
+import FloatNavbar from "./components/FloatNavbar/FloatNavbar";
+//end import float navbar//
 
 //import user//
 import UserSettingsPage from "./pages/UserSettings/UserSettingsPage";
@@ -22,13 +28,14 @@ import SecuritiesProductDetailPage from "./pages/SecuritiesProductDetail/Securit
 import ScreeningListPage from "./pages/ScreeningList/ScreeningListPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
 import PortfolioPage from "./pages/Portfolio/PortfolioPage";
-import AutomationPage from "./pages/Automation/AutomationPage";
-import ActivityPage from "./pages/Activity/ActivityPage";
 //end import dashboard menu//
 
 function App() {
   return (
     <div className="App select-none">
+      {/* float navbar-------------------------------------------------------- */}
+      <FloatNavbar />
+      {/* end float navbar-------------------------------------------------------- */}
       <Routes>
         {/* route main-------------------------------------------------------- */}
         <Route path="/" element={<HomePage />} />
