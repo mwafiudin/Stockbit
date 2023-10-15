@@ -19,7 +19,7 @@ const BotOverviewMenuItem = ({
     <li>
       <Link to={to} className="flex border-b-[1px] border-cuanbot-gray py-5 items-center gap-[12.99px]">
         <div className="">{stockIcon}</div>
-        <div className="flex flex-col">
+        <div className="flex flex-col flex-grow">
           <p className="flex justify-between text-pure-white">
             <p>{botName}</p>
             <p>{activeDate}</p>
