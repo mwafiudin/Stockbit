@@ -5,8 +5,8 @@ import { ReactComponent as AutomationIcon } from "../../icons/automation.svg";
 import { ReactComponent as ActivityIcon } from "../../icons/activity.svg";
 // import { AiFillHome } from "react-icons/ai";
 
-const FloatNavbar = () => {
-  const [activeTab, setActiveTab] = useState("Home");
+const FloatNavbar = ({ currentFloatNav }) => {
+  const [activeTab, setActiveTab] = useState(currentFloatNav);
   const handleTabClick = (tab) => {
     setActiveTab(tab);
   };

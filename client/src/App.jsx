@@ -34,20 +34,45 @@ import UserLanguagePage from "./pages/UserLanguage/UserLanguagePage";
 
 function App() {
   const location = useLocation();
-  const isFloatNav =
-    location.pathname === "/" || location.pathname === "/automation" || location.pathname === "/activity";
+
+  //cleaning url path string for pathname
+  let currentPathname = location.pathname.match(/\/[^&=?]*|\/$/);
+  let resultPathname;
+  if (currentPathname) {
+    resultPathname = currentPathname[0];
+  }
+
+  //conditional rendering for floatNav
+  const isFloatNav = resultPathname === "/" || resultPathname === "/automation" || resultPathname === "/activity";
+
+  //conditional props for activeTab in floatNav
+  let currentFloatNav;
+  switch (resultPathname) {
+    case "/":
+      currentFloatNav = "Home";
+      break;
+    case "/automation":
+      currentFloatNav = "Automation";
+      break;
+    case "/activity":
+      currentFloatNav = "Activity";
+      break;
+
+    default:
+      break;
+  }
   return (
     <div className="App select-none">
       {/* float navbar-------------------------------------------------------- */}
-      {isFloatNav && <FloatNavbar />}
+      {isFloatNav && <FloatNavbar currentFloatNav={currentFloatNav} />}
       {/* end float navbar-------------------------------------------------------- */}
 
       <Routes>
         {/* route main-------------------------------------------------------- */}
         <Route path="/" element={<HomePage />} />
-        <Route path="/about-us" element={<AutomationPage />} />
-        <Route path="/automation" element={<ActivityPage />} />
-        <Route path="/activity" element={<AboutUsPage />} />
+        <Route path="/about-us" element={<AboutUsPage />} />
+        <Route path="/automation" element={<AutomationPage />} />
+        <Route path="/activity" element={<ActivityPage />} />
         {/* end route main-------------------------------------------------------- */}
 
         {/* route user-------------------------------------------------------- */}
