@@ -8,6 +8,10 @@ import AutomationPage from "./pages/Automation/AutomationPage";
 import ActivityPage from "./pages/Activity/ActivityPage";
 //end import main//
 
+//import create new automation//
+import CreateNewAutomationPage from "./pages/CreateNewAutomation/CreateNewAutomationPage";
+//end import create new automation//
+
 //import float navbar//
 import FloatNavbar from "./components/FloatNavbar/FloatNavbar";
 //end import float navbar//
@@ -17,6 +21,8 @@ import UserSettingsPage from "./pages/UserSettings/UserSettingsPage";
 import UserProfilePage from "./pages/UserProfile/UserProfilePage";
 import UserSignInPage from "./pages/UserSignIn/UserSignInPage";
 import UserSignUpPage from "./pages/UserSignUp/UserSignUpPage";
+import UserCurrencyPage from "./pages/UserCurrency/UserCurrencyPage";
+import UserLanguagePage from "./pages/UserLanguage/UserLanguagePage";
 //end import user//
 
 //import securities product//
@@ -28,8 +34,7 @@ import SecuritiesProductDetailPage from "./pages/SecuritiesProductDetail/Securit
 import ScreeningListPage from "./pages/ScreeningList/ScreeningListPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
 import PortfolioPage from "./pages/Portfolio/PortfolioPage";
-import UserCurrencyPage from "./pages/UserCurrency/UserCurrencyPage";
-import UserLanguagePage from "./pages/UserLanguage/UserLanguagePage";
+import TopNavbar from "./components/TopNavbar/TopNavbar";
 //end import dashboard menu//
 
 function App() {
@@ -44,6 +49,13 @@ function App() {
 
   //conditional rendering for floatNav
   const isFloatNav = resultPathname === "/" || resultPathname === "/automation" || resultPathname === "/activity";
+
+  //conditional rendering for topNav
+  const isTopNav =
+    resultPathname === "/" ||
+    resultPathname === "/automation" ||
+    resultPathname === "/activity" ||
+    resultPathname === "/create-automation";
 
   //conditional props for activeTab in floatNav
   let currentFloatNav;
@@ -63,12 +75,20 @@ function App() {
   }
   return (
     <div className="App select-none">
+      {/* top navbar-------------------------------------------------------- */}
+      {isTopNav && <TopNavbar />}
+      {/* end top navbar-------------------------------------------------------- */}
+
       <Routes>
         {/* route main-------------------------------------------------------- */}
         <Route path="/" element={<HomePage />} />
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/automation" element={<AutomationPage />} />
         <Route path="/activity" element={<ActivityPage />} />
+        {/* end route main-------------------------------------------------------- */}
+
+        {/* route main-------------------------------------------------------- */}
+        <Route path="/create-automation" element={<CreateNewAutomationPage />} />
         {/* end route main-------------------------------------------------------- */}
 
         {/* route user-------------------------------------------------------- */}

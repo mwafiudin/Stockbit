@@ -9,7 +9,7 @@ const HomePage = () => {
   return (
     <>
       <div className="flex flex-col bg-cuanbot-light">
-        <TopNavbar />
+        {/* <TopNavbar /> */}
         <DashboardGreeting />
         <DashboardMenu />
         <DashboardBotOverview />

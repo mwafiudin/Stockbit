@@ -59,10 +59,10 @@ const DashboardBotOverviewMenuList = ({ propsContent, activeTab }) => {
         ) : (
           <DashboardBotOverviewEmpty activeTab={activeTab} />
         )}
-        <li className="flex justify-center py-[18px] rounded-xl my-5 gap-2.5 items-center bg-cuanbot-light border-2 border-dashed border-cuanbot-gray ">
+        <Link to="/create-automation" className="flex justify-center py-[18px] rounded-xl my-5 gap-2.5 items-center bg-cuanbot-light border-2 border-dashed border-cuanbot-gray ">
           <AddIcon />
           <h1 className="text-cuanbot-gray">Run Automation</h1>
-        </li>
+        </Link>
       </ul>
     </>
   );
