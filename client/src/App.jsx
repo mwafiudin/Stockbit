@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 
 //import main//
 import HomePage from "./pages/Home/HomeScreenPage";
@@ -28,14 +28,20 @@ import SecuritiesProductDetailPage from "./pages/SecuritiesProductDetail/Securit
 import ScreeningListPage from "./pages/ScreeningList/ScreeningListPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
 import PortfolioPage from "./pages/Portfolio/PortfolioPage";
+import UserCurrencyPage from "./pages/UserCurrency/UserCurrencyPage";
+import UserLanguagePage from "./pages/UserLanguage/UserLanguagePage";
 //end import dashboard menu//
 
 function App() {
+  const location = useLocation();
+  const isFloatNav =
+    location.pathname === "/" || location.pathname === "/automation" || location.pathname === "/activity";
   return (
     <div className="App select-none">
       {/* float navbar-------------------------------------------------------- */}
-      <FloatNavbar />
+      {isFloatNav && <FloatNavbar />}
       {/* end float navbar-------------------------------------------------------- */}
+
       <Routes>
         {/* route main-------------------------------------------------------- */}
         <Route path="/" element={<HomePage />} />
@@ -49,6 +55,8 @@ function App() {
         <Route path="/user/profile" element={<UserProfilePage />} />
         <Route path="/user/signin" element={<UserSignInPage />} />
         <Route path="/user/signup" element={<UserSignUpPage />} />
+        <Route path="/user/currency" element={<UserCurrencyPage />} />
+        <Route path="/user/language" element={<UserLanguagePage />} />
         {/* end route user-------------------------------------------------------- */}
 
         {/* route securities-------------------------------------------------------- */}
