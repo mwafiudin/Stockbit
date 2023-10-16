@@ -63,10 +63,6 @@ function App() {
   }
   return (
     <div className="App select-none">
-      {/* float navbar-------------------------------------------------------- */}
-      {isFloatNav && <FloatNavbar currentFloatNav={currentFloatNav} />}
-      {/* end float navbar-------------------------------------------------------- */}
-
       <Routes>
         {/* route main-------------------------------------------------------- */}
         <Route path="/" element={<HomePage />} />
@@ -95,6 +91,10 @@ function App() {
         <Route path="/portfolio" element={<PortfolioPage />} />
         {/* end route dashboard menu-------------------------------------------------------- */}
       </Routes>
+
+      {/* float navbar-------------------------------------------------------- */}
+      {isFloatNav && <FloatNavbar currentFloatNav={currentFloatNav} />}
+      {/* end float navbar-------------------------------------------------------- */}
     </div>
   );
 }

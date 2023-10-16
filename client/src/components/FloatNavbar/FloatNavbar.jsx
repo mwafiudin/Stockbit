@@ -68,7 +68,7 @@ const FloatNavbar = ({ currentFloatNav }) => {
   return (
     <>
       <div className="flex">
-        <nav className="flex px-[30px] gap-[30px] items-center bg-cuanbot-light rounded-xl w-max-content fixed left-1/2 -translate-x-1/2 bottom-8 backdrop-blur-2xl">
+        <nav className="flex px-[30px] gap-[10px] items-center bg-cuanbot-light rounded-xl w-max-content fixed left-1/2 -translate-x-1/2 bottom-8 backdrop-blur-2xl">
           {floatNavItem.map((item, index) => (
             <Link
               to={item.to}
