@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
 
 const UserSignUpPage = () => {
   return (
-    <div>UserSignUpPage</div>
-  )
-}
+    <>
+      <div className="text-cuanbot-white m-auto p-auto text-4xl">UserSignUp Page</div>
+    </>
+  );
+};
 
-export default UserSignUpPage
+export default UserSignUpPage;
