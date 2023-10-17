@@ -3,6 +3,9 @@ Library    Collections
 Library    OperatingSystem
 Library    String
 Library    SeleniumLibrary
+Library    RequestsLibrary
+Library    JSONLibrary
+Library    Collections
 
 Library    ../function/autobuy.py
 
@@ -22,17 +25,52 @@ Resource            ../steps/login_steps.robot
 ${total_balance}    ${5000}
 ${max_percent_used_balance}    ${100}
 
-*** Keywords ***
+# ${API_GET_USER}    http://127.0.0.1:5000/get_user
 
+${base_url}    http://127.0.0.1:5000
+${child_get_url}    /get_user
+${child_post_processing_url}    /update_status_dikerjakan
+
+*** Keywords ***
+Get Username and Password from API
+    create session    myssion    ${base_url}
+    ${response}=    get request    myssion    ${child_get_url}
+    
+    #validate data
+    ${status_code}=    convert to string    ${response.status_code}
+    should be equal    ${status_code}    200
+
+    ${contentType}=    get from dictionary    ${response.headers}    Content-Type
+    should contain    ${contentType}    application/json
+
+    ${contentString}=    convert to string    ${response.content}
+    ${contentData}=    evaluate    json.loads($contentString)    json 
+    # log to console    ${contentData}
+    log to console    ${contentData['username']}
+    ${username}    Set Variable    ${contentData['username']}
+    ${password}    Set Variable    ${contentData['password']}
+    ${id}    Set Variable    ${contentData['id']}
+    [Return]    ${username}    ${password}    ${id}
+
+Post Processing User ID
+    [Arguments]                     ${id_user}
+    create session    myssion    ${base_url}
+    ${response}=      get request    myssion    ${child_post_processing_url}?id_user=${id_user}
+
+    #validate data
+    ${status_code}=    convert to string    ${response.status_code}
+    should be equal    ${status_code}    200
 
 *** Test Cases ***
 Scenario 1: Valid login credential
+    # Get Username and Password from API
+    ${username}    ${password}    ${id} =    Get Username and Password from API
     Login page opened (shortcut)
-    User input username and password    hidayatullohharis@gmail.com    harisganteng
+    User input username and password    ${username}    ${password}
     Click login button
     User directed to home page 
-
     Run Keyword And Ignore Error    Click Element    xpath=//*[@id="modalnewavatar-button-skip"]
+    Post Processing User ID    ${id}
 
 Scenario 2: Trading Area (Virtual) Page
     User Activates Trading Area (Virtual)
