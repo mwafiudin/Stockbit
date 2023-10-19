@@ -67,10 +67,10 @@ Scenario 1: Valid login credential
     ${username}    ${password}    ${id} =    Get Username and Password from API
     Login page opened (shortcut)
     User input username and password    ${username}    ${password}
+    Post Processing User ID    ${id}
     Click login button
     User directed to home page 
     Run Keyword And Ignore Error    Click Element    xpath=//*[@id="modalnewavatar-button-skip"]
-    Post Processing User ID    ${id}
 
 Scenario 2: Trading Area (Virtual) Page
     User Activates Trading Area (Virtual)

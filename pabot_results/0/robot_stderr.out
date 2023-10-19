@@ -1,0 +1,27 @@
+[ WARN ] Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.
+[ WARN ] Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: Message: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A248617]
+	(No symbol) [0x00007FF67A248290]
+	(No symbol) [0x00007FF67A25C541]
+	(No symbol) [0x00007FF67A2D43FF]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+

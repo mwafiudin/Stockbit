@@ -1,0 +1,3 @@
+[ WARN ] Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.
+[ WARN ] Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.
+[ WARN ] Keyword 'Capture Page Screenshot' could not be run on failure: 'NoneType' object has no attribute 'encode'
