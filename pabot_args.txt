@@ -1,0 +1,3 @@
+--processes2 8
+--outputdir results
+tests/tes2.robot

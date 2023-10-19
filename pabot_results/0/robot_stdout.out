@@ -1,0 +1,115 @@
+==============================================================================
+Tests Autobuy                                                                 
+==============================================================================
+Tests Autobuy.Tes2 (1)                                                        
+==============================================================================
+Scenario 1: Valid login credential                                    hidayatullohharis@gmail.com
+| PASS |
+------------------------------------------------------------------------------
+Scenario 2: Trading Area (Virtual) Page                                 
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (1).robot:76
+    T:  Scenario 2: Trading Area (Virtual) Page    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (1).robot:77
+      User Activates Trading Area (Virtual)    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\pages\trading_area_page.robot:27
+      Click Element    ${tradingAreaButton}
+      |  ${tradingAreaButton} = //*[@id="stockbit-header-web"]/div[2]/div[1]/div (str)
+______________________________________________________________________________
+| FAIL |
+ElementClickInterceptedException: Message: element click intercepted: Element <div data-cy="top-navbar-button-start-trading" direction="row" wrap="nowrap" class="sc-gKXOVf sc-9dda1440-0 sc-9dda1440-1 kgqACx hXnMeM cwkESa">...</div> is not clickable at point (1062, 51). Other element would receive the click: <div tabindex="-1" class="ant-modal-wrap ant-modal-centered">...</div>
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A2A1A6B]
+	(No symbol) [0x00007FF67A29FE39]
+	(No symbol) [0x00007FF67A29DC08]
+	(No symbol) [0x00007FF67A29CCC3]
+	(No symbol) [0x00007FF67A2929CF]
+	(No symbol) [0x00007FF67A2BBE6A]
+	(No symbol) [0x00007FF67A2922E6]
+	(No symbol) [0x00007FF67A2BC080]
+	(No symbol) [0x00007FF67A2D4D02]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+------------------------------------------------------------------------------
+Scenario 3 : Auto Buy                                                   
+  Traceback (most recent call last):
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (1).robot:79
+    T:  Scenario 3 : Auto Buy    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (1).robot:84
+      ${index} IN RANGE [ 0 | ${data_order_len} ]    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (1).robot:84
+      ${index} = 0    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (1).robot:87
+      ${infinity_loop} IN RANGE [ 0 | 999999 ]    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (1).robot:87
+      ${infinity_loop} = 0    
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (1).robot:91
+      Stock Page Opened    ${data_order[${index}][2:6]}
+      |  ${data_order[${index}][2:6]} = <Unable to define variable value>
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    File  C:\Users\haris\Documents\Python\Stockbit\pages\trading_area_page.robot:36
+      Go To    https://stockbit.com/symbol/${symbol}
+      |  https://stockbit.com/symbol/${symbol} = https://stockbit.com/symbol/CUAN (str)
+______________________________________________________________________________
+| FAIL |
+WebDriverException: Message: target frame detached
+  (failed to check if window was closed: disconnected: Unable to receive message from renderer)
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A4FD]
+	(No symbol) [0x00007FF67A248A91]
+	(No symbol) [0x00007FF67A2473AA]
+	(No symbol) [0x00007FF67A247E6E]
+	(No symbol) [0x00007FF67A2542FB]
+	(No symbol) [0x00007FF67A2656D1]
+	(No symbol) [0x00007FF67A269A4A]
+	(No symbol) [0x00007FF67A2484B7]
+	(No symbol) [0x00007FF67A265363]
+	(No symbol) [0x00007FF67A2D4D69]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+------------------------------------------------------------------------------
+Tests Autobuy.Tes2 (1)                                                | FAIL |
+3 tests, 1 passed, 2 failed
+==============================================================================
+Tests Autobuy                                                         | FAIL |
+3 tests, 1 passed, 2 failed
+==============================================================================
+Output:  C:\Users\haris\Documents\Python\Stockbit\pabot_results\0\output.xml

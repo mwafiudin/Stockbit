@@ -1,119 +1,269 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.9.2 on win32)" generated="20231013 21:13:13.729" rpa="false" schemaversion="3">
-<suite id="s1" name="Tes2" source="C:\Users\haris\Documents\Python\Stockbit\tests\tes2.robot">
-<test id="s1-t1" name="Scenario 1: Valid login credential" line="29">
+<robot generator="Rebot 6.0.2 (Python 3.9.2 on win32)" generated="20231020 00:24:58.542" rpa="false" schemaversion="3">
+<suite id="s1" name="Tests Autobuy" source="C:\Users\haris\Documents\Python\Stockbit\tests_autobuy">
+<suite id="s1-s1" name="Tes2 (1)" source="C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (1).robot">
+<test id="s1-s1-t1" name="Scenario 1: Valid login credential" line="65">
+<kw name="Get Username and Password from API">
+<var>${username}</var>
+<var>${password}</var>
+<var>${id}</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231020 00:23:31.137" level="INFO">Creating Session using : alias=myssion, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231020 00:23:31.137" endtime="20231020 00:23:31.137"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>${child_get_url}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20231020 00:23:31.137" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231020 00:23:31.262" level="INFO">GET Request : url=http://127.0.0.1:5000/get_user 
+ path_url=/get_user 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231020 00:23:31.262" level="INFO">GET Response : url=http://127.0.0.1:5000/get_user 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.2.3 Python/3.9.2', 'Date': 'Thu, 19 Oct 2023 17:23:31 GMT', 'Content-Type': 'application/json', 'Content-Length': '128', 'Connection': 'close'} 
+ body={"id":1,"password":"harisganteng","status_robot":"Belum Diproses","status_robot_id":1,"username":"hidayatullohharis@gmail.com"}
+ 
+ </msg>
+<msg timestamp="20231020 00:23:31.262" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231020 00:23:31.137" endtime="20231020 00:23:31.262"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231020 00:23:31.262" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231020 00:23:31.262" endtime="20231020 00:23:31.262"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231020 00:23:31.262" endtime="20231020 00:23:31.262"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${contentType}</var>
+<arg>${response.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231020 00:23:31.262" level="INFO">${contentType} = application/json</msg>
+<status status="PASS" starttime="20231020 00:23:31.262" endtime="20231020 00:23:31.262"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${contentType}</arg>
+<arg>application/json</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20231020 00:23:31.262" endtime="20231020 00:23:31.262"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${contentString}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231020 00:23:31.262" level="INFO">${contentString} = {"id":1,"password":"harisganteng","status_robot":"Belum Diproses","status_robot_id":1,"username":"hidayatullohharis@gmail.com"}
+</msg>
+<status status="PASS" starttime="20231020 00:23:31.262" endtime="20231020 00:23:31.262"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${contentData}</var>
+<arg>json.loads($contentString)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231020 00:23:31.277" level="INFO">${contentData} = {'id': 1, 'password': 'harisganteng', 'status_robot': 'Belum Diproses', 'status_robot_id': 1, 'username': 'hidayatullohharis@gmail.com'}</msg>
+<status status="PASS" starttime="20231020 00:23:31.262" endtime="20231020 00:23:31.277"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${contentData['username']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231020 00:23:31.277" endtime="20231020 00:23:31.277"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${username}</var>
+<arg>${contentData['username']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231020 00:23:31.277" level="INFO">${username} = hidayatullohharis@gmail.com</msg>
+<status status="PASS" starttime="20231020 00:23:31.277" endtime="20231020 00:23:31.277"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${password}</var>
+<arg>${contentData['password']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231020 00:23:31.277" level="INFO">${password} = harisganteng</msg>
+<status status="PASS" starttime="20231020 00:23:31.277" endtime="20231020 00:23:31.277"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${id}</var>
+<arg>${contentData['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231020 00:23:31.277" level="INFO">${id} = 1</msg>
+<status status="PASS" starttime="20231020 00:23:31.277" endtime="20231020 00:23:31.277"/>
+</kw>
+<msg timestamp="20231020 00:23:31.277" level="INFO">${username} = hidayatullohharis@gmail.com</msg>
+<msg timestamp="20231020 00:23:31.277" level="INFO">${password} = harisganteng</msg>
+<msg timestamp="20231020 00:23:31.277" level="INFO">${id} = 1</msg>
+<status status="PASS" starttime="20231020 00:23:31.137" endtime="20231020 00:23:31.277"/>
+</kw>
+<kw name="Post Processing User ID">
+<arg>${id}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231020 00:23:31.277" level="INFO">Creating Session using : alias=myssion, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231020 00:23:31.277" endtime="20231020 00:23:31.277"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>${child_post_processing_url}?id_user=${id_user}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20231020 00:23:31.293" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231020 00:23:31.313" level="INFO">GET Request : url=http://127.0.0.1:5000/update_status_dikerjakan?id_user=1 
+ path_url=/update_status_dikerjakan?id_user=1 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231020 00:23:31.313" level="INFO">GET Response : url=http://127.0.0.1:5000/update_status_dikerjakan?id_user=1 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.2.3 Python/3.9.2', 'Date': 'Thu, 19 Oct 2023 17:23:31 GMT', 'Content-Type': 'application/json', 'Content-Length': '99', 'Connection': 'close'} 
+ body={"message":"Status robot untuk pengguna dengan ID 1 telah diperbarui menjadi 'Proses Dikerjakan'"}
+ 
+ </msg>
+<msg timestamp="20231020 00:23:31.313" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231020 00:23:31.277" endtime="20231020 00:23:31.314"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231020 00:23:31.316" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231020 00:23:31.314" endtime="20231020 00:23:31.316"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231020 00:23:31.317" endtime="20231020 00:23:31.317"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:31.277" endtime="20231020 00:23:31.317"/>
+</kw>
 <kw name="Login page opened (shortcut)" library="login_page">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url_login}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231013 21:13:14.526" level="INFO">Opening browser 'chrome' to base url 'https:/stockbit.com/login'.</msg>
-<status status="PASS" starttime="20231013 21:13:14.526" endtime="20231013 21:13:25.858"/>
+<msg timestamp="20231020 00:23:31.319" level="INFO">Opening browser 'chrome' to base url 'https:/stockbit.com/login'.</msg>
+<status status="PASS" starttime="20231020 00:23:31.318" endtime="20231020 00:23:51.273"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20231013 21:13:25.858" endtime="20231013 21:13:26.028"/>
+<status status="PASS" starttime="20231020 00:23:51.274" endtime="20231020 00:23:51.663"/>
 </kw>
 <kw name="User should be directed to login page" library="landing_page">
 <kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
 <arg>${loginPage}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20231013 21:13:26.030" endtime="20231013 21:13:26.111"/>
+<status status="PASS" starttime="20231020 00:23:51.665" endtime="20231020 00:23:51.715"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:26.028" endtime="20231013 21:13:26.112"/>
+<status status="PASS" starttime="20231020 00:23:51.663" endtime="20231020 00:23:51.715"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:14.526" endtime="20231013 21:13:26.112"/>
+<status status="PASS" starttime="20231020 00:23:31.318" endtime="20231020 00:23:51.715"/>
 </kw>
 <kw name="User input username and password" library="login_steps">
-<arg>hidayatullohharis@gmail.com</arg>
-<arg>harisganteng</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
 <kw name="Input username" library="login_page">
 <arg>${username}</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${usernameField}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:26.115" endtime="20231013 21:13:26.183"/>
+<status status="PASS" starttime="20231020 00:23:51.715" endtime="20231020 00:23:51.776"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${usernameField}</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231013 21:13:26.185" level="INFO">Typing text 'hidayatullohharis@gmail.com' into text field '//*[@id="username"]'.</msg>
-<status status="PASS" starttime="20231013 21:13:26.184" endtime="20231013 21:13:26.720"/>
+<msg timestamp="20231020 00:23:51.776" level="INFO">Typing text 'hidayatullohharis@gmail.com' into text field '//*[@id="username"]'.</msg>
+<status status="PASS" starttime="20231020 00:23:51.776" endtime="20231020 00:23:52.637"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:26.114" endtime="20231013 21:13:26.720"/>
+<status status="PASS" starttime="20231020 00:23:51.715" endtime="20231020 00:23:52.638"/>
 </kw>
 <kw name="Input password" library="login_page">
 <arg>${password}</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${passwordField}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:26.720" endtime="20231013 21:13:26.771"/>
+<status status="PASS" starttime="20231020 00:23:52.641" endtime="20231020 00:23:52.703"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${passwordField}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231013 21:13:26.771" level="INFO">Typing text 'harisganteng' into text field '//*[@id="password"]'.</msg>
-<status status="PASS" starttime="20231013 21:13:26.771" endtime="20231013 21:13:26.994"/>
+<msg timestamp="20231020 00:23:52.705" level="INFO">Typing text 'harisganteng' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20231020 00:23:52.703" endtime="20231020 00:23:53.127"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:26.720" endtime="20231013 21:13:26.994"/>
+<status status="PASS" starttime="20231020 00:23:52.639" endtime="20231020 00:23:53.128"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:26.113" endtime="20231013 21:13:26.995"/>
+<status status="PASS" starttime="20231020 00:23:51.715" endtime="20231020 00:23:53.130"/>
 </kw>
 <kw name="Click login button" library="login_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${loginButton}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:27.009" endtime="20231013 21:13:27.075"/>
+<status status="PASS" starttime="20231020 00:23:53.132" endtime="20231020 00:23:53.199"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loginButton}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231013 21:13:27.075" level="INFO">Clicking element '//*[@id="email-login-button"]'.</msg>
-<status status="PASS" starttime="20231013 21:13:27.075" endtime="20231013 21:13:27.209"/>
+<msg timestamp="20231020 00:23:53.202" level="INFO">Clicking element '//*[@id="email-login-button"]'.</msg>
+<status status="PASS" starttime="20231020 00:23:53.200" endtime="20231020 00:23:53.571"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:27.007" endtime="20231013 21:13:27.210"/>
+<status status="PASS" starttime="20231020 00:23:53.130" endtime="20231020 00:23:53.572"/>
 </kw>
 <kw name="User directed to home page" library="home_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:27.211" endtime="20231013 21:13:32.089"/>
+<status status="PASS" starttime="20231020 00:23:53.576" endtime="20231020 00:24:01.789"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231013 21:13:33.496" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/a' is displayed.</msg>
-<status status="PASS" starttime="20231013 21:13:32.089" endtime="20231013 21:13:33.496"/>
+<msg timestamp="20231020 00:24:01.836" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/a' is displayed.</msg>
+<status status="PASS" starttime="20231020 00:24:01.789" endtime="20231020 00:24:01.836"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeSearchBar}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:33.496" endtime="20231013 21:13:33.543"/>
+<status status="PASS" starttime="20231020 00:24:01.852" endtime="20231020 00:24:01.945"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${homeSearchBar}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231013 21:13:33.575" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form/div/div/span[1]' is displayed.</msg>
-<status status="PASS" starttime="20231013 21:13:33.543" endtime="20231013 21:13:33.575"/>
+<msg timestamp="20231020 00:24:02.008" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form/div/div/span[1]' is displayed.</msg>
+<status status="PASS" starttime="20231020 00:24:01.945" endtime="20231020 00:24:02.008"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${profileIcon}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:33.575" endtime="20231013 21:13:33.621"/>
+<status status="PASS" starttime="20231020 00:24:02.008" endtime="20231020 00:24:02.070"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${profileIcon}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231013 21:13:33.668" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[2]/div[3]/div' is displayed.</msg>
-<status status="PASS" starttime="20231013 21:13:33.621" endtime="20231013 21:13:33.668"/>
+<msg timestamp="20231020 00:24:02.142" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[2]/div[3]/div' is displayed.</msg>
+<status status="PASS" starttime="20231020 00:24:02.070" endtime="20231020 00:24:02.142"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:27.210" endtime="20231013 21:13:33.668"/>
+<status status="PASS" starttime="20231020 00:23:53.573" endtime="20231020 00:24:02.142"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" library="BuiltIn">
 <arg>Click Element</arg>
@@ -122,69 +272,153 @@
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath=//*[@id="modalnewavatar-button-skip"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231013 21:13:33.668" level="INFO">Clicking element 'xpath=//*[@id="modalnewavatar-button-skip"]'.</msg>
-<status status="PASS" starttime="20231013 21:13:33.668" endtime="20231013 21:13:34.537"/>
+<msg timestamp="20231020 00:24:02.142" level="INFO">Clicking element 'xpath=//*[@id="modalnewavatar-button-skip"]'.</msg>
+<msg timestamp="20231020 00:24:35.377" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="0-selenium-screenshot-1.png"&gt;&lt;img src="0-selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231020 00:24:35.378" level="FAIL">ElementNotInteractableException: Message: element not interactable: element has zero size
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A29CD88]
+	(No symbol) [0x00007FF67A2929CF]
+	(No symbol) [0x00007FF67A2BBE6A]
+	(No symbol) [0x00007FF67A2922E6]
+	(No symbol) [0x00007FF67A2BC080]
+	(No symbol) [0x00007FF67A2D4D02]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</msg>
+<status status="FAIL" starttime="20231020 00:24:02.142" endtime="20231020 00:24:36.159"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:33.668" endtime="20231013 21:13:34.537"/>
+<status status="PASS" starttime="20231020 00:24:02.142" endtime="20231020 00:24:36.159"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:14.526" endtime="20231013 21:13:34.537"/>
+<status status="PASS" starttime="20231020 00:23:31.137" endtime="20231020 00:24:36.159"/>
 </test>
-<test id="s1-t2" name="Scenario 2: Trading Area (Virtual) Page" line="37">
+<test id="s1-s1-t2" name="Scenario 2: Trading Area (Virtual) Page" line="76">
 <kw name="User Activates Trading Area (Virtual)" library="trading_area_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${tradingAreaButton}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:34.537" endtime="20231013 21:13:34.710"/>
+<status status="PASS" starttime="20231020 00:24:36.215" endtime="20231020 00:24:36.542"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${tradingAreaButton}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231013 21:13:34.710" level="INFO">Clicking element '//*[@id="stockbit-header-web"]/div[2]/div[1]/div'.</msg>
-<status status="PASS" starttime="20231013 21:13:34.710" endtime="20231013 21:13:35.180"/>
+<msg timestamp="20231020 00:24:36.561" level="INFO">Clicking element '//*[@id="stockbit-header-web"]/div[2]/div[1]/div'.</msg>
+<msg timestamp="20231020 00:24:38.631" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="0-selenium-screenshot-2.png"&gt;&lt;img src="0-selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231020 00:24:38.632" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;div data-cy="top-navbar-button-start-trading" direction="row" wrap="nowrap" class="sc-gKXOVf sc-9dda1440-0 sc-9dda1440-1 kgqACx hXnMeM cwkESa"&gt;...&lt;/div&gt; is not clickable at point (1062, 51). Other element would receive the click: &lt;div tabindex="-1" class="ant-modal-wrap ant-modal-centered"&gt;...&lt;/div&gt;
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A2A1A6B]
+	(No symbol) [0x00007FF67A29FE39]
+	(No symbol) [0x00007FF67A29DC08]
+	(No symbol) [0x00007FF67A29CCC3]
+	(No symbol) [0x00007FF67A2929CF]
+	(No symbol) [0x00007FF67A2BBE6A]
+	(No symbol) [0x00007FF67A2922E6]
+	(No symbol) [0x00007FF67A2BC080]
+	(No symbol) [0x00007FF67A2D4D02]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</msg>
+<status status="FAIL" starttime="20231020 00:24:36.558" endtime="20231020 00:24:38.633"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${virtualTradingButton}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231013 21:13:35.182" level="INFO">Clicking button '//button[@data-cy="virtual-trading-button-auth"]'.</msg>
-<status status="PASS" starttime="20231013 21:13:35.180" endtime="20231013 21:13:35.541"/>
+<status status="NOT RUN" starttime="20231020 00:24:38.634" endtime="20231020 00:24:38.635"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${virtualTradingAreaTitle}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:35.541" endtime="20231013 21:13:42.270"/>
+<status status="NOT RUN" starttime="20231020 00:24:38.636" endtime="20231020 00:24:38.636"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:42.270" endtime="20231013 21:13:42.320"/>
+<status status="NOT RUN" starttime="20231020 00:24:38.637" endtime="20231020 00:24:38.637"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:34.537" endtime="20231013 21:13:42.320"/>
+<status status="FAIL" starttime="20231020 00:24:36.200" endtime="20231020 00:24:38.639"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:34.537" endtime="20231013 21:13:42.320"/>
+<status status="FAIL" starttime="20231020 00:24:36.183" endtime="20231020 00:24:38.640">ElementClickInterceptedException: Message: element click intercepted: Element &lt;div data-cy="top-navbar-button-start-trading" direction="row" wrap="nowrap" class="sc-gKXOVf sc-9dda1440-0 sc-9dda1440-1 kgqACx hXnMeM cwkESa"&gt;...&lt;/div&gt; is not clickable at point (1062, 51). Other element would receive the click: &lt;div tabindex="-1" class="ant-modal-wrap ant-modal-centered"&gt;...&lt;/div&gt;
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A2A1A6B]
+	(No symbol) [0x00007FF67A29FE39]
+	(No symbol) [0x00007FF67A29DC08]
+	(No symbol) [0x00007FF67A29CCC3]
+	(No symbol) [0x00007FF67A2929CF]
+	(No symbol) [0x00007FF67A2BBE6A]
+	(No symbol) [0x00007FF67A2922E6]
+	(No symbol) [0x00007FF67A2BC080]
+	(No symbol) [0x00007FF67A2D4D02]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</status>
 </test>
-<test id="s1-t3" name="Scenario 3 : Auto Buy" line="40">
+<test id="s1-s1-t3" name="Scenario 3 : Auto Buy" line="79">
 <kw name="Create List" library="BuiltIn">
 <var>@{symbol}</var>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20231013 21:13:42.320" level="INFO">@{symbol} = [ ]</msg>
-<status status="PASS" starttime="20231013 21:13:42.320" endtime="20231013 21:13:42.320"/>
+<msg timestamp="20231020 00:24:38.642" level="INFO">@{symbol} = [ ]</msg>
+<status status="PASS" starttime="20231020 00:24:38.642" endtime="20231020 00:24:38.642"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${data_order_len}</var>
 <arg>${data_order}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20231013 21:13:42.320" level="INFO">Length is 3</msg>
-<msg timestamp="20231013 21:13:42.320" level="INFO">${data_order_len} = 3</msg>
-<status status="PASS" starttime="20231013 21:13:42.320" endtime="20231013 21:13:42.320"/>
+<msg timestamp="20231020 00:24:38.642" level="INFO">Length is 3</msg>
+<msg timestamp="20231020 00:24:38.642" level="INFO">${data_order_len} = 3</msg>
+<status status="PASS" starttime="20231020 00:24:38.642" endtime="20231020 00:24:38.642"/>
 </kw>
 <kw name="Show List Buy" library="autobuy">
 <var>${count_buy}</var>
 <arg>${data_order}</arg>
 <arg>${total_balance}</arg>
 <arg>${max_percent_used_balance}</arg>
-<msg timestamp="20231013 21:13:42.320" level="INFO">${count_buy} = 1353</msg>
-<status status="PASS" starttime="20231013 21:13:42.320" endtime="20231013 21:13:42.320"/>
+<msg timestamp="20231020 00:24:38.642" level="INFO">${count_buy} = 1</msg>
+<status status="PASS" starttime="20231020 00:24:38.642" endtime="20231020 00:24:38.642"/>
 </kw>
 <for flavor="IN RANGE">
 <var>${index}</var>
@@ -196,15 +430,15 @@
 <var>${is_not_rejected}</var>
 <arg>${False}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231013 21:13:42.320" level="INFO">${is_not_rejected} = False</msg>
-<status status="PASS" starttime="20231013 21:13:42.320" endtime="20231013 21:13:42.320"/>
+<msg timestamp="20231020 00:24:38.657" level="INFO">${is_not_rejected} = False</msg>
+<status status="PASS" starttime="20231020 00:24:38.657" endtime="20231020 00:24:38.657"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${count_infinity_loop}</var>
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231013 21:13:42.320" level="INFO">${count_infinity_loop} = 0</msg>
-<status status="PASS" starttime="20231013 21:13:42.320" endtime="20231013 21:13:42.320"/>
+<msg timestamp="20231020 00:24:38.657" level="INFO">${count_infinity_loop} = 0</msg>
+<status status="PASS" starttime="20231020 00:24:38.657" endtime="20231020 00:24:38.657"/>
 </kw>
 <for flavor="IN RANGE">
 <var>${infinity_loop}</var>
@@ -215,73 +449,103 @@
 <kw name="Log" library="BuiltIn">
 <arg>${data_order[${index}][2:6]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231013 21:13:42.371" level="INFO">CUAN</msg>
-<status status="PASS" starttime="20231013 21:13:42.371" endtime="20231013 21:13:42.371"/>
+<msg timestamp="20231020 00:24:38.772" level="INFO">CUAN</msg>
+<status status="PASS" starttime="20231020 00:24:38.756" endtime="20231020 00:24:38.772"/>
 </kw>
 <kw name="Append To List" library="Collections">
 <arg>${symbol}</arg>
 <arg>${data_order[${index}][2:6]}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20231013 21:13:42.371" endtime="20231013 21:13:42.371"/>
+<status status="PASS" starttime="20231020 00:24:38.772" endtime="20231020 00:24:38.772"/>
 </kw>
 <kw name="Stock Page Opened" library="trading_area_page">
 <arg>${data_order[${index}][2:6]}</arg>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>https://stockbit.com/symbol/${symbol}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231013 21:13:42.371" level="INFO">Opening url 'https://stockbit.com/symbol/CUAN'</msg>
-<status status="PASS" starttime="20231013 21:13:42.371" endtime="20231013 21:13:48.943"/>
+<msg timestamp="20231020 00:24:38.810" level="INFO">Opening url 'https://stockbit.com/symbol/CUAN'</msg>
+<msg timestamp="20231020 00:24:48.749" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A248617]
+	(No symbol) [0x00007FF67A248290]
+	(No symbol) [0x00007FF67A25C541]
+	(No symbol) [0x00007FF67A2D43FF]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</msg>
+<msg timestamp="20231020 00:24:48.754" level="FAIL">WebDriverException: Message: target frame detached
+  (failed to check if window was closed: disconnected: Unable to receive message from renderer)
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A4FD]
+	(No symbol) [0x00007FF67A248A91]
+	(No symbol) [0x00007FF67A2473AA]
+	(No symbol) [0x00007FF67A247E6E]
+	(No symbol) [0x00007FF67A2542FB]
+	(No symbol) [0x00007FF67A2656D1]
+	(No symbol) [0x00007FF67A269A4A]
+	(No symbol) [0x00007FF67A2484B7]
+	(No symbol) [0x00007FF67A265363]
+	(No symbol) [0x00007FF67A2D4D69]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</msg>
+<status status="FAIL" starttime="20231020 00:24:38.810" endtime="20231020 00:24:48.758"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <arg>20</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:48.944" endtime="20231013 21:13:49.054"/>
+<status status="NOT RUN" starttime="20231020 00:24:48.788" endtime="20231020 00:24:48.788"/>
 </kw>
-<status status="PASS" starttime="20231013 21:13:42.371" endtime="20231013 21:13:49.054"/>
+<status status="FAIL" starttime="20231020 00:24:38.772" endtime="20231020 00:24:48.820"/>
 </kw>
 <kw name="Place Stock Order (Buy)" library="trading_area_page">
 <arg>${count_buy}</arg>
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${placeOrderForm}</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231013 21:13:49.054" endtime="20231013 21:13:49.128"/>
-</kw>
-<kw name="Input Text" library="SeleniumLibrary">
-<arg>${orderLotField}</arg>
-<arg>${orderLotInput}</arg>
-<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231013 21:13:49.129" level="INFO">Typing text '1353' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
-<status status="PASS" starttime="20231013 21:13:49.128" endtime="20231013 21:13:50.534"/>
-</kw>
-<kw name="Click Button" library="SeleniumLibrary">
-<arg>${placeOrderButton}</arg>
-<doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231013 21:13:50.538" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
-<msg timestamp="20231013 21:13:50.853" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20231013 21:13:50.853" level="FAIL">Button with locator '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]' not found.</msg>
-<status status="FAIL" starttime="20231013 21:13:50.535" endtime="20231013 21:13:50.869"/>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<arg>2</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
-</kw>
-<status status="FAIL" starttime="20231013 21:13:49.054" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:48.825" endtime="20231020 00:24:48.825"/>
 </kw>
 <kw name="User directed to Trade Order Page" library="trading_area_page">
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:48.840" endtime="20231020 00:24:48.840"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${Status}</var>
 <arg>${statusOrderBuy}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:48.840" endtime="20231020 00:24:48.840"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${Status}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:48.840" endtime="20231020 00:24:48.840"/>
 </kw>
 <if>
 <branch type="IF" condition="'${Status}' == 'REJECTED'">
@@ -289,58 +553,727 @@
 <var>${is_not_rejected}</var>
 <arg>${True}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:49.004" endtime="20231020 00:24:49.004"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${count_infinity_loop}</var>
 <arg>${infinity_loop}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:49.004" endtime="20231020 00:24:49.004"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${is_not_rejected}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:49.004" endtime="20231020 00:24:49.004"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${count_infinity_loop}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:49.004" endtime="20231020 00:24:49.004"/>
 </kw>
 <break>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:49.097" endtime="20231020 00:24:49.113"/>
 </break>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:48.957" endtime="20231020 00:24:49.113"/>
 </branch>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:48.926" endtime="20231020 00:24:49.113"/>
 </if>
-<status status="FAIL" starttime="20231013 21:13:42.371" endtime="20231013 21:13:50.869"/>
+<status status="FAIL" starttime="20231020 00:24:38.756" endtime="20231020 00:24:49.113"/>
 </iter>
-<status status="FAIL" starttime="20231013 21:13:42.320" endtime="20231013 21:13:50.869"/>
+<status status="FAIL" starttime="20231020 00:24:38.657" endtime="20231020 00:24:49.113"/>
 </for>
-<status status="FAIL" starttime="20231013 21:13:42.320" endtime="20231013 21:13:50.869"/>
+<status status="FAIL" starttime="20231020 00:24:38.657" endtime="20231020 00:24:49.129"/>
 </iter>
-<status status="FAIL" starttime="20231013 21:13:42.320" endtime="20231013 21:13:50.869"/>
+<status status="FAIL" starttime="20231020 00:24:38.657" endtime="20231020 00:24:49.129"/>
 </for>
 <kw name="Log List" library="Collections">
 <arg>${symbol}</arg>
 <doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
-<status status="NOT RUN" starttime="20231013 21:13:50.869" endtime="20231013 21:13:50.869"/>
+<status status="NOT RUN" starttime="20231020 00:24:49.191" endtime="20231020 00:24:49.191"/>
 </kw>
-<status status="FAIL" starttime="20231013 21:13:42.320" endtime="20231013 21:13:50.869">Button with locator '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]' not found.</status>
+<status status="FAIL" starttime="20231020 00:24:38.642" endtime="20231020 00:24:49.191">WebDriverException: Message: target frame detached
+  (failed to check if window was closed: disconnected: Unable to receive message from renderer)
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A4FD]
+	(No symbol) [0x00007FF67A248A91]
+	(No symbol) [0x00007FF67A2473AA]
+	(No symbol) [0x00007FF67A247E6E]
+	(No symbol) [0x00007FF67A2542FB]
+	(No symbol) [0x00007FF67A2656D1]
+	(No symbol) [0x00007FF67A269A4A]
+	(No symbol) [0x00007FF67A2484B7]
+	(No symbol) [0x00007FF67A265363]
+	(No symbol) [0x00007FF67A2D4D69]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</status>
 </test>
-<status status="FAIL" starttime="20231013 21:13:13.729" endtime="20231013 21:13:50.890"/>
+<status status="FAIL" starttime="20231020 00:23:29.995" endtime="20231020 00:24:49.379"/>
+</suite>
+<suite id="s1-s2" name="Tes2 (2)" source="C:\Users\haris\Documents\Python\Stockbit\tests_autobuy\tes2 (2).robot">
+<test id="s1-s2-t1" name="Scenario 1: Valid login credential" line="65">
+<kw name="Sleep" library="BuiltIn">
+<arg>3</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231020 00:23:34.146" level="INFO">Slept 3 seconds</msg>
+<status status="PASS" starttime="20231020 00:23:31.137" endtime="20231020 00:23:34.146"/>
+</kw>
+<kw name="Get Username and Password from API">
+<var>${username}</var>
+<var>${password}</var>
+<var>${id}</var>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231020 00:23:34.146" level="INFO">Creating Session using : alias=myssion, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231020 00:23:34.146" endtime="20231020 00:23:34.146"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>${child_get_url}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20231020 00:23:34.146" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231020 00:23:34.177" level="INFO">GET Request : url=http://127.0.0.1:5000/get_user 
+ path_url=/get_user 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231020 00:23:34.177" level="INFO">GET Response : url=http://127.0.0.1:5000/get_user 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.2.3 Python/3.9.2', 'Date': 'Thu, 19 Oct 2023 17:23:34 GMT', 'Content-Type': 'application/json', 'Content-Length': '117', 'Connection': 'close'} 
+ body={"id":2,"password":"bebas123","status_robot":"Belum Diproses","status_robot_id":1,"username":"Jaisyu0202@gmail.com"}
+ 
+ </msg>
+<msg timestamp="20231020 00:23:34.177" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231020 00:23:34.146" endtime="20231020 00:23:34.177"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231020 00:23:34.177" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231020 00:23:34.177" endtime="20231020 00:23:34.177"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231020 00:23:34.177" endtime="20231020 00:23:34.177"/>
+</kw>
+<kw name="Get From Dictionary" library="Collections">
+<var>${contentType}</var>
+<arg>${response.headers}</arg>
+<arg>Content-Type</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<msg timestamp="20231020 00:23:34.193" level="INFO">${contentType} = application/json</msg>
+<status status="PASS" starttime="20231020 00:23:34.177" endtime="20231020 00:23:34.193"/>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<arg>${contentType}</arg>
+<arg>application/json</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" starttime="20231020 00:23:34.193" endtime="20231020 00:23:34.193"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${contentString}</var>
+<arg>${response.content}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231020 00:23:34.193" level="INFO">${contentString} = {"id":2,"password":"bebas123","status_robot":"Belum Diproses","status_robot_id":1,"username":"Jaisyu0202@gmail.com"}
+</msg>
+<status status="PASS" starttime="20231020 00:23:34.193" endtime="20231020 00:23:34.193"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${contentData}</var>
+<arg>json.loads($contentString)</arg>
+<arg>json</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20231020 00:23:34.208" level="INFO">${contentData} = {'id': 2, 'password': 'bebas123', 'status_robot': 'Belum Diproses', 'status_robot_id': 1, 'username': 'Jaisyu0202@gmail.com'}</msg>
+<status status="PASS" starttime="20231020 00:23:34.193" endtime="20231020 00:23:34.208"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${contentData['username']}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20231020 00:23:34.208" endtime="20231020 00:23:34.224"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${username}</var>
+<arg>${contentData['username']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231020 00:23:34.224" level="INFO">${username} = Jaisyu0202@gmail.com</msg>
+<status status="PASS" starttime="20231020 00:23:34.224" endtime="20231020 00:23:34.224"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${password}</var>
+<arg>${contentData['password']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231020 00:23:34.224" level="INFO">${password} = bebas123</msg>
+<status status="PASS" starttime="20231020 00:23:34.224" endtime="20231020 00:23:34.224"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${id}</var>
+<arg>${contentData['id']}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231020 00:23:34.239" level="INFO">${id} = 2</msg>
+<status status="PASS" starttime="20231020 00:23:34.224" endtime="20231020 00:23:34.239"/>
+</kw>
+<msg timestamp="20231020 00:23:34.239" level="INFO">${username} = Jaisyu0202@gmail.com</msg>
+<msg timestamp="20231020 00:23:34.239" level="INFO">${password} = bebas123</msg>
+<msg timestamp="20231020 00:23:34.239" level="INFO">${id} = 2</msg>
+<status status="PASS" starttime="20231020 00:23:34.146" endtime="20231020 00:23:34.239"/>
+</kw>
+<kw name="Post Processing User ID">
+<arg>${id}</arg>
+<kw name="Create Session" library="RequestsLibrary">
+<arg>myssion</arg>
+<arg>${base_url}</arg>
+<doc>Create Session: create a HTTP session to a server</doc>
+<msg timestamp="20231020 00:23:34.239" level="INFO">Creating Session using : alias=myssion, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231020 00:23:34.239" endtime="20231020 00:23:34.239"/>
+</kw>
+<kw name="Get Request" library="RequestsLibrary">
+<var>${response}</var>
+<arg>myssion</arg>
+<arg>${child_post_processing_url}?id_user=${id_user}</arg>
+<doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
+<msg timestamp="20231020 00:23:34.239" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231020 00:23:34.271" level="INFO">GET Request : url=http://127.0.0.1:5000/update_status_dikerjakan?id_user=2 
+ path_url=/update_status_dikerjakan?id_user=2 
+ headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
+ body=None 
+ </msg>
+<msg timestamp="20231020 00:23:34.271" level="INFO">GET Response : url=http://127.0.0.1:5000/update_status_dikerjakan?id_user=2 
+ status=200, reason=OK 
+ headers={'Server': 'Werkzeug/2.2.3 Python/3.9.2', 'Date': 'Thu, 19 Oct 2023 17:23:34 GMT', 'Content-Type': 'application/json', 'Content-Length': '99', 'Connection': 'close'} 
+ body={"message":"Status robot untuk pengguna dengan ID 2 telah diperbarui menjadi 'Proses Dikerjakan'"}
+ 
+ </msg>
+<msg timestamp="20231020 00:23:34.271" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231020 00:23:34.239" endtime="20231020 00:23:34.271"/>
+</kw>
+<kw name="Convert To String" library="BuiltIn">
+<var>${status_code}</var>
+<arg>${response.status_code}</arg>
+<doc>Converts the given item to a Unicode string.</doc>
+<msg timestamp="20231020 00:23:34.286" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231020 00:23:34.271" endtime="20231020 00:23:34.286"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${status_code}</arg>
+<arg>200</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" starttime="20231020 00:23:34.286" endtime="20231020 00:23:34.286"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:34.239" endtime="20231020 00:23:34.286"/>
+</kw>
+<kw name="Login page opened (shortcut)" library="login_page">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${url_login}</arg>
+<arg>chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231020 00:23:34.286" level="INFO">Opening browser 'chrome' to base url 'https:/stockbit.com/login'.</msg>
+<status status="PASS" starttime="20231020 00:23:34.286" endtime="20231020 00:23:52.176"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20231020 00:23:52.178" endtime="20231020 00:23:52.416"/>
+</kw>
+<kw name="User should be directed to login page" library="landing_page">
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<arg>${loginPage}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<status status="PASS" starttime="20231020 00:23:52.419" endtime="20231020 00:23:52.508"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:52.417" endtime="20231020 00:23:52.508"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:34.286" endtime="20231020 00:23:52.509"/>
+</kw>
+<kw name="User input username and password" library="login_steps">
+<arg>${username}</arg>
+<arg>${password}</arg>
+<kw name="Input username" library="login_page">
+<arg>${username}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${usernameField}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231020 00:23:52.513" endtime="20231020 00:23:52.579"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${usernameField}</arg>
+<arg>${username}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231020 00:23:52.582" level="INFO">Typing text 'Jaisyu0202@gmail.com' into text field '//*[@id="username"]'.</msg>
+<status status="PASS" starttime="20231020 00:23:52.580" endtime="20231020 00:23:53.089"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:52.512" endtime="20231020 00:23:53.090"/>
+</kw>
+<kw name="Input password" library="login_page">
+<arg>${password}</arg>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${passwordField}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231020 00:23:53.094" endtime="20231020 00:23:53.175"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>${passwordField}</arg>
+<arg>${password}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231020 00:23:53.179" level="INFO">Typing text 'bebas123' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20231020 00:23:53.175" endtime="20231020 00:23:53.618"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:53.091" endtime="20231020 00:23:53.621"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:52.510" endtime="20231020 00:23:53.621"/>
+</kw>
+<kw name="Click login button" library="login_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231020 00:23:53.625" endtime="20231020 00:23:53.775"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${loginButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231020 00:23:53.778" level="INFO">Clicking element '//*[@id="email-login-button"]'.</msg>
+<status status="PASS" starttime="20231020 00:23:53.775" endtime="20231020 00:23:54.199"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:53.623" endtime="20231020 00:23:54.200"/>
+</kw>
+<kw name="User directed to home page" library="home_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${homeStockbitLogo}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231020 00:23:54.202" endtime="20231020 00:24:02.204"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${homeStockbitLogo}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231020 00:24:02.314" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/a' is displayed.</msg>
+<status status="PASS" starttime="20231020 00:24:02.204" endtime="20231020 00:24:02.314"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${homeSearchBar}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231020 00:24:02.314" endtime="20231020 00:24:02.445"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${homeSearchBar}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231020 00:24:02.498" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form/div/div/span[1]' is displayed.</msg>
+<status status="PASS" starttime="20231020 00:24:02.446" endtime="20231020 00:24:02.498"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231020 00:24:02.499" endtime="20231020 00:24:02.552"/>
+</kw>
+<kw name="Element Should Be Visible" library="SeleniumLibrary">
+<arg>${profileIcon}</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<msg timestamp="20231020 00:24:09.215" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[2]/div[3]/div' is displayed.</msg>
+<status status="PASS" starttime="20231020 00:24:02.553" endtime="20231020 00:24:09.215"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:54.201" endtime="20231020 00:24:09.231"/>
+</kw>
+<kw name="Run Keyword And Ignore Error" library="BuiltIn">
+<arg>Click Element</arg>
+<arg>xpath=//*[@id="modalnewavatar-button-skip"]</arg>
+<doc>Runs the given keyword with the given arguments and ignores possible error.</doc>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//*[@id="modalnewavatar-button-skip"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231020 00:24:09.231" level="INFO">Clicking element 'xpath=//*[@id="modalnewavatar-button-skip"]'.</msg>
+<msg timestamp="20231020 00:24:36.656" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="1-selenium-screenshot-1.png"&gt;&lt;img src="1-selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231020 00:24:36.659" level="FAIL">ElementNotInteractableException: Message: element not interactable: element has zero size
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A29CD88]
+	(No symbol) [0x00007FF67A2929CF]
+	(No symbol) [0x00007FF67A2BBE6A]
+	(No symbol) [0x00007FF67A2922E6]
+	(No symbol) [0x00007FF67A2BC080]
+	(No symbol) [0x00007FF67A2D4D02]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</msg>
+<status status="FAIL" starttime="20231020 00:24:09.231" endtime="20231020 00:24:36.714"/>
+</kw>
+<status status="PASS" starttime="20231020 00:24:09.231" endtime="20231020 00:24:36.715"/>
+</kw>
+<status status="PASS" starttime="20231020 00:23:31.137" endtime="20231020 00:24:36.718"/>
+</test>
+<test id="s1-s2-t2" name="Scenario 2: Trading Area (Virtual) Page" line="76">
+<kw name="User Activates Trading Area (Virtual)" library="trading_area_page">
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${tradingAreaButton}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20231020 00:24:36.728" endtime="20231020 00:24:37.031"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${tradingAreaButton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231020 00:24:37.034" level="INFO">Clicking element '//*[@id="stockbit-header-web"]/div[2]/div[1]/div'.</msg>
+<msg timestamp="20231020 00:24:38.673" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="1-selenium-screenshot-2.png"&gt;&lt;img src="1-selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231020 00:24:38.673" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;div data-cy="top-navbar-button-start-trading" direction="row" wrap="nowrap" class="sc-gKXOVf sc-9dda1440-0 sc-9dda1440-1 kgqACx hXnMeM cwkESa"&gt;...&lt;/div&gt; is not clickable at point (1276, 51). Other element would receive the click: &lt;div tabindex="-1" class="ant-modal-wrap ant-modal-centered"&gt;...&lt;/div&gt;
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A2A1A6B]
+	(No symbol) [0x00007FF67A29FE39]
+	(No symbol) [0x00007FF67A29DC08]
+	(No symbol) [0x00007FF67A29CCC3]
+	(No symbol) [0x00007FF67A2929CF]
+	(No symbol) [0x00007FF67A2BBE6A]
+	(No symbol) [0x00007FF67A2922E6]
+	(No symbol) [0x00007FF67A2BC080]
+	(No symbol) [0x00007FF67A2D4D02]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</msg>
+<status status="FAIL" starttime="20231020 00:24:37.032" endtime="20231020 00:24:38.673"/>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<arg>${virtualTradingButton}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:38.673" endtime="20231020 00:24:38.673"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${virtualTradingAreaTitle}</arg>
+<arg>10</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:38.673" endtime="20231020 00:24:38.673"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${homeStockbitLogo}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:38.673" endtime="20231020 00:24:38.673"/>
+</kw>
+<status status="FAIL" starttime="20231020 00:24:36.728" endtime="20231020 00:24:38.673"/>
+</kw>
+<status status="FAIL" starttime="20231020 00:24:36.723" endtime="20231020 00:24:38.673">ElementClickInterceptedException: Message: element click intercepted: Element &lt;div data-cy="top-navbar-button-start-trading" direction="row" wrap="nowrap" class="sc-gKXOVf sc-9dda1440-0 sc-9dda1440-1 kgqACx hXnMeM cwkESa"&gt;...&lt;/div&gt; is not clickable at point (1276, 51). Other element would receive the click: &lt;div tabindex="-1" class="ant-modal-wrap ant-modal-centered"&gt;...&lt;/div&gt;
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A2A1A6B]
+	(No symbol) [0x00007FF67A29FE39]
+	(No symbol) [0x00007FF67A29DC08]
+	(No symbol) [0x00007FF67A29CCC3]
+	(No symbol) [0x00007FF67A2929CF]
+	(No symbol) [0x00007FF67A2BBE6A]
+	(No symbol) [0x00007FF67A2922E6]
+	(No symbol) [0x00007FF67A2BC080]
+	(No symbol) [0x00007FF67A2D4D02]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</status>
+</test>
+<test id="s1-s2-t3" name="Scenario 3 : Auto Buy" line="79">
+<kw name="Create List" library="BuiltIn">
+<var>@{symbol}</var>
+<doc>Returns a list containing given items.</doc>
+<msg timestamp="20231020 00:24:38.695" level="INFO">@{symbol} = [ ]</msg>
+<status status="PASS" starttime="20231020 00:24:38.692" endtime="20231020 00:24:38.695"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${data_order_len}</var>
+<arg>${data_order}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20231020 00:24:38.696" level="INFO">Length is 3</msg>
+<msg timestamp="20231020 00:24:38.696" level="INFO">${data_order_len} = 3</msg>
+<status status="PASS" starttime="20231020 00:24:38.695" endtime="20231020 00:24:38.696"/>
+</kw>
+<kw name="Show List Buy" library="autobuy">
+<var>${count_buy}</var>
+<arg>${data_order}</arg>
+<arg>${total_balance}</arg>
+<arg>${max_percent_used_balance}</arg>
+<msg timestamp="20231020 00:24:38.696" level="INFO">${count_buy} = 1</msg>
+<status status="PASS" starttime="20231020 00:24:38.696" endtime="20231020 00:24:38.696"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${index}</var>
+<value>0</value>
+<value>${data_order_len}</value>
+<iter>
+<var name="${index}">0</var>
+<kw name="Set Variable" library="BuiltIn">
+<var>${is_not_rejected}</var>
+<arg>${False}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231020 00:24:38.714" level="INFO">${is_not_rejected} = False</msg>
+<status status="PASS" starttime="20231020 00:24:38.712" endtime="20231020 00:24:38.714"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${count_infinity_loop}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20231020 00:24:38.716" level="INFO">${count_infinity_loop} = 0</msg>
+<status status="PASS" starttime="20231020 00:24:38.715" endtime="20231020 00:24:38.716"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${infinity_loop}</var>
+<value>0</value>
+<value>999999</value>
+<iter>
+<var name="${infinity_loop}">0</var>
+<kw name="Log" library="BuiltIn">
+<arg>${data_order[${index}][2:6]}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20231020 00:24:38.796" level="INFO">CUAN</msg>
+<status status="PASS" starttime="20231020 00:24:38.772" endtime="20231020 00:24:38.797"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${symbol}</arg>
+<arg>${data_order[${index}][2:6]}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20231020 00:24:38.797" endtime="20231020 00:24:38.802"/>
+</kw>
+<kw name="Stock Page Opened" library="trading_area_page">
+<arg>${data_order[${index}][2:6]}</arg>
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://stockbit.com/symbol/${symbol}</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20231020 00:24:38.809" level="INFO">Opening url 'https://stockbit.com/symbol/CUAN'</msg>
+<msg timestamp="20231020 00:24:52.534" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: 'NoneType' object has no attribute 'encode'</msg>
+<msg timestamp="20231020 00:24:52.550" level="FAIL">WebDriverException: Message: unknown error: cannot determine loading status
+from target frame detached
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A4FD]
+	(No symbol) [0x00007FF67A248A91]
+	(No symbol) [0x00007FF67A2473AA]
+	(No symbol) [0x00007FF67A247E6E]
+	(No symbol) [0x00007FF67A2547D7]
+	(No symbol) [0x00007FF67A2656D1]
+	(No symbol) [0x00007FF67A269A4A]
+	(No symbol) [0x00007FF67A2484B7]
+	(No symbol) [0x00007FF67A265363]
+	(No symbol) [0x00007FF67A2D4D69]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</msg>
+<status status="FAIL" starttime="20231020 00:24:38.807" endtime="20231020 00:24:52.565"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>${homeStockbitLogo}</arg>
+<arg>20</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:52.628" endtime="20231020 00:24:52.628"/>
+</kw>
+<status status="FAIL" starttime="20231020 00:24:38.803" endtime="20231020 00:24:52.628"/>
+</kw>
+<kw name="Place Stock Order (Buy)" library="trading_area_page">
+<arg>${count_buy}</arg>
+<status status="NOT RUN" starttime="20231020 00:24:52.628" endtime="20231020 00:24:52.628"/>
+</kw>
+<kw name="User directed to Trade Order Page" library="trading_area_page">
+<status status="NOT RUN" starttime="20231020 00:24:52.628" endtime="20231020 00:24:52.628"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${Status}</var>
+<arg>${statusOrderBuy}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:52.643" endtime="20231020 00:24:52.643"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${Status}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:52.643" endtime="20231020 00:24:52.643"/>
+</kw>
+<if>
+<branch type="IF" condition="'${Status}' == 'REJECTED'">
+<kw name="Set Variable" library="BuiltIn">
+<var>${is_not_rejected}</var>
+<arg>${True}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:52.659" endtime="20231020 00:24:52.659"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${count_infinity_loop}</var>
+<arg>${infinity_loop}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:52.659" endtime="20231020 00:24:52.659"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${is_not_rejected}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:52.659" endtime="20231020 00:24:52.659"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${count_infinity_loop}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:52.675" endtime="20231020 00:24:52.675"/>
+</kw>
+<break>
+<status status="NOT RUN" starttime="20231020 00:24:52.675" endtime="20231020 00:24:52.675"/>
+</break>
+<status status="NOT RUN" starttime="20231020 00:24:52.659" endtime="20231020 00:24:52.675"/>
+</branch>
+<status status="NOT RUN" starttime="20231020 00:24:52.659" endtime="20231020 00:24:52.675"/>
+</if>
+<status status="FAIL" starttime="20231020 00:24:38.772" endtime="20231020 00:24:52.675"/>
+</iter>
+<status status="FAIL" starttime="20231020 00:24:38.716" endtime="20231020 00:24:52.675"/>
+</for>
+<status status="FAIL" starttime="20231020 00:24:38.710" endtime="20231020 00:24:52.675"/>
+</iter>
+<status status="FAIL" starttime="20231020 00:24:38.696" endtime="20231020 00:24:52.675"/>
+</for>
+<kw name="Log List" library="Collections">
+<arg>${symbol}</arg>
+<doc>Logs the length and contents of the ``list`` using given ``level``.</doc>
+<status status="NOT RUN" starttime="20231020 00:24:52.675" endtime="20231020 00:24:52.675"/>
+</kw>
+<status status="FAIL" starttime="20231020 00:24:38.690" endtime="20231020 00:24:52.675">WebDriverException: Message: unknown error: cannot determine loading status
+from target frame detached
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A4FD]
+	(No symbol) [0x00007FF67A248A91]
+	(No symbol) [0x00007FF67A2473AA]
+	(No symbol) [0x00007FF67A247E6E]
+	(No symbol) [0x00007FF67A2547D7]
+	(No symbol) [0x00007FF67A2656D1]
+	(No symbol) [0x00007FF67A269A4A]
+	(No symbol) [0x00007FF67A2484B7]
+	(No symbol) [0x00007FF67A265363]
+	(No symbol) [0x00007FF67A2D4D69]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</status>
+</test>
+<status status="FAIL" starttime="20231020 00:23:29.995" endtime="20231020 00:24:52.690"/>
+</suite>
+<doc>[https://pabot.org/?ref=log|Pabot] result from 2 executions.</doc>
+<status status="FAIL" starttime="20231020 00:23:29.948" endtime="20231020 00:24:52.690"/>
 </suite>
 <statistics>
 <total>
-<stat pass="2" fail="1" skip="0">All Tests</stat>
+<stat pass="2" fail="4" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="2" fail="1" skip="0" id="s1" name="Tes2">Tes2</stat>
+<stat pass="2" fail="4" skip="0" id="s1" name="Tests Autobuy">Tests Autobuy</stat>
+<stat pass="1" fail="2" skip="0" id="s1-s1" name="Tes2 (1)">Tests Autobuy.Tes2 (1)</stat>
+<stat pass="1" fail="2" skip="0" id="s1-s2" name="Tes2 (2)">Tests Autobuy.Tes2 (2)</stat>
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20231020 00:23:31.137" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231020 00:23:31.293" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231020 00:24:48.749" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: Message: disconnected: not connected to DevTools
+  (failed to check if window was closed: disconnected: not connected to DevTools)
+  (Session info: chrome=118.0.5993.89)
+Stacktrace:
+	GetHandleVerifier [0x00007FF67A438E92+54786]
+	(No symbol) [0x00007FF67A3A55B2]
+	(No symbol) [0x00007FF67A25A64B]
+	(No symbol) [0x00007FF67A248617]
+	(No symbol) [0x00007FF67A248290]
+	(No symbol) [0x00007FF67A25C541]
+	(No symbol) [0x00007FF67A2D43FF]
+	(No symbol) [0x00007FF67A2BBC43]
+	(No symbol) [0x00007FF67A290941]
+	(No symbol) [0x00007FF67A291B84]
+	GetHandleVerifier [0x00007FF67A787EE2+3524178]
+	GetHandleVerifier [0x00007FF67A7DD790+3874560]
+	GetHandleVerifier [0x00007FF67A7D5D0F+3843199]
+	GetHandleVerifier [0x00007FF67A4D5026+694166]
+	(No symbol) [0x00007FF67A3B0A28]
+	(No symbol) [0x00007FF67A3ACA34]
+	(No symbol) [0x00007FF67A3ACB62]
+	(No symbol) [0x00007FF67A39CC23]
+	BaseThreadInitThunk [0x00007FFEA0B47344+20]
+	RtlUserThreadStart [0x00007FFEA27E26B1+33]
+</msg>
+<msg timestamp="20231020 00:23:34.146" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231020 00:23:34.239" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231020 00:24:52.534" level="WARN">Keyword 'Capture Page Screenshot' could not be run on failure: 'NoneType' object has no attribute 'encode'</msg>
 </errors>
 </robot>
