@@ -26,3 +26,22 @@ def show_list_buy(data_order, total_balance, max_percent):
 
     # data baru hasil filtering ini menghasilkan data [['CUAN','3020'],['ADHI','505'],['KIJA','169']]
     return count_buy
+
+def show_list_buy_2(data_order, total_balance, max_percent):
+    data_baru = []
+    used_balance = total_balance/100
+    used_balance = used_balance * max_percent
+    data_length_order = len(data_order)
+    total_usage_each_stock = round(used_balance/data_length_order)
+
+    for item in data_order:
+        # Evaluasi string sebagai list
+        item_list = eval(item)
+
+        # Ambil elemen-elemen yang diperlukan dan buat sublist baru
+        sublist = [item_list[0], int(item_list[2]), round(total_usage_each_stock/int(item_list[2]))]
+
+        # Tambahkan sublist ke data_baru
+        data_baru.append(sublist)
+    
+    return data_baru
