@@ -7,7 +7,7 @@ import { ReactComponent as ProfilePictDummy } from "../../icons/profile-pict-dum
 const TopNavbar = () => {
   return (
     <>
-      <div className="bg-cuanbot-header flex justify-between pt-9 px-6 pb-4">
+      <div className="bg-cuanbot-header flex justify-between pt-4 px-6 pb-3">
         <Link to="/user/profile" className="">
           <ProfilePictDummy />
         </Link>

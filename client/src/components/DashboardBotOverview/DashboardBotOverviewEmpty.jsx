@@ -1,4 +1,5 @@
 import React from "react";
+import { ReactComponent as NotFound } from "../../icons/notfound.svg";
 
 const DashboardBotOverviewEmpty = ({ activeTab }) => {
   let msgContent;
@@ -17,7 +18,12 @@ const DashboardBotOverviewEmpty = ({ activeTab }) => {
       msgContent = "single";
       break;
   }
-  return <div className="text-cuanbot-gray m-5 p-5">No {msgContent} automation here 🤖</div>;
+  return (
+    <div className="flex flex-col items-center text-cuanbot-gray gap-y-5 m-5 p-5">
+      <NotFound />
+      No {msgContent} automation here 🤖{" "}
+    </div>
+  );
 };
 
 export default DashboardBotOverviewEmpty;
