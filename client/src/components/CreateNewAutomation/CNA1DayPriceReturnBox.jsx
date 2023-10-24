@@ -1,9 +1,13 @@
 import React from "react";
+import GlobalDarkBox from "../GlobalComponents/GlobalDarkBox";
+import PriceReturnInput from "./PriceReturnInput";
 
 const CNA1DayPriceReturnBox = () => {
   return (
     <>
-      <div>CNA1DayPriceReturnBox</div>
+      <GlobalDarkBox>
+        <PriceReturnInput label="1 Day Price Return" name="percentageValue" />
+      </GlobalDarkBox>
     </>
   );
 };

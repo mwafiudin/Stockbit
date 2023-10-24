@@ -1,9 +1,15 @@
 import React from "react";
+import { useField } from "formik";
 
-const SecuritiesOptionMethod = () => {
+const SecuritiesOptionMethod = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
   return (
     <>
-      <div>SecuritiesOptionMethod</div>
+      <div>
+        <label htmlFor={props.id || props.name}>{label}</label>
+        <select {...field} {...props} />
+        {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+      </div>
     </>
   );
 };
