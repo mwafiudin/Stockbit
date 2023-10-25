@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import GlobalDarkBox from "../GlobalComponents/GlobalDarkBox";
-import PriceRangeInput from "./PriceRangeInput";
+import PriceRangeInput from "../PriceRangeInputSlider/PriceRangeInput";
 import { useFormikContext } from "formik";
 
 const CNAPriceRangeBox = () => {
