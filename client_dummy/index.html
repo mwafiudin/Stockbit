@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <h1>Login</h1>
+    <form id="login-form">
+        <label for="emailUser">Email:</label>
+        <input type="text" id="emailUser" name="emailUser" placeholder="Masukkan email Anda">
+        <br>
+        <label for="passwordUser">Password:</label>
+        <input type="password" id="passwordUser" name="passwordUser" placeholder="Masukkan kata sandi Anda">
+        <br>
+        <button type="button" id="login-button">Login</button>
+    </form>
+
+    <div id="login-message"></div>
+
+    <script>
+        document.getElementById("login-button").addEventListener("click", function() {
+            var emailUser = document.getElementById("emailUser").value;
+            var passwordUser = document.getElementById("passwordUser").value;
+
+            var data = {
+                "emailUser": emailUser,
+                "passwordUser": passwordUser
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: 'http://127.0.0.1:5000/login',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function(response) {
+                    // Tampilkan respons dari server
+                    document.getElementById("login-message").textContent = JSON.stringify(response);
+
+                    // Simpan access_token dalam local storage
+                    localStorage.setItem('access_token', response.access_token);
+
+                    window.location.href = "dashboard/index.html";
+                },
+                error: function(error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

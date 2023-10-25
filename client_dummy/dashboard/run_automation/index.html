@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dashboard</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Menggunakan Bootstrap CSS dari CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <!-- Menggunakan Bootstrap JavaScript dari CDN (termasuk jQuery dan Popper.js) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <h1>Create New Automation</h1>
+    <button onclick="backPress();">Back</button>
+    <div>Available Balance: <span>0</span></div>
+    <div>Active Periode</div>
+    <div class="d-flex justify-content-start">
+        <input type="date" id="startdates">
+        <div>-</div>
+        <input type="date" id="enddates">
+    </div>
+    <div>Method</div>
+    <select name="" id="">
+        <option value="">BSJP</option>
+        <option value="">BPJS</option>
+    </select>
+    <div>Security</div>
+    <select name="" id="">
+        <option value="">Stockbit</option>
+    </select>
+    <div class="d-flex justify-content-start">
+        <div>1 Day Price Return</div>
+        <input type="number" id="one_dpr_prcntg">
+        <div>%</div>
+    </div>
+    <div>
+        <input type="number" placeholder="Min Price" id="minPrice">
+        <input type="number" placeholder="Max Price" id="maxPrice">
+    </div>
+    <div>Max Balance Used:</div>
+    <div class="d-flex justify-content-start">
+        <input type="number" id="maxBalanceUsed">
+        <div>%</div>
+    </div>
+    <div>Max Stock Selected</div>
+    <input type="number" id="maxStockSelected">
+    <div></div>
+    <button>Activate</button>
+    <script>
+        // Ambil access token dari local storage
+        var accessToken = localStorage.getItem("access_token");
+
+        function backPress() {
+            window.location.href = "../index.html";
+        }
+        $(document).ready(function() {
+            $.ajax({
+                type: "GET",
+                url: "http://127.0.0.1:5000/data_automation",
+                contentType: "application/json",
+                headers: {
+                    Authorization: "Bearer " + accessToken, // Gantilah access_token dengan nilai token yang Anda miliki
+                },
+                success: function(response) {
+                    var obj = JSON.parse(JSON.stringify(response));
+                    console.log(obj);
+                    document.getElementById('startdates').value = obj['startDate']
+                    document.getElementById('enddates').value = obj['endDate']
+                    document.getElementById('one_dpr_prcntg').value = obj['one_dpr_pctg']
+                    document.getElementById('minPrice').value = obj['minPrice']
+                    document.getElementById('maxPrice').value = obj['maxPrice']
+                    document.getElementById('maxBalanceUsed').value = obj['maxBalanceUsed']
+                    document.getElementById('maxStockSelected').value = obj['maxStockSelected']
+                },
+                error: function(error) {
+                    // Menampilkan pesan kesalahan dalam bentuk alert
+                    alert("Terjadi kesalahan: " + error.statusText);
+                    window.location.href = "../index.html";
+                    console.error("Error:", error);
+                },
+            });
+        });
+
+        function convertDate(dateGMT) {
+            var endDate = new Date(dateGMT);
+
+            // Konversi ke format "YYYY-MM-DD"
+            var year = endDate.getUTCFullYear();
+            var month = String(endDate.getUTCMonth() + 1).padStart(2, '0'); // Tambahkan 1 karena bulan dimulai dari 0
+            var day = String(endDate.getUTCDate()).padStart(2, '0');
+
+            var formattedDate = year + '-' + month + '-' + day;
+
+            return formattedDate
+        }
+    </script>
+</body>
+
+</html>

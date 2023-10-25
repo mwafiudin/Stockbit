@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.0.2 (Python 3.9.2 on win32)" generated="20231022 22:02:13.041" rpa="false" schemaversion="3">
+<robot generator="Robot 6.0.2 (Python 3.9.2 on win32)" generated="20231025 06:41:14.897" rpa="false" schemaversion="3">
 <suite id="s1" name="Tes2" source="C:\Users\haris\Documents\Python\Stockbit\tests\tes2.robot">
 <test id="s1-t1" name="Scenario 1: Valid login credential" line="65">
 <kw name="Get Username and Password from API">
@@ -10,125 +10,125 @@
 <arg>myssion</arg>
 <arg>${base_url}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20231022 22:02:13.831" level="INFO">Creating Session using : alias=myssion, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20231022 22:02:13.831" endtime="20231022 22:02:13.831"/>
+<msg timestamp="20231025 06:41:15.872" level="INFO">Creating Session using : alias=myssion, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231025 06:41:15.871" endtime="20231025 06:41:15.873"/>
 </kw>
 <kw name="Get Request" library="RequestsLibrary">
 <var>${response}</var>
 <arg>myssion</arg>
 <arg>${child_get_url}</arg>
 <doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
-<msg timestamp="20231022 22:02:13.831" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg timestamp="20231022 22:02:13.856" level="INFO">GET Request : url=http://127.0.0.1:5000/get_user 
+<msg timestamp="20231025 06:41:15.875" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231025 06:41:15.902" level="INFO">GET Request : url=http://127.0.0.1:5000/get_user 
  path_url=/get_user 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20231022 22:02:13.856" level="INFO">GET Response : url=http://127.0.0.1:5000/get_user 
+<msg timestamp="20231025 06:41:15.902" level="INFO">GET Response : url=http://127.0.0.1:5000/get_user 
  status=200, reason=OK 
- headers={'Server': 'Werkzeug/2.2.3 Python/3.9.2', 'Date': 'Sun, 22 Oct 2023 15:02:13 GMT', 'Content-Type': 'application/json', 'Content-Length': '128', 'Connection': 'close'} 
+ headers={'Server': 'Werkzeug/2.2.3 Python/3.9.2', 'Date': 'Tue, 24 Oct 2023 23:41:15 GMT', 'Content-Type': 'application/json', 'Content-Length': '128', 'Access-Control-Allow-Origin': '*', 'Connection': 'close'} 
  body={"id":1,"password":"harisganteng","status_robot":"Belum Diproses","status_robot_id":1,"username":"hidayatullohharis@gmail.com"}
  
  </msg>
-<msg timestamp="20231022 22:02:13.856" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20231022 22:02:13.831" endtime="20231022 22:02:13.856"/>
+<msg timestamp="20231025 06:41:15.902" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231025 06:41:15.875" endtime="20231025 06:41:15.902"/>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
 <var>${status_code}</var>
 <arg>${response.status_code}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20231022 22:02:13.856" level="INFO">${status_code} = 200</msg>
-<status status="PASS" starttime="20231022 22:02:13.856" endtime="20231022 22:02:13.856"/>
+<msg timestamp="20231025 06:41:15.907" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231025 06:41:15.902" endtime="20231025 06:41:15.907"/>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <arg>${status_code}</arg>
 <arg>200</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20231022 22:02:13.856" endtime="20231022 22:02:13.856"/>
+<status status="PASS" starttime="20231025 06:41:15.907" endtime="20231025 06:41:15.909"/>
 </kw>
 <kw name="Get From Dictionary" library="Collections">
 <var>${contentType}</var>
 <arg>${response.headers}</arg>
 <arg>Content-Type</arg>
 <doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
-<msg timestamp="20231022 22:02:13.856" level="INFO">${contentType} = application/json</msg>
-<status status="PASS" starttime="20231022 22:02:13.856" endtime="20231022 22:02:13.856"/>
+<msg timestamp="20231025 06:41:15.912" level="INFO">${contentType} = application/json</msg>
+<status status="PASS" starttime="20231025 06:41:15.910" endtime="20231025 06:41:15.912"/>
 </kw>
 <kw name="Should Contain" library="BuiltIn">
 <arg>${contentType}</arg>
 <arg>application/json</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" starttime="20231022 22:02:13.856" endtime="20231022 22:02:13.856"/>
+<status status="PASS" starttime="20231025 06:41:15.913" endtime="20231025 06:41:15.913"/>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
 <var>${contentString}</var>
 <arg>${response.content}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20231022 22:02:13.856" level="INFO">${contentString} = {"id":1,"password":"harisganteng","status_robot":"Belum Diproses","status_robot_id":1,"username":"hidayatullohharis@gmail.com"}
+<msg timestamp="20231025 06:41:15.916" level="INFO">${contentString} = {"id":1,"password":"harisganteng","status_robot":"Belum Diproses","status_robot_id":1,"username":"hidayatullohharis@gmail.com"}
 </msg>
-<status status="PASS" starttime="20231022 22:02:13.856" endtime="20231022 22:02:13.856"/>
+<status status="PASS" starttime="20231025 06:41:15.914" endtime="20231025 06:41:15.916"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${contentData}</var>
 <arg>json.loads($contentString)</arg>
 <arg>json</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20231022 22:02:13.868" level="INFO">${contentData} = {'id': 1, 'password': 'harisganteng', 'status_robot': 'Belum Diproses', 'status_robot_id': 1, 'username': 'hidayatullohharis@gmail.com'}</msg>
-<status status="PASS" starttime="20231022 22:02:13.856" endtime="20231022 22:02:13.868"/>
+<msg timestamp="20231025 06:41:15.927" level="INFO">${contentData} = {'id': 1, 'password': 'harisganteng', 'status_robot': 'Belum Diproses', 'status_robot_id': 1, 'username': 'hidayatullohharis@gmail.com'}</msg>
+<status status="PASS" starttime="20231025 06:41:15.917" endtime="20231025 06:41:15.927"/>
 </kw>
 <kw name="Log To Console" library="BuiltIn">
 <arg>${contentData['username']}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" starttime="20231022 22:02:13.868" endtime="20231022 22:02:13.871"/>
+<status status="PASS" starttime="20231025 06:41:15.928" endtime="20231025 06:41:15.929"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${username}</var>
 <arg>${contentData['username']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:02:13.873" level="INFO">${username} = hidayatullohharis@gmail.com</msg>
-<status status="PASS" starttime="20231022 22:02:13.872" endtime="20231022 22:02:13.873"/>
+<msg timestamp="20231025 06:41:15.932" level="INFO">${username} = hidayatullohharis@gmail.com</msg>
+<status status="PASS" starttime="20231025 06:41:15.930" endtime="20231025 06:41:15.932"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${password}</var>
 <arg>${contentData['password']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:02:13.874" level="INFO">${password} = harisganteng</msg>
-<status status="PASS" starttime="20231022 22:02:13.873" endtime="20231022 22:02:13.874"/>
+<msg timestamp="20231025 06:41:15.934" level="INFO">${password} = harisganteng</msg>
+<status status="PASS" starttime="20231025 06:41:15.932" endtime="20231025 06:41:15.934"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${id}</var>
 <arg>${contentData['id']}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:02:13.875" level="INFO">${id} = 1</msg>
-<status status="PASS" starttime="20231022 22:02:13.875" endtime="20231022 22:02:13.875"/>
+<msg timestamp="20231025 06:41:15.937" level="INFO">${id} = 1</msg>
+<status status="PASS" starttime="20231025 06:41:15.934" endtime="20231025 06:41:15.937"/>
 </kw>
-<msg timestamp="20231022 22:02:13.875" level="INFO">${username} = hidayatullohharis@gmail.com</msg>
-<msg timestamp="20231022 22:02:13.875" level="INFO">${password} = harisganteng</msg>
-<msg timestamp="20231022 22:02:13.875" level="INFO">${id} = 1</msg>
-<status status="PASS" starttime="20231022 22:02:13.830" endtime="20231022 22:02:13.875"/>
+<msg timestamp="20231025 06:41:15.939" level="INFO">${username} = hidayatullohharis@gmail.com</msg>
+<msg timestamp="20231025 06:41:15.939" level="INFO">${password} = harisganteng</msg>
+<msg timestamp="20231025 06:41:15.941" level="INFO">${id} = 1</msg>
+<status status="PASS" starttime="20231025 06:41:15.870" endtime="20231025 06:41:15.942"/>
 </kw>
 <kw name="Login page opened (shortcut)" library="login_page">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${url_login}</arg>
 <arg>chrome</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231022 22:02:13.875" level="INFO">Opening browser 'chrome' to base url 'https:/stockbit.com/login'.</msg>
-<status status="PASS" starttime="20231022 22:02:13.875" endtime="20231022 22:02:22.371"/>
+<msg timestamp="20231025 06:41:15.949" level="INFO">Opening browser 'chrome' to base url 'https:/stockbit.com/login'.</msg>
+<status status="PASS" starttime="20231025 06:41:15.947" endtime="20231025 06:41:25.980"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20231022 22:02:22.371" endtime="20231022 22:02:22.608"/>
+<status status="PASS" starttime="20231025 06:41:25.981" endtime="20231025 06:41:26.269"/>
 </kw>
 <kw name="User should be directed to login page" library="landing_page">
 <kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
 <arg>${loginPage}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` appears on the current page.</doc>
-<status status="PASS" starttime="20231022 22:02:22.609" endtime="20231022 22:02:22.701"/>
+<status status="PASS" starttime="20231025 06:41:26.271" endtime="20231025 06:41:26.370"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:22.608" endtime="20231022 22:02:22.702"/>
+<status status="PASS" starttime="20231025 06:41:26.269" endtime="20231025 06:41:26.371"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:13.875" endtime="20231022 22:02:22.702"/>
+<status status="PASS" starttime="20231025 06:41:15.945" endtime="20231025 06:41:26.373"/>
 </kw>
 <kw name="User input username and password" library="login_steps">
 <arg>${username}</arg>
@@ -138,34 +138,34 @@
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${usernameField}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:22.706" endtime="20231022 22:02:22.782"/>
+<status status="PASS" starttime="20231025 06:41:26.378" endtime="20231025 06:41:26.443"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${usernameField}</arg>
 <arg>${username}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:22.783" level="INFO">Typing text 'hidayatullohharis@gmail.com' into text field '//*[@id="username"]'.</msg>
-<status status="PASS" starttime="20231022 22:02:22.782" endtime="20231022 22:02:23.172"/>
+<msg timestamp="20231025 06:41:26.447" level="INFO">Typing text 'hidayatullohharis@gmail.com' into text field '//*[@id="username"]'.</msg>
+<status status="PASS" starttime="20231025 06:41:26.444" endtime="20231025 06:41:26.981"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:22.705" endtime="20231022 22:02:23.172"/>
+<status status="PASS" starttime="20231025 06:41:26.377" endtime="20231025 06:41:26.982"/>
 </kw>
 <kw name="Input password" library="login_page">
 <arg>${password}</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${passwordField}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:23.173" endtime="20231022 22:02:23.220"/>
+<status status="PASS" starttime="20231025 06:41:26.983" endtime="20231025 06:41:27.052"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${passwordField}</arg>
 <arg>${password}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:23.220" level="INFO">Typing text 'harisganteng' into text field '//*[@id="password"]'.</msg>
-<status status="PASS" starttime="20231022 22:02:23.220" endtime="20231022 22:02:23.471"/>
+<msg timestamp="20231025 06:41:27.053" level="INFO">Typing text 'harisganteng' into text field '//*[@id="password"]'.</msg>
+<status status="PASS" starttime="20231025 06:41:27.052" endtime="20231025 06:41:27.333"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:23.173" endtime="20231022 22:02:23.472"/>
+<status status="PASS" starttime="20231025 06:41:26.982" endtime="20231025 06:41:27.334"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:22.704" endtime="20231022 22:02:23.472"/>
+<status status="PASS" starttime="20231025 06:41:26.375" endtime="20231025 06:41:27.334"/>
 </kw>
 <kw name="Post Processing User ID">
 <arg>${id}</arg>
@@ -173,96 +173,96 @@
 <arg>myssion</arg>
 <arg>${base_url}</arg>
 <doc>Create Session: create a HTTP session to a server</doc>
-<msg timestamp="20231022 22:02:23.474" level="INFO">Creating Session using : alias=myssion, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
-<status status="PASS" starttime="20231022 22:02:23.474" endtime="20231022 22:02:23.475"/>
+<msg timestamp="20231025 06:41:27.337" level="INFO">Creating Session using : alias=myssion, url=http://127.0.0.1:5000, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20231025 06:41:27.336" endtime="20231025 06:41:27.337"/>
 </kw>
 <kw name="Get Request" library="RequestsLibrary">
 <var>${response}</var>
 <arg>myssion</arg>
 <arg>${child_post_processing_url}?id_user=${id_user}</arg>
 <doc>*DEPRECATED* Please use `GET On Session` instead.</doc>
-<msg timestamp="20231022 22:02:23.476" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg timestamp="20231022 22:02:23.533" level="INFO">GET Request : url=http://127.0.0.1:5000/update_status_dikerjakan?id_user=1 
+<msg timestamp="20231025 06:41:27.338" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231025 06:41:27.381" level="INFO">GET Request : url=http://127.0.0.1:5000/update_status_dikerjakan?id_user=1 
  path_url=/update_status_dikerjakan?id_user=1 
  headers={'User-Agent': 'python-requests/2.25.1', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive'} 
  body=None 
  </msg>
-<msg timestamp="20231022 22:02:23.533" level="INFO">GET Response : url=http://127.0.0.1:5000/update_status_dikerjakan?id_user=1 
+<msg timestamp="20231025 06:41:27.382" level="INFO">GET Response : url=http://127.0.0.1:5000/update_status_dikerjakan?id_user=1 
  status=200, reason=OK 
- headers={'Server': 'Werkzeug/2.2.3 Python/3.9.2', 'Date': 'Sun, 22 Oct 2023 15:02:23 GMT', 'Content-Type': 'application/json', 'Content-Length': '99', 'Connection': 'close'} 
+ headers={'Server': 'Werkzeug/2.2.3 Python/3.9.2', 'Date': 'Tue, 24 Oct 2023 23:41:27 GMT', 'Content-Type': 'application/json', 'Content-Length': '99', 'Access-Control-Allow-Origin': '*', 'Connection': 'close'} 
  body={"message":"Status robot untuk pengguna dengan ID 1 telah diperbarui menjadi 'Proses Dikerjakan'"}
  
  </msg>
-<msg timestamp="20231022 22:02:23.534" level="INFO">${response} = &lt;Response [200]&gt;</msg>
-<status status="PASS" starttime="20231022 22:02:23.475" endtime="20231022 22:02:23.534"/>
+<msg timestamp="20231025 06:41:27.382" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<status status="PASS" starttime="20231025 06:41:27.338" endtime="20231025 06:41:27.383"/>
 </kw>
 <kw name="Convert To String" library="BuiltIn">
 <var>${status_code}</var>
 <arg>${response.status_code}</arg>
 <doc>Converts the given item to a Unicode string.</doc>
-<msg timestamp="20231022 22:02:23.539" level="INFO">${status_code} = 200</msg>
-<status status="PASS" starttime="20231022 22:02:23.534" endtime="20231022 22:02:23.539"/>
+<msg timestamp="20231025 06:41:27.388" level="INFO">${status_code} = 200</msg>
+<status status="PASS" starttime="20231025 06:41:27.384" endtime="20231025 06:41:27.388"/>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <arg>${status_code}</arg>
 <arg>200</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20231022 22:02:23.540" endtime="20231022 22:02:23.541"/>
+<status status="PASS" starttime="20231025 06:41:27.388" endtime="20231025 06:41:27.389"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:23.473" endtime="20231022 22:02:23.541"/>
+<status status="PASS" starttime="20231025 06:41:27.335" endtime="20231025 06:41:27.390"/>
 </kw>
 <kw name="Click login button" library="login_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${loginButton}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:23.548" endtime="20231022 22:02:23.637"/>
+<status status="PASS" starttime="20231025 06:41:27.398" endtime="20231025 06:41:27.466"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${loginButton}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:23.651" level="INFO">Clicking element '//*[@id="email-login-button"]'.</msg>
-<status status="PASS" starttime="20231022 22:02:23.637" endtime="20231022 22:02:23.782"/>
+<msg timestamp="20231025 06:41:27.467" level="INFO">Clicking element '//*[@id="email-login-button"]'.</msg>
+<status status="PASS" starttime="20231025 06:41:27.466" endtime="20231025 06:41:27.630"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:23.547" endtime="20231022 22:02:23.782"/>
+<status status="PASS" starttime="20231025 06:41:27.397" endtime="20231025 06:41:27.631"/>
 </kw>
 <kw name="User directed to home page" library="home_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:23.784" endtime="20231022 22:02:28.070"/>
+<status status="PASS" starttime="20231025 06:41:27.632" endtime="20231025 06:41:32.911"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231022 22:02:28.907" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/a' is displayed.</msg>
-<status status="PASS" starttime="20231022 22:02:28.070" endtime="20231022 22:02:28.907"/>
+<msg timestamp="20231025 06:41:34.002" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/a' is displayed.</msg>
+<status status="PASS" starttime="20231025 06:41:32.911" endtime="20231025 06:41:34.002"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeSearchBar}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:28.907" endtime="20231022 22:02:29.293"/>
+<status status="PASS" starttime="20231025 06:41:34.003" endtime="20231025 06:41:34.170"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${homeSearchBar}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231022 22:02:29.459" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form/div/div/span[1]' is displayed.</msg>
-<status status="PASS" starttime="20231022 22:02:29.293" endtime="20231022 22:02:29.459"/>
+<msg timestamp="20231025 06:41:34.283" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[1]/form/div/div/span[1]' is displayed.</msg>
+<status status="PASS" starttime="20231025 06:41:34.170" endtime="20231025 06:41:34.284"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${profileIcon}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:29.459" endtime="20231022 22:02:29.501"/>
+<status status="PASS" starttime="20231025 06:41:34.284" endtime="20231025 06:41:34.378"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${profileIcon}</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231022 22:02:29.552" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[2]/div[3]/div' is displayed.</msg>
-<status status="PASS" starttime="20231022 22:02:29.501" endtime="20231022 22:02:29.552"/>
+<msg timestamp="20231025 06:41:34.511" level="INFO">Element '//*[@id="stockbit-header-web"]/div[1]/div[1]/div[2]/div[3]/div' is displayed.</msg>
+<status status="PASS" starttime="20231025 06:41:34.378" endtime="20231025 06:41:34.512"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:23.783" endtime="20231022 22:02:29.552"/>
+<status status="PASS" starttime="20231025 06:41:27.632" endtime="20231025 06:41:34.512"/>
 </kw>
 <kw name="Run Keyword And Ignore Error" library="BuiltIn">
 <arg>Click Element</arg>
@@ -271,69 +271,69 @@
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath=//*[@id="modalnewavatar-button-skip"]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:29.552" level="INFO">Clicking element 'xpath=//*[@id="modalnewavatar-button-skip"]'.</msg>
-<status status="PASS" starttime="20231022 22:02:29.552" endtime="20231022 22:02:29.675"/>
+<msg timestamp="20231025 06:41:34.515" level="INFO">Clicking element 'xpath=//*[@id="modalnewavatar-button-skip"]'.</msg>
+<status status="PASS" starttime="20231025 06:41:34.514" endtime="20231025 06:41:34.634"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:29.552" endtime="20231022 22:02:29.675"/>
+<status status="PASS" starttime="20231025 06:41:34.513" endtime="20231025 06:41:34.634"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:13.829" endtime="20231022 22:02:29.675"/>
+<status status="PASS" starttime="20231025 06:41:15.869" endtime="20231025 06:41:34.638"/>
 </test>
 <test id="s1-t2" name="Scenario 2: Trading Area (Virtual) Page" line="75">
 <kw name="User Activates Trading Area (Virtual)" library="trading_area_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${tradingAreaButton}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:29.687" endtime="20231022 22:02:29.759"/>
+<status status="PASS" starttime="20231025 06:41:34.647" endtime="20231025 06:41:34.763"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>${tradingAreaButton}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:29.763" level="INFO">Clicking element '//*[@id="stockbit-header-web"]/div[2]/div[1]/div'.</msg>
-<status status="PASS" starttime="20231022 22:02:29.759" endtime="20231022 22:02:30.370"/>
+<msg timestamp="20231025 06:41:34.765" level="INFO">Clicking element '//*[@id="stockbit-header-web"]/div[2]/div[1]/div'.</msg>
+<status status="PASS" starttime="20231025 06:41:34.764" endtime="20231025 06:41:35.459"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${virtualTradingButton}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:30.370" level="INFO">Clicking button '//button[@data-cy="virtual-trading-button-auth"]'.</msg>
-<status status="PASS" starttime="20231022 22:02:30.370" endtime="20231022 22:02:30.958"/>
+<msg timestamp="20231025 06:41:35.462" level="INFO">Clicking button '//button[@data-cy="virtual-trading-button-auth"]'.</msg>
+<status status="PASS" starttime="20231025 06:41:35.460" endtime="20231025 06:41:36.274"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${virtualTradingAreaTitle}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:30.958" endtime="20231022 22:02:36.266"/>
+<status status="PASS" starttime="20231025 06:41:36.276" endtime="20231025 06:41:41.697"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:36.266" endtime="20231022 22:02:36.298"/>
+<status status="PASS" starttime="20231025 06:41:41.698" endtime="20231025 06:41:41.767"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:29.686" endtime="20231022 22:02:36.298"/>
+<status status="PASS" starttime="20231025 06:41:34.646" endtime="20231025 06:41:41.767"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:29.684" endtime="20231022 22:02:36.299"/>
+<status status="PASS" starttime="20231025 06:41:34.642" endtime="20231025 06:41:41.768"/>
 </test>
 <test id="s1-t3" name="Scenario 3 : Auto Buy" line="78">
 <kw name="Create List" library="BuiltIn">
 <var>@{symbol}</var>
 <doc>Returns a list containing given items.</doc>
-<msg timestamp="20231022 22:02:36.300" level="INFO">@{symbol} = [ ]</msg>
-<status status="PASS" starttime="20231022 22:02:36.300" endtime="20231022 22:02:36.300"/>
+<msg timestamp="20231025 06:41:41.773" level="INFO">@{symbol} = [ ]</msg>
+<status status="PASS" starttime="20231025 06:41:41.773" endtime="20231025 06:41:41.773"/>
 </kw>
 <kw name="Get Length" library="BuiltIn">
 <var>${data_order_len}</var>
 <arg>${data_order}</arg>
 <doc>Returns and logs the length of the given item as an integer.</doc>
-<msg timestamp="20231022 22:02:36.300" level="INFO">Length is 3</msg>
-<msg timestamp="20231022 22:02:36.300" level="INFO">${data_order_len} = 3</msg>
-<status status="PASS" starttime="20231022 22:02:36.300" endtime="20231022 22:02:36.300"/>
+<msg timestamp="20231025 06:41:41.775" level="INFO">Length is 3</msg>
+<msg timestamp="20231025 06:41:41.775" level="INFO">${data_order_len} = 3</msg>
+<status status="PASS" starttime="20231025 06:41:41.774" endtime="20231025 06:41:41.775"/>
 </kw>
 <kw name="Show List Buy 2" library="autobuy">
 <var>${result_lot}</var>
 <arg>${data_order}</arg>
 <arg>${total_balance}</arg>
 <arg>${max_percent_used_balance}</arg>
-<msg timestamp="20231022 22:02:36.300" level="INFO">${result_lot} = [['CUAN', 3020, 55], ['ADHI', 505, 330], ['KIJA', 169, 986]]</msg>
-<status status="PASS" starttime="20231022 22:02:36.300" endtime="20231022 22:02:36.300"/>
+<msg timestamp="20231025 06:41:41.778" level="INFO">${result_lot} = [['CUAN', 3020, 55], ['ADHI', 505, 330], ['KIJA', 169, 986]]</msg>
+<status status="PASS" starttime="20231025 06:41:41.776" endtime="20231025 06:41:41.778"/>
 </kw>
 <for flavor="IN">
 <var>${loop_lot}</var>
@@ -344,15 +344,15 @@
 <var>${is_not_rejected}</var>
 <arg>${False}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:02:36.300" level="INFO">${is_not_rejected} = False</msg>
-<status status="PASS" starttime="20231022 22:02:36.300" endtime="20231022 22:02:36.300"/>
+<msg timestamp="20231025 06:41:41.780" level="INFO">${is_not_rejected} = False</msg>
+<status status="PASS" starttime="20231025 06:41:41.779" endtime="20231025 06:41:41.781"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${count_infinity_loop}</var>
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:02:36.300" level="INFO">${count_infinity_loop} = 0</msg>
-<status status="PASS" starttime="20231022 22:02:36.300" endtime="20231022 22:02:36.300"/>
+<msg timestamp="20231025 06:41:41.782" level="INFO">${count_infinity_loop} = 0</msg>
+<status status="PASS" starttime="20231025 06:41:41.781" endtime="20231025 06:41:41.782"/>
 </kw>
 <for flavor="IN RANGE">
 <var>${infinity_loop}</var>
@@ -363,128 +363,128 @@
 <kw name="Log" library="BuiltIn">
 <arg>${loop_lot[0]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:02:36.354" level="INFO">CUAN</msg>
-<status status="PASS" starttime="20231022 22:02:36.350" endtime="20231022 22:02:36.354"/>
+<msg timestamp="20231025 06:41:41.824" level="INFO">CUAN</msg>
+<status status="PASS" starttime="20231025 06:41:41.822" endtime="20231025 06:41:41.824"/>
 </kw>
 <kw name="Append To List" library="Collections">
 <arg>${symbol}</arg>
 <arg>${loop_lot[0]}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20231022 22:02:36.354" endtime="20231022 22:02:36.356"/>
+<status status="PASS" starttime="20231025 06:41:41.825" endtime="20231025 06:41:41.826"/>
 </kw>
 <kw name="Stock Page Opened" library="trading_area_page">
 <arg>${loop_lot[0]}</arg>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>https://stockbit.com/symbol/${symbol}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231022 22:02:36.359" level="INFO">Opening url 'https://stockbit.com/symbol/CUAN'</msg>
-<status status="PASS" starttime="20231022 22:02:36.358" endtime="20231022 22:02:44.575"/>
+<msg timestamp="20231025 06:41:41.830" level="INFO">Opening url 'https://stockbit.com/symbol/CUAN'</msg>
+<status status="PASS" starttime="20231025 06:41:41.829" endtime="20231025 06:41:50.130"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <arg>20</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:44.575" endtime="20231022 22:02:44.683"/>
+<status status="PASS" starttime="20231025 06:41:50.131" endtime="20231025 06:41:50.296"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:36.356" endtime="20231022 22:02:44.683"/>
+<status status="PASS" starttime="20231025 06:41:41.826" endtime="20231025 06:41:50.297"/>
 </kw>
 <kw name="Place Stock Order (Buy)" library="trading_area_page">
 <arg>${loop_lot[2]}</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${placeOrderForm}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:44.683" endtime="20231022 22:02:44.767"/>
+<status status="PASS" starttime="20231025 06:41:50.300" endtime="20231025 06:41:50.627"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${orderLotField}</arg>
 <arg>${orderLotInput}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:44.767" level="INFO">Typing text '55' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
-<status status="PASS" starttime="20231022 22:02:44.767" endtime="20231022 22:02:46.102"/>
+<msg timestamp="20231025 06:41:50.629" level="INFO">Typing text '55' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20231025 06:41:50.628" endtime="20231025 06:41:51.612"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${placeOrderButton}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:46.104" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
-<status status="PASS" starttime="20231022 22:02:46.103" endtime="20231022 22:02:46.647"/>
+<msg timestamp="20231025 06:41:51.614" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
+<status status="PASS" starttime="20231025 06:41:51.612" endtime="20231025 06:41:52.021"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231022 22:02:48.748" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231022 22:02:46.648" endtime="20231022 22:02:48.748"/>
+<msg timestamp="20231025 06:41:54.033" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231025 06:41:52.022" endtime="20231025 06:41:54.033"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:44.683" endtime="20231022 22:02:48.763"/>
+<status status="PASS" starttime="20231025 06:41:50.297" endtime="20231025 06:41:54.034"/>
 </kw>
 <kw name="User directed to Trade Order Page" library="trading_area_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:48.763" endtime="20231022 22:02:48.822"/>
+<status status="PASS" starttime="20231025 06:41:54.035" endtime="20231025 06:41:54.082"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231022 22:02:48.868" level="INFO">Element '//*[@id="main-container"]/div[2]/div[3]/div/div/div' is displayed.</msg>
-<status status="PASS" starttime="20231022 22:02:48.822" endtime="20231022 22:02:48.868"/>
+<msg timestamp="20231025 06:41:54.112" level="INFO">Element '//*[@id="main-container"]/div[2]/div[3]/div/div/div' is displayed.</msg>
+<status status="PASS" starttime="20231025 06:41:54.082" endtime="20231025 06:41:54.113"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:48.763" endtime="20231022 22:02:48.868"/>
+<status status="PASS" starttime="20231025 06:41:54.034" endtime="20231025 06:41:54.113"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${Status}</var>
 <arg>${statusOrderBuy}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:48.937" level="INFO">${Status} = REJECTED</msg>
-<status status="PASS" starttime="20231022 22:02:48.868" endtime="20231022 22:02:48.937"/>
+<msg timestamp="20231025 06:41:54.173" level="INFO">${Status} = OPEN</msg>
+<status status="PASS" starttime="20231025 06:41:54.113" endtime="20231025 06:41:54.173"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${Status}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:02:48.937" level="INFO">REJECTED</msg>
-<status status="PASS" starttime="20231022 22:02:48.937" endtime="20231022 22:02:48.937"/>
+<msg timestamp="20231025 06:41:54.174" level="INFO">OPEN</msg>
+<status status="PASS" starttime="20231025 06:41:54.174" endtime="20231025 06:41:54.174"/>
 </kw>
 <if>
-<branch type="IF" condition="'${Status}' == 'REJECTED'">
+<branch type="IF" condition="'${Status}' != 'REJECTED'">
 <kw name="Set Variable" library="BuiltIn">
 <var>${is_not_rejected}</var>
 <arg>${True}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:02:48.937" level="INFO">${is_not_rejected} = True</msg>
-<status status="PASS" starttime="20231022 22:02:48.937" endtime="20231022 22:02:48.937"/>
+<msg timestamp="20231025 06:41:54.176" level="INFO">${is_not_rejected} = True</msg>
+<status status="PASS" starttime="20231025 06:41:54.175" endtime="20231025 06:41:54.176"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${count_infinity_loop}</var>
 <arg>${infinity_loop}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:02:48.937" level="INFO">${count_infinity_loop} = 0</msg>
-<status status="PASS" starttime="20231022 22:02:48.937" endtime="20231022 22:02:48.937"/>
+<msg timestamp="20231025 06:41:54.178" level="INFO">${count_infinity_loop} = 0</msg>
+<status status="PASS" starttime="20231025 06:41:54.177" endtime="20231025 06:41:54.178"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${is_not_rejected}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:02:48.948" level="INFO">True</msg>
-<status status="PASS" starttime="20231022 22:02:48.937" endtime="20231022 22:02:48.948"/>
+<msg timestamp="20231025 06:41:54.179" level="INFO">True</msg>
+<status status="PASS" starttime="20231025 06:41:54.178" endtime="20231025 06:41:54.179"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${count_infinity_loop}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:02:48.950" level="INFO">0</msg>
-<status status="PASS" starttime="20231022 22:02:48.949" endtime="20231022 22:02:48.950"/>
+<msg timestamp="20231025 06:41:54.180" level="INFO">0</msg>
+<status status="PASS" starttime="20231025 06:41:54.180" endtime="20231025 06:41:54.180"/>
 </kw>
 <break>
-<status status="PASS" starttime="20231022 22:02:48.950" endtime="20231022 22:02:48.950"/>
+<status status="PASS" starttime="20231025 06:41:54.180" endtime="20231025 06:41:54.181"/>
 </break>
-<status status="PASS" starttime="20231022 22:02:48.937" endtime="20231022 22:02:48.950"/>
+<status status="PASS" starttime="20231025 06:41:54.175" endtime="20231025 06:41:54.181"/>
 </branch>
-<status status="PASS" starttime="20231022 22:02:48.937" endtime="20231022 22:02:48.951"/>
+<status status="PASS" starttime="20231025 06:41:54.175" endtime="20231025 06:41:54.181"/>
 </if>
-<status status="PASS" starttime="20231022 22:02:36.350" endtime="20231022 22:02:48.951"/>
+<status status="PASS" starttime="20231025 06:41:41.822" endtime="20231025 06:41:54.181"/>
 </iter>
-<status status="PASS" starttime="20231022 22:02:36.300" endtime="20231022 22:02:48.951"/>
+<status status="PASS" starttime="20231025 06:41:41.782" endtime="20231025 06:41:54.181"/>
 </for>
-<status status="PASS" starttime="20231022 22:02:36.300" endtime="20231022 22:02:48.951"/>
+<status status="PASS" starttime="20231025 06:41:41.779" endtime="20231025 06:41:54.181"/>
 </iter>
 <iter>
 <var name="${loop_lot}">['ADHI', 505, 330]</var>
@@ -492,15 +492,15 @@
 <var>${is_not_rejected}</var>
 <arg>${False}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:02:48.953" level="INFO">${is_not_rejected} = False</msg>
-<status status="PASS" starttime="20231022 22:02:48.952" endtime="20231022 22:02:48.953"/>
+<msg timestamp="20231025 06:41:54.182" level="INFO">${is_not_rejected} = False</msg>
+<status status="PASS" starttime="20231025 06:41:54.182" endtime="20231025 06:41:54.183"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${count_infinity_loop}</var>
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:02:48.982" level="INFO">${count_infinity_loop} = 0</msg>
-<status status="PASS" starttime="20231022 22:02:48.953" endtime="20231022 22:02:48.982"/>
+<msg timestamp="20231025 06:41:54.214" level="INFO">${count_infinity_loop} = 0</msg>
+<status status="PASS" starttime="20231025 06:41:54.183" endtime="20231025 06:41:54.214"/>
 </kw>
 <for flavor="IN RANGE">
 <var>${infinity_loop}</var>
@@ -511,128 +511,128 @@
 <kw name="Log" library="BuiltIn">
 <arg>${loop_lot[0]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:02:49.063" level="INFO">ADHI</msg>
-<status status="PASS" starttime="20231022 22:02:49.053" endtime="20231022 22:02:49.063"/>
+<msg timestamp="20231025 06:41:54.264" level="INFO">ADHI</msg>
+<status status="PASS" starttime="20231025 06:41:54.260" endtime="20231025 06:41:54.264"/>
 </kw>
 <kw name="Append To List" library="Collections">
 <arg>${symbol}</arg>
 <arg>${loop_lot[0]}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20231022 22:02:49.063" endtime="20231022 22:02:49.064"/>
+<status status="PASS" starttime="20231025 06:41:54.265" endtime="20231025 06:41:54.268"/>
 </kw>
 <kw name="Stock Page Opened" library="trading_area_page">
 <arg>${loop_lot[0]}</arg>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>https://stockbit.com/symbol/${symbol}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231022 22:02:49.064" level="INFO">Opening url 'https://stockbit.com/symbol/ADHI'</msg>
-<status status="PASS" starttime="20231022 22:02:49.064" endtime="20231022 22:02:56.490"/>
+<msg timestamp="20231025 06:41:54.274" level="INFO">Opening url 'https://stockbit.com/symbol/ADHI'</msg>
+<status status="PASS" starttime="20231025 06:41:54.274" endtime="20231025 06:42:05.321"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <arg>20</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:56.490" endtime="20231022 22:02:56.582"/>
+<status status="PASS" starttime="20231025 06:42:05.321" endtime="20231025 06:42:05.495"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:49.064" endtime="20231022 22:02:56.582"/>
+<status status="PASS" starttime="20231025 06:41:54.269" endtime="20231025 06:42:05.495"/>
 </kw>
 <kw name="Place Stock Order (Buy)" library="trading_area_page">
 <arg>${loop_lot[2]}</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${placeOrderForm}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:02:56.599" endtime="20231022 22:02:56.681"/>
+<status status="PASS" starttime="20231025 06:42:05.499" endtime="20231025 06:42:05.594"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${orderLotField}</arg>
 <arg>${orderLotInput}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:56.683" level="INFO">Typing text '330' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
-<status status="PASS" starttime="20231022 22:02:56.681" endtime="20231022 22:02:57.868"/>
+<msg timestamp="20231025 06:42:05.596" level="INFO">Typing text '330' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20231025 06:42:05.594" endtime="20231025 06:42:06.918"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${placeOrderButton}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231022 22:02:57.870" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
-<status status="PASS" starttime="20231022 22:02:57.868" endtime="20231022 22:02:58.401"/>
+<msg timestamp="20231025 06:42:06.920" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
+<status status="PASS" starttime="20231025 06:42:06.918" endtime="20231025 06:42:07.333"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231022 22:03:00.406" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231022 22:02:58.401" endtime="20231022 22:03:00.407"/>
+<msg timestamp="20231025 06:42:09.346" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231025 06:42:07.334" endtime="20231025 06:42:09.347"/>
 </kw>
-<status status="PASS" starttime="20231022 22:02:56.582" endtime="20231022 22:03:00.408"/>
+<status status="PASS" starttime="20231025 06:42:05.495" endtime="20231025 06:42:09.347"/>
 </kw>
 <kw name="User directed to Trade Order Page" library="trading_area_page">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:03:00.409" endtime="20231022 22:03:00.453"/>
+<status status="PASS" starttime="20231025 06:42:09.348" endtime="20231025 06:42:09.388"/>
 </kw>
 <kw name="Element Should Be Visible" library="SeleniumLibrary">
 <arg>${placeOrderTable}</arg>
 <arg>10</arg>
 <doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231022 22:03:00.489" level="INFO">Element '//*[@id="main-container"]/div[2]/div[3]/div/div/div' is displayed.</msg>
-<status status="PASS" starttime="20231022 22:03:00.454" endtime="20231022 22:03:00.489"/>
+<msg timestamp="20231025 06:42:09.420" level="INFO">Element '//*[@id="main-container"]/div[2]/div[3]/div/div/div' is displayed.</msg>
+<status status="PASS" starttime="20231025 06:42:09.388" endtime="20231025 06:42:09.420"/>
 </kw>
-<status status="PASS" starttime="20231022 22:03:00.408" endtime="20231022 22:03:00.490"/>
+<status status="PASS" starttime="20231025 06:42:09.347" endtime="20231025 06:42:09.420"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${Status}</var>
 <arg>${statusOrderBuy}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20231022 22:03:00.531" level="INFO">${Status} = REJECTED</msg>
-<status status="PASS" starttime="20231022 22:03:00.491" endtime="20231022 22:03:00.531"/>
+<msg timestamp="20231025 06:42:09.450" level="INFO">${Status} = OPEN</msg>
+<status status="PASS" starttime="20231025 06:42:09.421" endtime="20231025 06:42:09.451"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${Status}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:03:00.532" level="INFO">REJECTED</msg>
-<status status="PASS" starttime="20231022 22:03:00.532" endtime="20231022 22:03:00.532"/>
+<msg timestamp="20231025 06:42:09.452" level="INFO">OPEN</msg>
+<status status="PASS" starttime="20231025 06:42:09.451" endtime="20231025 06:42:09.452"/>
 </kw>
 <if>
-<branch type="IF" condition="'${Status}' == 'REJECTED'">
+<branch type="IF" condition="'${Status}' != 'REJECTED'">
 <kw name="Set Variable" library="BuiltIn">
 <var>${is_not_rejected}</var>
 <arg>${True}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:03:00.535" level="INFO">${is_not_rejected} = True</msg>
-<status status="PASS" starttime="20231022 22:03:00.534" endtime="20231022 22:03:00.535"/>
+<msg timestamp="20231025 06:42:09.454" level="INFO">${is_not_rejected} = True</msg>
+<status status="PASS" starttime="20231025 06:42:09.453" endtime="20231025 06:42:09.454"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${count_infinity_loop}</var>
 <arg>${infinity_loop}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:03:00.536" level="INFO">${count_infinity_loop} = 0</msg>
-<status status="PASS" starttime="20231022 22:03:00.536" endtime="20231022 22:03:00.537"/>
+<msg timestamp="20231025 06:42:09.454" level="INFO">${count_infinity_loop} = 0</msg>
+<status status="PASS" starttime="20231025 06:42:09.454" endtime="20231025 06:42:09.455"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${is_not_rejected}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:03:00.538" level="INFO">True</msg>
-<status status="PASS" starttime="20231022 22:03:00.537" endtime="20231022 22:03:00.538"/>
+<msg timestamp="20231025 06:42:09.455" level="INFO">True</msg>
+<status status="PASS" starttime="20231025 06:42:09.455" endtime="20231025 06:42:09.455"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${count_infinity_loop}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:03:00.538" level="INFO">0</msg>
-<status status="PASS" starttime="20231022 22:03:00.538" endtime="20231022 22:03:00.539"/>
+<msg timestamp="20231025 06:42:09.456" level="INFO">0</msg>
+<status status="PASS" starttime="20231025 06:42:09.455" endtime="20231025 06:42:09.456"/>
 </kw>
 <break>
-<status status="PASS" starttime="20231022 22:03:00.539" endtime="20231022 22:03:00.539"/>
+<status status="PASS" starttime="20231025 06:42:09.457" endtime="20231025 06:42:09.457"/>
 </break>
-<status status="PASS" starttime="20231022 22:03:00.533" endtime="20231022 22:03:00.540"/>
+<status status="PASS" starttime="20231025 06:42:09.453" endtime="20231025 06:42:09.457"/>
 </branch>
-<status status="PASS" starttime="20231022 22:03:00.532" endtime="20231022 22:03:00.540"/>
+<status status="PASS" starttime="20231025 06:42:09.452" endtime="20231025 06:42:09.457"/>
 </if>
-<status status="PASS" starttime="20231022 22:02:49.053" endtime="20231022 22:03:00.540"/>
+<status status="PASS" starttime="20231025 06:41:54.259" endtime="20231025 06:42:09.457"/>
 </iter>
-<status status="PASS" starttime="20231022 22:02:48.982" endtime="20231022 22:03:00.540"/>
+<status status="PASS" starttime="20231025 06:41:54.214" endtime="20231025 06:42:09.457"/>
 </for>
-<status status="PASS" starttime="20231022 22:02:48.951" endtime="20231022 22:03:00.540"/>
+<status status="PASS" starttime="20231025 06:41:54.181" endtime="20231025 06:42:09.457"/>
 </iter>
 <iter>
 <var name="${loop_lot}">['KIJA', 169, 986]</var>
@@ -640,15 +640,15 @@
 <var>${is_not_rejected}</var>
 <arg>${False}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:03:00.542" level="INFO">${is_not_rejected} = False</msg>
-<status status="PASS" starttime="20231022 22:03:00.541" endtime="20231022 22:03:00.542"/>
+<msg timestamp="20231025 06:42:09.458" level="INFO">${is_not_rejected} = False</msg>
+<status status="PASS" starttime="20231025 06:42:09.458" endtime="20231025 06:42:09.459"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${count_infinity_loop}</var>
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:03:00.542" level="INFO">${count_infinity_loop} = 0</msg>
-<status status="PASS" starttime="20231022 22:03:00.542" endtime="20231022 22:03:00.542"/>
+<msg timestamp="20231025 06:42:09.459" level="INFO">${count_infinity_loop} = 0</msg>
+<status status="PASS" starttime="20231025 06:42:09.459" endtime="20231025 06:42:09.459"/>
 </kw>
 <for flavor="IN RANGE">
 <var>${infinity_loop}</var>
@@ -659,147 +659,129 @@
 <kw name="Log" library="BuiltIn">
 <arg>${loop_lot[0]}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:03:00.586" level="INFO">KIJA</msg>
-<status status="PASS" starttime="20231022 22:03:00.583" endtime="20231022 22:03:00.586"/>
+<msg timestamp="20231025 06:42:09.505" level="INFO">KIJA</msg>
+<status status="PASS" starttime="20231025 06:42:09.501" endtime="20231025 06:42:09.505"/>
 </kw>
 <kw name="Append To List" library="Collections">
 <arg>${symbol}</arg>
 <arg>${loop_lot[0]}</arg>
 <doc>Adds ``values`` to the end of ``list``.</doc>
-<status status="PASS" starttime="20231022 22:03:00.586" endtime="20231022 22:03:00.589"/>
+<status status="PASS" starttime="20231025 06:42:09.505" endtime="20231025 06:42:09.508"/>
 </kw>
 <kw name="Stock Page Opened" library="trading_area_page">
 <arg>${loop_lot[0]}</arg>
 <kw name="Go To" library="SeleniumLibrary">
 <arg>https://stockbit.com/symbol/${symbol}</arg>
 <doc>Navigates the current browser window to the provided ``url``.</doc>
-<msg timestamp="20231022 22:03:00.593" level="INFO">Opening url 'https://stockbit.com/symbol/KIJA'</msg>
-<status status="PASS" starttime="20231022 22:03:00.592" endtime="20231022 22:03:08.885"/>
+<msg timestamp="20231025 06:42:09.512" level="INFO">Opening url 'https://stockbit.com/symbol/KIJA'</msg>
+<status status="PASS" starttime="20231025 06:42:09.511" endtime="20231025 06:42:16.307"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${homeStockbitLogo}</arg>
 <arg>20</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:03:08.885" endtime="20231022 22:03:08.994"/>
+<status status="PASS" starttime="20231025 06:42:16.307" endtime="20231025 06:42:16.423"/>
 </kw>
-<status status="PASS" starttime="20231022 22:03:00.590" endtime="20231022 22:03:08.995"/>
+<status status="PASS" starttime="20231025 06:42:09.508" endtime="20231025 06:42:16.423"/>
 </kw>
 <kw name="Place Stock Order (Buy)" library="trading_area_page">
 <arg>${loop_lot[2]}</arg>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>${placeOrderForm}</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:03:08.998" endtime="20231022 22:03:09.133"/>
+<status status="PASS" starttime="20231025 06:42:16.427" endtime="20231025 06:42:16.548"/>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <arg>${orderLotField}</arg>
 <arg>${orderLotInput}</arg>
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
-<msg timestamp="20231022 22:03:09.133" level="INFO">Typing text '986' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
-<status status="PASS" starttime="20231022 22:03:09.133" endtime="20231022 22:03:09.998"/>
+<msg timestamp="20231025 06:42:16.550" level="INFO">Typing text '986' into text field '//div[@class="sc-gKXOVf jtzWDU"][5]/div/div/div[2]/input'.</msg>
+<status status="PASS" starttime="20231025 06:42:16.549" endtime="20231025 06:42:17.676"/>
 </kw>
 <kw name="Click Button" library="SeleniumLibrary">
 <arg>${placeOrderButton}</arg>
 <doc>Clicks the button identified by ``locator``.</doc>
-<msg timestamp="20231022 22:03:09.998" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
-<status status="PASS" starttime="20231022 22:03:09.998" endtime="20231022 22:03:10.465"/>
+<msg timestamp="20231025 06:42:17.679" level="INFO">Clicking button '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]'.</msg>
+<msg timestamp="20231025 06:42:18.055" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231025 06:42:18.068" level="FAIL">Button with locator '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]' not found.</msg>
+<status status="FAIL" starttime="20231025 06:42:17.677" endtime="20231025 06:42:18.450"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231022 22:03:12.480" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20231022 22:03:10.465" endtime="20231022 22:03:12.482"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.451" endtime="20231025 06:42:18.451"/>
 </kw>
-<status status="PASS" starttime="20231022 22:03:08.995" endtime="20231022 22:03:12.482"/>
+<status status="FAIL" starttime="20231025 06:42:16.423" endtime="20231025 06:42:18.453"/>
 </kw>
 <kw name="User directed to Trade Order Page" library="trading_area_page">
-<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>${placeOrderTable}</arg>
-<arg>10</arg>
-<doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231022 22:03:12.482" endtime="20231022 22:03:12.515"/>
-</kw>
-<kw name="Element Should Be Visible" library="SeleniumLibrary">
-<arg>${placeOrderTable}</arg>
-<arg>10</arg>
-<doc>Verifies that the element identified by ``locator`` is visible.</doc>
-<msg timestamp="20231022 22:03:12.548" level="INFO">Element '//*[@id="main-container"]/div[2]/div[3]/div/div/div' is displayed.</msg>
-<status status="PASS" starttime="20231022 22:03:12.515" endtime="20231022 22:03:12.548"/>
-</kw>
-<status status="PASS" starttime="20231022 22:03:12.482" endtime="20231022 22:03:12.548"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.454" endtime="20231025 06:42:18.454"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
 <var>${Status}</var>
 <arg>${statusOrderBuy}</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20231022 22:03:12.636" level="INFO">${Status} = REJECTED</msg>
-<status status="PASS" starttime="20231022 22:03:12.548" endtime="20231022 22:03:12.636"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.454" endtime="20231025 06:42:18.454"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${Status}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:03:12.636" level="INFO">REJECTED</msg>
-<status status="PASS" starttime="20231022 22:03:12.636" endtime="20231022 22:03:12.636"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.454" endtime="20231025 06:42:18.455"/>
 </kw>
 <if>
-<branch type="IF" condition="'${Status}' == 'REJECTED'">
+<branch type="IF" condition="'${Status}' != 'REJECTED'">
 <kw name="Set Variable" library="BuiltIn">
 <var>${is_not_rejected}</var>
 <arg>${True}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:03:12.636" level="INFO">${is_not_rejected} = True</msg>
-<status status="PASS" starttime="20231022 22:03:12.636" endtime="20231022 22:03:12.636"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.455" endtime="20231025 06:42:18.455"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${count_infinity_loop}</var>
 <arg>${infinity_loop}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20231022 22:03:12.636" level="INFO">${count_infinity_loop} = 0</msg>
-<status status="PASS" starttime="20231022 22:03:12.636" endtime="20231022 22:03:12.636"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.455" endtime="20231025 06:42:18.455"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${is_not_rejected}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:03:12.683" level="INFO">True</msg>
-<status status="PASS" starttime="20231022 22:03:12.636" endtime="20231022 22:03:12.683"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.455" endtime="20231025 06:42:18.456"/>
 </kw>
 <kw name="Log" library="BuiltIn">
 <arg>${count_infinity_loop}</arg>
 <doc>Logs the given message with the given level.</doc>
-<msg timestamp="20231022 22:03:12.683" level="INFO">0</msg>
-<status status="PASS" starttime="20231022 22:03:12.683" endtime="20231022 22:03:12.683"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.456" endtime="20231025 06:42:18.456"/>
 </kw>
 <break>
-<status status="PASS" starttime="20231022 22:03:12.683" endtime="20231022 22:03:12.683"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.456" endtime="20231025 06:42:18.456"/>
 </break>
-<status status="PASS" starttime="20231022 22:03:12.636" endtime="20231022 22:03:12.683"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.455" endtime="20231025 06:42:18.456"/>
 </branch>
-<status status="PASS" starttime="20231022 22:03:12.636" endtime="20231022 22:03:12.683"/>
+<status status="NOT RUN" starttime="20231025 06:42:18.455" endtime="20231025 06:42:18.456"/>
 </if>
-<status status="PASS" starttime="20231022 22:03:00.582" endtime="20231022 22:03:12.683"/>
+<status status="FAIL" starttime="20231025 06:42:09.501" endtime="20231025 06:42:18.456"/>
 </iter>
-<status status="PASS" starttime="20231022 22:03:00.543" endtime="20231022 22:03:12.693"/>
+<status status="FAIL" starttime="20231025 06:42:09.459" endtime="20231025 06:42:18.456"/>
 </for>
-<status status="PASS" starttime="20231022 22:03:00.540" endtime="20231022 22:03:12.693"/>
+<status status="FAIL" starttime="20231025 06:42:09.458" endtime="20231025 06:42:18.456"/>
 </iter>
-<status status="PASS" starttime="20231022 22:02:36.300" endtime="20231022 22:03:12.693"/>
+<status status="FAIL" starttime="20231025 06:41:41.778" endtime="20231025 06:42:18.456"/>
 </for>
-<status status="PASS" starttime="20231022 22:02:36.300" endtime="20231022 22:03:12.697"/>
+<status status="FAIL" starttime="20231025 06:41:41.771" endtime="20231025 06:42:18.459">Button with locator '//button[@class="ant-btn ant-btn-primary ant-btn-block sc-ivTmOn sc-dcd7a266-16 fMuBlv hjKjuY"]' not found.</status>
 </test>
-<status status="PASS" starttime="20231022 22:02:13.044" endtime="20231022 22:03:13.065"/>
+<status status="FAIL" starttime="20231025 06:41:14.902" endtime="20231025 06:42:18.469"/>
 </suite>
 <statistics>
 <total>
-<stat pass="3" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="3" fail="0" skip="0" id="s1" name="Tes2">Tes2</stat>
+<stat pass="2" fail="1" skip="0" id="s1" name="Tes2">Tes2</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231022 22:02:13.831" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
-<msg timestamp="20231022 22:02:23.476" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231025 06:41:15.875" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
+<msg timestamp="20231025 06:41:27.338" level="WARN">Keyword 'RequestsLibrary.Get Request' is deprecated. Please use `GET On Session` instead.</msg>
 </errors>
 </robot>

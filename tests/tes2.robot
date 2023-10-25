@@ -97,7 +97,7 @@ Scenario 3 : Auto Buy
             Log    ${Status}
 
             # Should Be Equal As Strings    '${Status}'    'REJECTED'
-            IF    '${Status}' == 'REJECTED'
+            IF    '${Status}' != 'REJECTED'
                 ${is_not_rejected}    Set Variable    ${True}
                 ${count_infinity_loop}    Set Variable    ${infinity_loop}
                 log    ${is_not_rejected}
