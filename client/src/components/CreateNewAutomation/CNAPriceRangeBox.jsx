@@ -4,23 +4,23 @@ import PriceRangeInput from "../PriceRangeInputSlider/PriceRangeInput";
 import { useFormikContext } from "formik";
 
 const CNAPriceRangeBox = () => {
-  const { setFieldValue } = useFormikContext(); // Dapatkan setFieldValue dari useFormikContext
+  // const { setFieldValue } = useFormikContext(); // Dapatkan setFieldValue dari useFormikContext
 
-  useEffect(() => {
-    setFieldValue("rangeValues", [25, 75]); // Atur nilai awal
-  }, [setFieldValue]);
+  // useEffect(() => {
+  //   setFieldValue("rangeValues", [25, 75]); // Atur nilai awal
+  // }, [setFieldValue]);
   return (
     <>
       <GlobalDarkBox>
         <PriceRangeInput
-          label="Range Values"
-          name="rangeValues"
-          min={0}
-          max={100}
-          values={[25, 75]}
-          onChange={(values) => {
-            setFieldValue("rangeValues", values);
-          }}
+          label="Price Range:"
+          // name="priceRange"
+          // min={0}
+          // max={100}
+          // values={[25, 75]}
+          // onChange={(values) => {
+          //   setFieldValue("rangeValues", values);
+          // }}
         />
       </GlobalDarkBox>
     </>

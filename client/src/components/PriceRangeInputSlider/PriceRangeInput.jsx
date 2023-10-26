@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Slider from "@mui/material/Slider";
 import MuiInput from "@mui/material/Input";
 import { styled } from "@mui/material/styles";
+import { useField } from "formik";
 // import "./priceRangeInput.css";
 
 function valuetext(value) {
@@ -13,7 +14,8 @@ const Input = styled(MuiInput)`
   width: 42px;
 `;
 
-const PriceRangeInput = ({ label, name, min, max, values, onChange }) => {
+const PriceRangeInput = ({ label, ...props }) => {
+  const [field, meta] = useField(props);
   //! GOKIL susah banget, lanjut besok lagi. Coba pakai material ui, gabungin kedua cara berikut:
   //? https://mui.com/material-ui/react-slider/#minimum-distance
   //? https://mui.com/material-ui/react-slider/#slider-with-input-field
@@ -71,56 +73,62 @@ const PriceRangeInput = ({ label, name, min, max, values, onChange }) => {
 
   return (
     <>
-      {/* Material UI */}
-      <Slider
-        getAriaLabel={() => "Minimum distance"}
-        value={valueSlider}
-        onChange={handleSlider}
-        valueLabelDisplay="auto"
-        getAriaValueText={valuetext}
-        min={0} // Atur nilai minimum
-        max={50000} // Atur nilai maksimum
-        disableSwap
-        aria-labelledby="input-slider"
-      />
-      {/* {console.log("slider kiri:", valueSlider[0])}
+      <div>
+        <label htmlFor={props.id || props.name}>{label}</label>
+        {/* Material UI */}
+        <Slider
+          getAriaLabel={() => "Minimum distance"}
+          value={valueSlider}
+          onChange={handleSlider}
+          valueLabelDisplay="auto"
+          getAriaValueText={valuetext}
+          min={0} // Atur nilai minimum
+          max={50000} // Atur nilai maksimum
+          disableSwap
+          aria-labelledby="input-slider"
+          step={1000}
+        />
+        {/* {console.log("slider kiri:", valueSlider[0])}
       {console.log("slider kanan:", valueSlider[1])} */}
 
-      {/* //? INPUT KIRI */}
-      <Input
-        value={valueSlider[0]}
-        style={{ width: "100px" }}
-        // size="small"
-        onChange={handleInputChangeMin}
-        // onBlur={handleBlur}
-        inputProps={{
-          step: 1000,
-          min: 0,
-          max: valueSlider[1] - minDistance,
-          type: "number",
-          "aria-labelledby": "input-slider",
-          style: { color: "white" },
-        }}
-      />
+        {/* //? INPUT KIRI */}
+        <Input
+          name="minPriceRange"
+          value={valueSlider[0]}
+          style={{ width: "100px" }}
+          // size="small"
+          onChange={handleInputChangeMin}
+          // onBlur={handleBlur}
+          inputProps={{
+            step: 1000,
+            min: 0,
+            max: valueSlider[1] - minDistance,
+            type: "number",
+            "aria-labelledby": "input-slider",
+            style: { color: "white" },
+          }}
+        />
 
-      {/* //? INPUT KANAN */}
-      <Input
-        value={valueSlider[1]}
-        style={{ width: "100px" }}
-        // size="small"
-        onChange={handleInputChangeMax}
-        // onBlur={handleBlur}
-        inputProps={{
-          step: 1000,
-          min: valueSlider[0] + minDistance,
-          max: 50000,
-          type: "number",
-          "aria-labelledby": "input-slider",
-          style: { color: "white" },
-        }}
-      />
-      {/* Normal double slider */}
-      {/* <div className="mb-4">
+        {/* //? INPUT KANAN */}
+        <Input
+          name="maxPriceRange"
+          value={valueSlider[1]}
+          style={{ width: "100px" }}
+          // size="small"
+          onChange={handleInputChangeMax}
+          // onBlur={handleBlur}
+          inputProps={{
+            step: 1000,
+            min: valueSlider[0] + minDistance,
+            max: 50000,
+            type: "number",
+            "aria-labelledby": "input-slider",
+            style: { color: "white" },
+          }}
+        />
+        {/* {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null} */}
+        {/* Normal double slider */}
+        {/* <div className="mb-4">
         <label className="block text-gray-700">{label}</label>
         <div className="flex items-center justify-between">
           <input type="range" min={min} max={max} value={minValue} onChange={handleMinChange} className="w-full mr-2" />
@@ -131,6 +139,7 @@ const PriceRangeInput = ({ label, name, min, max, values, onChange }) => {
           <span>{maxValue}</span>
         </div>
       </div> */}
+      </div>
     </>
   );
 };

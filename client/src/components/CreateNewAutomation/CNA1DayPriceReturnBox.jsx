@@ -6,7 +6,7 @@ const CNA1DayPriceReturnBox = () => {
   return (
     <>
       <GlobalDarkBox>
-        <PriceReturnInput label="1 Day Price Return" name="percentageValue" />
+        <PriceReturnInput label="1 Day Price Return:" name="priceReturnValue" />
       </GlobalDarkBox>
     </>
   );

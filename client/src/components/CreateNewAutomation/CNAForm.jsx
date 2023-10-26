@@ -8,7 +8,7 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
 const CNAForm = () => {
-  //! Nanti seharusnya isi-isi select dibawah ini diganti menggunakan react redux agar dinamis dapat diatur melalui halaman lain
+  //! Nanti seharusnya isi-isi select dibawah ini diganti menggunakan react redux agar dinamis dapat diatur melalui halaman lain. Tapi liat nanti :D
   const cnaMethodItem = [
     {
       method: "BSJP",
@@ -35,27 +35,18 @@ const CNAForm = () => {
     <>
       <Formik
         initialValues={{
-          firstName: "",
-          lastName: "",
-          email: "",
-          acceptedTerms: false,
-          jobType: "",
-          sliderValue: 50, // Added for the range input
           startDate: "",
           endDate: "",
-          percentageValue: 0, // Tambahkan nilai awal untuk input percentage
-          rangeValues: [25, 75], // Tambahkan nilai awal untuk double range slider
-      
+          automationMethod: "",
+          automationSecurity: "",
+          priceReturnValue: 0,
+          // priceRange: [25, 75], // Tambahkan nilai awal untuk double range slider
+          minPriceRange: 0,
+          maxPriceRange: 0,
+          maxBalance: "",
+          maxStocksValue: "",
         }}
         validationSchema={Yup.object({
-          firstName: Yup.string().max(15, "Must be 15 characters or less").required("Required"),
-          lastName: Yup.string().max(20, "Must be 20 characters or less").required("Required"),
-          email: Yup.string().email("Invalid email address").required("Required"),
-          acceptedTerms: Yup.boolean().required("Required").oneOf([true], "You must accept the terms and conditions."),
-          jobType: Yup.string()
-            .oneOf(["designer", "development", "product", "other"], "Invalid Job Type")
-            .required("Required"),
-          sliderValue: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
           startDate: Yup.date()
             .required("Required")
             .min(new Date().toDateString(), "Start date must be today or later")
@@ -64,6 +55,38 @@ const CNAForm = () => {
             .required("Required")
             .max(new Date(2099, 11, 31), "End date must be before or on 31st December 2099")
             .min(Yup.ref("startDate"), "End date must be after start date"),
+          automationMethod: Yup.string()
+            .oneOf(
+              cnaMethodItem.map((item, index, array) => {
+                return item.method;
+              }),
+              "Invalid Method Type"
+            )
+            .required("Required"),
+          automationSecurity: Yup.string()
+            .oneOf(
+              cnaSecuritiesItem.map((item, index, array) => {
+                return item.securities;
+              }),
+              "Invalid Security Type"
+            )
+            .required("Required"),
+          priceReturnValue: Yup.number()
+            .min(0, "Must be at least 0")
+            .max(100, "Must be at most 100")
+            .required("Required"),
+          minPriceRange: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
+          maxPriceRange: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
+          maxBalance: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
+          maxStocksValue: Yup.number()
+            .min(0, "Must be at least 0")
+            .max(100, "Must be at most 100")
+            .required("Required"),
+
+          // lastName: Yup.string().max(20, "Must be 20 characters or less").required("Required"),
+          // email: Yup.string().email("Invalid email address").required("Required"),
+          // acceptedTerms: Yup.boolean().required("Required").oneOf([true], "You must accept the terms and conditions."),
+          // sliderValue: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
@@ -78,7 +101,7 @@ const CNAForm = () => {
           <CNAPriceRangeBox />
           <CNAMaxBalanceAllocated />
           <CNAMaxStocksSelected />
-          <div className="flex justify-center items-center py-4 bg-cuanbot-green rounded-xl text-lg text-cuanbot-dark">
+          <div className="flex justify-center items-center py-4 mb-20 bg-cuanbot-green rounded-xl text-lg text-cuanbot-dark">
             <button type="submit">Activate</button>
           </div>
         </Form>

@@ -8,9 +8,12 @@ const CNASecuritiesOptionBox = ({ cnaMethodItem, cnaSecuritiesItem }) => {
   return (
     <>
       <GlobalDarkBox>
-        <SecuritiesOptionActivePeriod label="Start Date" name="startDate" />
-        <span>-</span>
-        <SecuritiesOptionActivePeriod label="End Date" name="endDate" />
+        <div>
+          <label htmlFor="activePeriod">Active Period</label>
+          <SecuritiesOptionActivePeriod id="activePeriod" label="Start Date" name="startDate" />
+          <span>-</span>
+          <SecuritiesOptionActivePeriod label="End Date" name="endDate" />
+        </div>
         <SecuritiesOptionMethod label="Method" name="automationMethod">
           <option value="">Select Method</option>
           {cnaMethodItem.map((item, index) => (

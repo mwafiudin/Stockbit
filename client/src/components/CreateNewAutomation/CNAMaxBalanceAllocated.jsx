@@ -6,7 +6,7 @@ const CNAMaxBalanceAllocated = () => {
   return (
     <>
       <GlobalDarkBox>
-        <MaxBalanceInput label="Max Balance Allocated:" name="sliderValue" min="0" max="100" step="25" list="values" />
+        <MaxBalanceInput label="Max Balance Allocated:" name="maxBalance" min="0" max="100" step="25" list="values" />
       </GlobalDarkBox>
     </>
   );
