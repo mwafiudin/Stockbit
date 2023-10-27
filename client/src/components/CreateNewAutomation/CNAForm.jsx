@@ -43,8 +43,8 @@ const CNAForm = () => {
           // priceRange: [25, 75], // Tambahkan nilai awal untuk double range slider
           minPriceRange: 0,
           maxPriceRange: 0,
-          maxBalance: "",
-          maxStocksValue: "",
+          maxBalance: 0,
+          maxStocksValue: 0,
         }}
         validationSchema={Yup.object({
           startDate: Yup.date()
@@ -75,14 +75,16 @@ const CNAForm = () => {
             .min(0, "Must be at least 0")
             .max(100, "Must be at most 100")
             .required("Required"),
-          minPriceRange: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
-          maxPriceRange: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
+          minPriceRange: Yup.number().min(0, "Must be at least 0").required("Required"),
+          maxPriceRange: Yup.number().max(50000, "Must be at most 100").required("Required"),
           maxBalance: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
           maxStocksValue: Yup.number()
             .min(0, "Must be at least 0")
             .max(100, "Must be at most 100")
             .required("Required"),
 
+          // minPriceRange: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
+          // maxPriceRange: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
           // lastName: Yup.string().max(20, "Must be 20 characters or less").required("Required"),
           // email: Yup.string().email("Invalid email address").required("Required"),
           // acceptedTerms: Yup.boolean().required("Required").oneOf([true], "You must accept the terms and conditions."),
@@ -101,9 +103,13 @@ const CNAForm = () => {
           <CNAPriceRangeBox />
           <CNAMaxBalanceAllocated />
           <CNAMaxStocksSelected />
-          <div className="flex justify-center items-center py-4 mb-20 bg-cuanbot-green rounded-xl text-lg text-cuanbot-dark">
-            <button type="submit">Activate</button>
-          </div>
+
+          <button
+            type="submit"
+            className="flex justify-center items-center py-4 mb-20 bg-cuanbot-green rounded-xl text-lg text-cuanbot-dark"
+          >
+            Activate
+          </button>
         </Form>
       </Formik>
     </>
