@@ -6,7 +6,7 @@ const CNAMaxStocksSelected = () => {
   return (
     <>
       <GlobalDarkBox>
-        <MaxStockInput label="Max Stocks Selected:" name="maxStocksValue" />
+        <MaxStockInput label="Max Stocks Selected :" name="maxStocksValue" />
       </GlobalDarkBox>
     </>
   );

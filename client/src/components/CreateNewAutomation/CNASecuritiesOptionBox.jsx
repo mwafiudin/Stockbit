@@ -8,10 +8,10 @@ const CNASecuritiesOptionBox = ({ cnaMethodItem, cnaSecuritiesItem }) => {
   return (
     <>
       <GlobalDarkBox>
-        <div>
-          <label htmlFor="activePeriod">Active Period</label>
+        <label htmlFor="activePeriod" className="mr-auto mt-5">Active Period :</label>
+        <div className="flex items-center justify-between -mt-4">
           <SecuritiesOptionActivePeriod id="activePeriod" label="Start Date" name="startDate" />
-          <span>-</span>
+          <span className="text-4xl">-</span>
           <SecuritiesOptionActivePeriod label="End Date" name="endDate" />
         </div>
         <SecuritiesOptionMethod label="Method" name="automationMethod">

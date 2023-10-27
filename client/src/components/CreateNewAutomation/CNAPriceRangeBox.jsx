@@ -7,7 +7,7 @@ const CNAPriceRangeBox = () => {
     <>
       <GlobalDarkBox>
         <PriceRangeInput
-          label="Price Range:"
+          label="Price Range :"
           name="minPriceRange"
         />
       </GlobalDarkBox>

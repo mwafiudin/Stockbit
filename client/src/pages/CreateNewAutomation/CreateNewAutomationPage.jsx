@@ -8,7 +8,7 @@ const CreateNewAutomationPage = () => {
   const navigate = useNavigate();
   return (
     <>
-      <div className="bg-cuanbot-light">
+      <div className="bg-cuanbot-light h-screen">
         <div className="bg-cuanbot-dark flex justify-between py-5 px-[10px]">
           <button
             onClick={() => navigate(-1)}

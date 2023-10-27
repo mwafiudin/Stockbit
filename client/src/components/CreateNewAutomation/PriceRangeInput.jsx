@@ -69,8 +69,10 @@ const PriceRangeInput = ({ label, ...props }) => {
 
   return (
     <>
-      <div>
-        <label htmlFor="minPriceRange">{label}</label>
+      <div className="flex flex-col my-5">
+        <label htmlFor="minPriceRange" className="self-start">
+          {label}
+        </label>
         {/* Material UI */}
         <Slider
           getAriaLabel={() => "Minimum distance"}
@@ -83,16 +85,17 @@ const PriceRangeInput = ({ label, ...props }) => {
           disableSwap
           aria-labelledby="input-slider"
           step={1}
+          className="my-2"
         />
-        <div className="flex justify-center">
+        <div className="flex justify-center items-center ">
           {/* // INPUT KIRI */}
           <PriceRangeMinInput
-            label="Min Price:"
+            label="Min Price :"
             name="minPriceRange"
             // name={props.name}
             value={valueSlider[0]}
             // {...field}
-            style={{ width: "4rem" }}
+            style={{ width: "5rem" }}
             // size="small"
             onChange={handleInputChangeMin}
             // onBlur={handleBlur}
@@ -102,17 +105,20 @@ const PriceRangeInput = ({ label, ...props }) => {
               max: valueSlider[1] - minDistance,
               type: "number",
               "aria-labelledby": "input-slider",
-              style: { color: "white" },
+              style: { color: "white", padding: "10px" },
             }}
+            className="bg-cuanbot-light text-cuanbot-white rounded-xl"
           />
+
+          <span className="text-cuanbot-white mx-5 text-xl">-</span>
 
           {/* // INPUT KANAN */}
           <PriceRangeMaxInput
-            label="Max Price:"
+            label="Max Price :"
             name="maxPriceRange"
             value={valueSlider[1]}
             // {...field}
-            style={{ width: "4rem" }}
+            style={{ width: "5rem" }}
             // size="small"
             onChange={handleInputChangeMax}
             // onBlur={handleBlur}
@@ -122,8 +128,9 @@ const PriceRangeInput = ({ label, ...props }) => {
               max: 50000,
               type: "number",
               "aria-labelledby": "input-slider",
-              style: { color: "white" },
+              style: { color: "white", padding: "10px" },
             }}
+            className="bg-cuanbot-light text-cuanbot-white rounded-xl"
           />
         </div>
       </div>

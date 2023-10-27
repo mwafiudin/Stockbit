@@ -5,9 +5,9 @@ const SecuritiesOptionActivePeriod = ({ label, ...props }) => {
   const [field, meta] = useField(props);
   return (
     <>
-      <div>
+      <div className="flex flex-col">
         <label htmlFor={props.id || props.name}>{label}</label>
-        <input type="date" {...field} {...props}  />
+        <input type="date" {...field} {...props}  className="text-cuanbot-white bg-cuanbot-light py-2 px-11 rounded-xl"  />
         {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
       </div>
     </>
