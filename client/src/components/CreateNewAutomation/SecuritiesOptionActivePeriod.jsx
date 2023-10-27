@@ -7,8 +7,15 @@ const SecuritiesOptionActivePeriod = ({ label, ...props }) => {
     <>
       <div className="flex flex-col">
         <label htmlFor={props.id || props.name}>{label}</label>
-        <input type="date" {...field} {...props}  className="text-cuanbot-white bg-cuanbot-light py-2 px-11 rounded-xl"  />
-        {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+        <div className="flex">
+          <input
+            type="date"
+            {...field}
+            {...props}
+            className="text-cuanbot-white bg-cuanbot-light py-2 px-2 rounded-xl"
+          />
+          {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+        </div>
       </div>
     </>
   );
