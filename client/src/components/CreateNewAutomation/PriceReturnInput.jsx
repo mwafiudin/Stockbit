@@ -27,15 +27,17 @@ const PriceReturnInput = ({ label, ...props }) => {
     <>
       <div className="flex items-center justify-between">
         <label htmlFor={props.id || props.name}>{label}</label>
-        <input
-          type="number"
-          {...field}
-          {...props}
-          min="-100"
-          max="100"
-          className="text-cuanbot-white text-base bg-cuanbot-dark py-2 rounded-xl text-center"
-        />
-        <span className="absolute right-[245px]">%</span>
+        <div className="flex items-center">
+          <input
+            type="number"
+            {...field}
+            {...props}
+            min="-100"
+            max="100"
+            className="text-cuanbot-white text-base bg-cuanbot-dark py-2 rounded-xl text-center"
+          />
+          <span className="">%</span>
+        </div>
         <div>
           <button type="button" onClick={handleIncrement} className="text-3xl px-5 pb-3 pt-1">
             +
