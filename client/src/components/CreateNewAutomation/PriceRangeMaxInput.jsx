@@ -9,11 +9,11 @@ const Input = styled(MuiInput)`
 
 const PriceRangeMaxInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  console.log(field)
+
   return (
     <>
       <Input {...field} {...props} />
-      
+
       {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
     </>
   );

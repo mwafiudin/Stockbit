@@ -9,9 +9,7 @@ const Input = styled(MuiInput)`
 
 const PriceRangeMinInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  console.log(field);
 
-  
   return (
     <>
       <Input {...field} {...props} />
