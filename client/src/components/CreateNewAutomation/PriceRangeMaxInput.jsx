@@ -12,9 +12,11 @@ const PriceRangeMaxInput = ({ label, ...props }) => {
 
   return (
     <>
-      <Input {...field} {...props} />
-
-      {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+      <div className="flex items-center gap-2">
+        <label htmlFor="minPriceRange">{label}</label>
+        <Input {...field} {...props} />
+        {meta.touched && meta.error ? <div className="error">{meta.error}</div> : null}
+      </div>
     </>
   );
 };

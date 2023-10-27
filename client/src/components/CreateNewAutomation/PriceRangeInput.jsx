@@ -10,7 +10,7 @@ const PriceRangeInput = ({ label, ...props }) => {
   const [field] = useField(props);
 
   //Material UI Slider
-  const [valueSlider, setValueSlider] = useState([26000, 35000]);
+  const [valueSlider, setValueSlider] = useState([15000, 35000]);
 
   const handleSlider = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
@@ -82,47 +82,50 @@ const PriceRangeInput = ({ label, ...props }) => {
           max={50000} // Atur nilai maksimum
           disableSwap
           aria-labelledby="input-slider"
-          step={1000}
+          step={1}
         />
+        <div className="flex justify-center">
+          {/* // INPUT KIRI */}
+          <PriceRangeMinInput
+            label="Min Price:"
+            name="minPriceRange"
+            // name={props.name}
+            value={valueSlider[0]}
+            // {...field}
+            style={{ width: "4rem" }}
+            // size="small"
+            onChange={handleInputChangeMin}
+            // onBlur={handleBlur}
+            inputProps={{
+              step: 1,
+              min: 0,
+              max: valueSlider[1] - minDistance,
+              type: "number",
+              "aria-labelledby": "input-slider",
+              style: { color: "white" },
+            }}
+          />
 
-        {/* // INPUT KIRI */}
-        <PriceRangeMinInput
-          name="minPriceRange"
-          // name={props.name}
-          value={valueSlider[0]}
-          // {...field}
-          style={{ width: "100px" }}
-          // size="small"
-          onChange={handleInputChangeMin}
-          // onBlur={handleBlur}
-          inputProps={{
-            step: 1000,
-            min: 0,
-            max: valueSlider[1] - minDistance,
-            type: "number",
-            "aria-labelledby": "input-slider",
-            style: { color: "white" },
-          }}
-        />
-
-        {/* // INPUT KANAN */}
-        <PriceRangeMaxInput
-          name="maxPriceRange"
-          value={valueSlider[1]}
-          // {...field}
-          style={{ width: "100px" }}
-          // size="small"
-          onChange={handleInputChangeMax}
-          // onBlur={handleBlur}
-          inputProps={{
-            step: 1000,
-            min: valueSlider[0] + minDistance,
-            max: 50000,
-            type: "number",
-            "aria-labelledby": "input-slider",
-            style: { color: "white" },
-          }}
-        />
+          {/* // INPUT KANAN */}
+          <PriceRangeMaxInput
+            label="Max Price:"
+            name="maxPriceRange"
+            value={valueSlider[1]}
+            // {...field}
+            style={{ width: "4rem" }}
+            // size="small"
+            onChange={handleInputChangeMax}
+            // onBlur={handleBlur}
+            inputProps={{
+              step: 1,
+              min: valueSlider[0] + minDistance,
+              max: 50000,
+              type: "number",
+              "aria-labelledby": "input-slider",
+              style: { color: "white" },
+            }}
+          />
+        </div>
       </div>
     </>
   );
