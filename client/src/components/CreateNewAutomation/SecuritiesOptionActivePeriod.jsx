@@ -7,7 +7,7 @@ const SecuritiesOptionActivePeriod = ({ label, ...props }) => {
     <>
       <div className="flex flex-col">
         <label htmlFor={props.id || props.name}>{label}</label>
-        <div className="flex">
+        <div className="flex flex-col">
           <input
             type="date"
             {...field}

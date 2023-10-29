@@ -6,11 +6,20 @@ import PriceRangeMaxInput from "./PriceRangeMaxInput";
 
 const minDistance = 2000;
 
-const PriceRangeInput = ({ label, ...props }) => {
+const PriceRangeInput = ({
+  minPriceDefault,
+  maxPriceDefault,
+  // setMinPriceSliderValue,
+  // setMaxPriceSliderValue,
+  handleMinPriceChance,
+  handleMaxPriceChance,
+  label,
+  ...props
+}) => {
   const [field] = useField(props);
 
   //Material UI Slider
-  const [valueSlider, setValueSlider] = useState([15000, 35000]);
+  const [valueSlider, setValueSlider] = useState([minPriceDefault, maxPriceDefault]);
 
   const handleSlider = (event, newValue, activeThumb) => {
     if (!Array.isArray(newValue)) {
@@ -19,25 +28,30 @@ const PriceRangeInput = ({ label, ...props }) => {
 
     if (activeThumb === 0) {
       setValueSlider([Math.min(newValue[0], valueSlider[1] - minDistance), valueSlider[1]]);
+      // setMinPriceSliderValue(Math.min(newValue[0], valueSlider[1] - minDistance));
       field.onChange({
         target: {
           name: "minPriceRange",
           value: Math.min(newValue[0], valueSlider[1] - minDistance),
         },
       });
+      handleMinPriceChance(Math.min(newValue[0], valueSlider[1] - minDistance));
     } else {
       setValueSlider([valueSlider[0], Math.max(newValue[1], valueSlider[0] + minDistance)]);
+      // setMaxPriceSliderValue(Math.max(newValue[1], valueSlider[0] + minDistance));
       field.onChange({
         target: {
           name: "maxPriceRange",
           value: Math.max(newValue[1], valueSlider[0] + minDistance),
         },
       });
+      handleMaxPriceChance(Math.max(newValue[1], valueSlider[0] + minDistance));
     }
   };
 
   const handleInputChangeMin = (event) => {
     setValueSlider([Number(event.target.value), valueSlider[1]]);
+    // setMinPriceSliderValue(Number(event.target.value));
     console.log("event handleMin: ", Number(event.target.value));
 
     field.onChange({
@@ -46,9 +60,11 @@ const PriceRangeInput = ({ label, ...props }) => {
         value: Number(event.target.value),
       },
     });
+    handleMinPriceChance(Number(event.target.value));
   };
   const handleInputChangeMax = (event) => {
     setValueSlider([valueSlider[0], Number(event.target.value)]);
+    // setMaxPriceSliderValue(Number(event.target.value));
 
     field.onChange({
       target: {
@@ -56,6 +72,7 @@ const PriceRangeInput = ({ label, ...props }) => {
         value: Number(event.target.value),
       },
     });
+    handleMaxPriceChance(Number(event.target.value));
   };
 
   //Material UI Input

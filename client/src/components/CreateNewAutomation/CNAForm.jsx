@@ -8,6 +8,18 @@ import { Form, Formik } from "formik";
 import * as Yup from "yup";
 
 const CNAForm = () => {
+  const minPriceDefault = 15000;
+  const maxPriceDefault = 35000;
+  const [minPriceSliderValue, setMinPriceSliderValue] = useState(minPriceDefault);
+  const [maxPriceSliderValue, setMaxPriceSliderValue] = useState(maxPriceDefault);
+  const handleMinPriceChance = (value) => {
+    setMinPriceSliderValue(value);
+  };
+  const handleMaxPriceChance = (value) => {
+    setMaxPriceSliderValue(value);
+  };
+  console.log("minPrice slider:", minPriceSliderValue);
+  console.log("maxPrice slider:", maxPriceSliderValue);
   //! Nanti seharusnya isi-isi select dibawah ini diganti menggunakan react redux agar dinamis dapat diatur melalui halaman lain. Tapi liat nanti :D
   const cnaMethodItem = [
     {
@@ -40,21 +52,26 @@ const CNAForm = () => {
           automationMethod: "",
           automationSecurity: "",
           priceReturnValue: 0,
-          // priceRange: [25, 75], // Tambahkan nilai awal untuk double range slider
-          minPriceRange: 0,
-          maxPriceRange: 0,
+          minPriceRange: minPriceDefault,
+          maxPriceRange: maxPriceDefault,
           maxBalance: 0,
           maxStocksValue: 0,
         }}
         validationSchema={Yup.object({
           startDate: Yup.date()
             .required("Required")
-            .min(new Date().toDateString(), "Start date must be today or later")
-            .max(Yup.ref("endDate"), "Start date must be before end date"),
+            .min(new Date().toDateString(), "Start date must be at least today or later")
+            .max(Yup.ref("endDate"), "Start date must be at most before end date"),
           endDate: Yup.date()
             .required("Required")
-            .max(new Date(2099, 11, 31), "End date must be before or on 31st December 2099")
-            .min(Yup.ref("startDate"), "End date must be after start date"),
+            .min(Yup.ref("startDate"), "End date must be at least after start date")
+            .max(new Date(2099, 11, 31), "End date must be at most before or on 31st December 2099")
+            .test("is-one-day-after-start", "End date must be at least one day after start date", function (value) {
+              const startDate = this.resolve(Yup.ref("startDate"));
+              const endDate = new Date(startDate);
+              endDate.setDate(startDate.getDate() + 1);
+              return value >= endDate;
+            }),
           automationMethod: Yup.string()
             .oneOf(
               cnaMethodItem.map((item, index, array) => {
@@ -72,11 +89,17 @@ const CNAForm = () => {
             )
             .required("Required"),
           priceReturnValue: Yup.number()
-            .min(0, "Must be at least 0")
-            .max(100, "Must be at most 100")
+            .min(-100, "Must be at least -100%")
+            .max(100, "Must be at most 100%")
             .required("Required"),
-          minPriceRange: Yup.number().min(0, "Must be at least 0").required("Required"),
-          maxPriceRange: Yup.number().max(50000, "Must be at most 100").required("Required"),
+          minPriceRange: Yup.number()
+            .min(0, "Must be at least 0")
+            .max(maxPriceSliderValue - 1, "Must be less than Max Price")
+            .required("Required"),
+          maxPriceRange: Yup.number()
+            .min(minPriceSliderValue + 1, "Must be more than Min Price")
+            .max(50000, "Must be at most 50000")
+            .required("Required"),
           maxBalance: Yup.number().min(0, "Must be at least 0").max(100, "Must be at most 100").required("Required"),
           maxStocksValue: Yup.number()
             .min(0, "Must be at least 0")
@@ -100,7 +123,14 @@ const CNAForm = () => {
         <Form className="flex flex-col gap-5 mt-5 text-sm text-cuanbot-light-gray">
           <CNASecuritiesOptionBox cnaMethodItem={cnaMethodItem} cnaSecuritiesItem={cnaSecuritiesItem} />
           <CNA1DayPriceReturnBox />
-          <CNAPriceRangeBox />
+          <CNAPriceRangeBox
+            minPriceDefault={minPriceDefault}
+            maxPriceDefault={maxPriceDefault}
+            // setMinPriceSliderValue={setMinPriceSliderValue}
+            // setMaxPriceSliderValue={setMaxPriceSliderValue}
+            handleMinPriceChance={handleMinPriceChance}
+            handleMaxPriceChance={handleMaxPriceChance}
+          />
           <CNAMaxBalanceAllocated />
           <CNAMaxStocksSelected />
 
