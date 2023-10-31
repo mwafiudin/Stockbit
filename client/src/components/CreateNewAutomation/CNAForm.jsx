@@ -6,6 +6,7 @@ import CNAMaxBalanceAllocated from "../../components/CreateNewAutomation/CNAMaxB
 import CNAMaxStocksSelected from "../../components/CreateNewAutomation/CNAMaxStocksSelected";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
+import Swal from "sweetalert2";
 
 const CNAForm = () => {
   const minPriceDefault = 15000;
@@ -115,7 +116,24 @@ const CNAForm = () => {
         })}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            alert(JSON.stringify(values, null, 2));
+            // Saving form values
+            // alert(JSON.stringify(values, null, 2));
+
+            Swal.fire({
+              title: "Are you sure want to activate?",
+              text: "You won't be able to revert this!",
+              icon: "warning",
+              showCancelButton: true,
+              confirmButtonColor: "#3085d6",
+              cancelButtonColor: "#d33",
+              confirmButtonText: "Yes, activate it!",
+            }).then((result) => {
+              if (result.isConfirmed) {
+                Swal.fire("Activated!", "Your bot has been activated.", "success");
+                console.log(JSON.stringify(values, null, 2));
+              }
+            });
+
             setSubmitting(false);
           }, 400);
         }}
