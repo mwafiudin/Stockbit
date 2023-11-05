@@ -19,8 +19,8 @@ const CNAForm = () => {
   const handleMaxPriceChance = (value) => {
     setMaxPriceSliderValue(value);
   };
-  console.log("minPrice slider:", minPriceSliderValue);
-  console.log("maxPrice slider:", maxPriceSliderValue);
+  // console.log("minPrice slider:", minPriceSliderValue);
+  // console.log("maxPrice slider:", maxPriceSliderValue);
   //! Nanti seharusnya isi-isi select dibawah ini diganti menggunakan react redux agar dinamis dapat diatur melalui halaman lain. Tapi liat nanti :D
   const cnaMethodItem = [
     {

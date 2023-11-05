@@ -27,7 +27,9 @@ import UserLanguagePage from "./pages/UserLanguage/UserLanguagePage";
 
 //import securities product//
 import SecuritiesProductOptionPage from "./pages/SecuritiesProductOption/SecuritiesProductOptionPage";
-import SecuritiesProductDetailPage from "./pages/SecuritiesProductDetail/SecuritiesProductDetailPage";
+import StockbitDetailPage from "./pages/SecuritiesProductDetail/StockbitDetailPage";
+import Other1detailPage from "./pages/SecuritiesProductDetail/Other1detailPage";
+import Other2detailPage from "./pages/SecuritiesProductDetail/Other2detailPage";
 //end import securities product//
 
 //import dashboard menu//
@@ -102,7 +104,10 @@ function App() {
 
         {/* route securities-------------------------------------------------------- */}
         <Route path="/securities/product" element={<SecuritiesProductOptionPage />} />
-        <Route path="/securities/detail" element={<SecuritiesProductDetailPage />} />
+        <Route path="/securities/product/stockbit" element={<StockbitDetailPage />} />
+        <Route path="/securities/product/other1" element={<Other1detailPage />} />
+        <Route path="/securities/product/other2" element={<Other2detailPage />} />
+     
         {/* end route securities-------------------------------------------------------- */}
 
         {/* route dashboard menu-------------------------------------------------------- */}
