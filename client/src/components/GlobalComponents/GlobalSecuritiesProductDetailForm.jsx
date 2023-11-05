@@ -75,24 +75,27 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
         }}
       >
         <Form className="flex flex-col gap-5 mt-5 text-sm text-cuanbot-light-gray">
-        <SecuritiesEmail
-             label="Email"
-             name="email"
-             type="email"
-             placeholder="Jane"
-           />
-        <SecuritiesPassword
-             label="Password"
-             name="password"
-             type="password"
-             placeholder="Doe"
-           />
-        <SecuritiesPin
-             label="PIN"
-             name="pin"
-             type="password"
-             placeholder="DRe"
-           />
+          <SecuritiesEmail
+            label="Email"
+            name="email"
+            type="email"
+            //! Use conditional for placeholder base on actual data from props
+            placeholder="Jane"
+          />
+          <SecuritiesPassword
+            label="Password"
+            name="password"
+            type="password"
+            //! Use conditional for placeholder base on actual data from props
+            placeholder="Doe"
+          />
+          <SecuritiesPin
+            label="PIN"
+            name="pin"
+            type="password"
+            //! Use conditional for placeholder base on actual data from props
+            placeholder="DRe"
+          />
 
           <button
             type="submit"
