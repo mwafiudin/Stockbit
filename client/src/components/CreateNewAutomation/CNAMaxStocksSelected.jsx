@@ -1,9 +1,13 @@
 import React from "react";
+import GlobalDarkBox from "../GlobalComponents/GlobalDarkBox";
+import MaxStockInput from "./MaxStockInput";
 
 const CNAMaxStocksSelected = () => {
   return (
     <>
-      <div>CNAMaxStocksSelected</div>
+      <GlobalDarkBox>
+        <MaxStockInput label="Max Stocks Selected :" name="maxStocksValue" />
+      </GlobalDarkBox>
     </>
   );
 };
