@@ -24,7 +24,7 @@ const StockbitDetailPage = () => {
             <div className="bg-cuanbot-white rounded-xl w-max mb-4">
               <img className="w-20 h-20" src={icon} alt={title} />
             </div>
-            <h1 className="text-pure-white text-md font-semibold">{title}</h1>
+            <h1 className="text-cuanbot-white text-md font-semibold">{title}</h1>
           </div>
           <GlobalSecuritiesProductDetailForm
             index={index}
