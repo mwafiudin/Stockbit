@@ -132,6 +132,7 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
             placeholder={`Your existed ${title} account's PIN`}
             className="text-cuanbot-white bg-cuanbot-light p-2 text-sm rounded-lg mb-8"
           />
+          {/* //! Testing for showing submit and cancel button only when data has change based on similarity values in global state via props and user keyboard push/change */}
           {/* {console.log("email:" + typeof email)}
           {console.log("pass:" + typeof password)}
           {console.log("pin:" + typeof pin, typeof idAccSecurity)} */}
