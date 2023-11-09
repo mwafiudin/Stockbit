@@ -13,7 +13,7 @@ export const securitiesSlice = createSlice({
         //   icon: "a",
         title: "Stockbit",
         idAccSecurity: 1,
-        email: "",
+        email: "ayam",
         password: "",
         pin: 0,
       },

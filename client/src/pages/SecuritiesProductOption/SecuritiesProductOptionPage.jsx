@@ -18,7 +18,7 @@ const SecuritiesProductOptionPage = () => {
           </button>
         </div>
         <div className="flex flex-col justify-start text-cuan mx-[22px] text-left">
-        <h1 className="text-pure-white mb-5 text-2xl font-semibold">Security Access</h1>
+        <h1 className="text-cuanbot-white mb-5 text-2xl font-semibold">Security Access</h1>
         <p className="text-cuanbot-light-gray text-sm">
         Please complete the access data for each security to be able to run the robot
         </p>

@@ -19,6 +19,7 @@ module.exports = {
       "cuanbot-light-gray": "#A7AFB7",
       "cuanbot-white": "#FFFFFC",
       "cuanbot-green": "#5ED5A8",
+      "pure-white": "#FFFFFF",
       "cuanbot-red": "#DD4B4B",
       red: {
         50: "#fef2f2",

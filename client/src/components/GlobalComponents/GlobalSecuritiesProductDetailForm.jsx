@@ -1,11 +1,16 @@
-import React, { useState } from "react";
-import { Form, Formik, useField } from "formik";
+import React, { useEffect, useState } from "react";
+import { Form, Formik, useField, useFormikContext } from "formik";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
 
 //? The Form Field //////////////////////////////////
 const SecuritiesEmail = ({ label, ...props }) => {
   const [field, meta] = useField(props);
+  console.log("allProps in emailForm:", field);
+  // if (props.isReset === true) {
+  //   field.value = props.email;
+  //   props.setIsReset(false);
+  // }
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
@@ -65,6 +70,40 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
   const [emailEvent, setEmailEvent] = useState("");
   const [passEvent, setPassEvent] = useState("");
   const [pinEvent, setPinEvent] = useState("");
+  const [isReset, setIsReset] = useState(false);
+  const [first, setFirst] = useState(false);
+  const formik = useFormikContext();
+
+  useEffect(() => {
+    setFirst(true);
+  }, []);
+
+  // console.log("emailEvent === email:", emailEvent === email)
+  // console.log("emailEvent.length > 0:", emailEvent.length > 0)
+  // console.log("email props is not null:", !email)
+  // console.log("emailEvent useState:", emailEvent)
+  // console.log("email props:", email.length)
+
+  const handleEmail = (e) => {
+    setEmailEvent(e.target.value);
+    setFirst(false);
+  };
+  const handlePass = (e) => {
+    setPassEvent(e.target.value);
+    setFirst(false);
+  };
+  const handlePin = (e) => {
+    setPinEvent(e.target.value);
+    setFirst(false);
+  };
+  // const focusEmail = (e) => {
+  //   console.log("focus e:", e.target.value);
+  //   console.log("focus is same:", e.target.value !== email && e.target.value !== password && e.target.value !== pin);
+  // };
+  // const blurEmail = (e) => {
+  //   console.log("blur e:", e.target.value);
+  //   console.log("blur is same:",  e.target.value !== email && e.target.value !== password && e.target.value !== pin);
+  // };
   return (
     <>
       <Formik
@@ -107,9 +146,14 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
             id="email"
             name="email"
             type="email"
-            onKeyDown={(e) => {
-              setEmailEvent(e.target.value);
-            }}
+            onInput={handleEmail}
+            // isReset={isReset}
+            // setIsReset={setIsReset}
+            // email={email}
+            // onFocus={focusEmail}
+            // onBlur={blurEmail}
+            // value={email}
+
             //! Use conditional for placeholder base on actual data from props
             placeholder={`Your existed ${title} account's email`}
             className="text-cuanbot-white bg-cuanbot-light p-2 text-sm rounded-lg mb-8"
@@ -119,6 +163,9 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
             id="password"
             name="password"
             type="password"
+            onInput={handlePass}
+            // onFocus={focusEmail}
+            // onBlur={blurEmail}
             //! Use conditional for placeholder base on actual data from props
             placeholder={`Your existed ${title} account's password`}
             className="text-cuanbot-white bg-cuanbot-light p-2 text-sm rounded-lg mb-8"
@@ -128,6 +175,10 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
             id="pin"
             name="pin"
             type="password"
+            onInput={handlePin}
+            isReset={isReset}
+            // onFocus={focusEmail}
+            // onBlur={blurEmail}
             //! Use conditional for placeholder base on actual data from props
             placeholder={`Your existed ${title} account's PIN`}
             className="text-cuanbot-white bg-cuanbot-light p-2 text-sm rounded-lg mb-8"
@@ -137,15 +188,32 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
           {console.log("pass:" + typeof password)}
           {console.log("pin:" + typeof pin, typeof idAccSecurity)} */}
 
-          {/* {console.log("email changed event:", emailEvent.length > 0 || emailEvent === email)} */}
-          {console.log("email useState:", typeof emailEvent)}
-          {console.log("email props:", typeof email)}
-          <button
-            type="submit"
-            className="flex justify-center items-center py-4 mb-20 bg-cuanbot-green rounded-xl text-lg text-cuanbot-dark"
-          >
-            Save Changes
-          </button>
+          {/* {console.log("emailEvent === email:", emailEvent === email)}
+          {console.log("emailEvent.length > 0:", emailEvent.length > 0 )}
+          {console.log("emailEvent useState:", emailEvent)}
+          {console.log("email props:", email)} */}
+          {console.log("emailevent:", emailEvent)}
+          {console.log("emailprops:", email)}
+          {passEvent === password || pinEvent === pin || emailEvent === email || first ? (
+            <></>
+          ) : (
+            <>
+              <div className="flex justify-between gap-6">
+                <button
+                  className="flex justify-center items-center py-4 mb-20 bg-cuanbot-gray rounded-xl text-lg text-cuanbot-white grow"
+                  onClick={() => setIsReset(true)}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="flex justify-center items-center py-4 mb-20 bg-cuanbot-green rounded-xl text-lg text-cuanbot-dark grow"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </>
+          )}
         </Form>
       </Formik>
     </>

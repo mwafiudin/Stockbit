@@ -7,6 +7,7 @@ const StockbitDetailPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { index, to, icon, title, idAccSecurity, email, password, pin } = location.state;
+  console.log("damn:", to)
   return (
     <>
       <div className="bg-cuanbot-light h-screen">
