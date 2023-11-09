@@ -2,6 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Form, Formik, useField, useFormikContext } from "formik";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import {
+  setStockbitEmail,
+  setStockbitPassword,
+  setStockbitPin,
+  setOther1Email,
+  setOther1Password,
+  setOther1Pin,
+  setOther2Email,
+  setOther2Password,
+  setOther2Pin,
+} from "../../redux/reducers/securities/securitiesReducer";
 
 //? The Form Field //////////////////////////////////
 const SecuritiesEmail = ({ label, ...props }) => {
@@ -69,32 +81,33 @@ const SecuritiesPin = ({ label, ...props }) => {
 const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecurity, email, password, pin }) => {
   const [emailEvent, setEmailEvent] = useState("");
   const [passEvent, setPassEvent] = useState("");
-  const [pinEvent, setPinEvent] = useState("");
+  const [pinEvent, setPinEvent] = useState(0);
   const [isReset, setIsReset] = useState(false);
   const [first, setFirst] = useState(false);
+  const [typed, setTyped] = useState("");
+  const [showButton, setShowButton] = useState(false);
+  const dispatch = useDispatch();
   const formik = useFormikContext();
 
   useEffect(() => {
     setFirst(true);
   }, []);
 
-  // console.log("emailEvent === email:", emailEvent === email)
-  // console.log("emailEvent.length > 0:", emailEvent.length > 0)
-  // console.log("email props is not null:", !email)
-  // console.log("emailEvent useState:", emailEvent)
-  // console.log("email props:", email.length)
-
   const handleEmail = (e) => {
     setEmailEvent(e.target.value);
     setFirst(false);
+    setTyped(e.target.value);
   };
   const handlePass = (e) => {
     setPassEvent(e.target.value);
     setFirst(false);
+    setTyped(e.target.value);
   };
   const handlePin = (e) => {
+    console.log("pin:", typeof pinEvent);
     setPinEvent(e.target.value);
     setFirst(false);
+    setTyped(Number(e.target.value));
   };
   // const focusEmail = (e) => {
   //   console.log("focus e:", e.target.value);
@@ -133,7 +146,27 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
               timer: 1500,
             }).then((result) => {
               console.log("json:", JSON.stringify(values, null, 2));
-              console.log("result:", result);
+              console.log("result:", values);
+              switch (idAccSecurity) {
+                case 1:
+                  dispatch(setStockbitEmail(values.email));
+                  dispatch(setStockbitPassword(values.password));
+                  dispatch(setStockbitPin(values.pin));
+                  break;
+                case 2:
+                  dispatch(setOther1Email(values.email));
+                  dispatch(setOther1Password(values.password));
+                  dispatch(setOther1Pin(values.pin));
+                  break;
+                case 3:
+                  dispatch(setOther2Email(values.email));
+                  dispatch(setOther2Password(values.password));
+                  dispatch(setOther2Pin(values.pin));
+                  break;
+                default:
+                  alert("Sorry, something is wrong on our side 😓");
+              }
+              setTyped("");
             });
 
             setSubmitting(false);
@@ -194,7 +227,7 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
           {console.log("email props:", email)} */}
           {console.log("emailevent:", emailEvent)}
           {console.log("emailprops:", email)}
-          {passEvent === password || pinEvent === pin || emailEvent === email || first ? (
+          {typed === "" ? (
             <></>
           ) : (
             <>

@@ -14,8 +14,8 @@ export const securitiesSlice = createSlice({
         title: "Stockbit",
         idAccSecurity: 1,
         email: "ayam",
-        password: "",
-        pin: 0,
+        password: "qwerty123",
+        pin: 123456,
       },
       {
         to: "/securities/product/other1",

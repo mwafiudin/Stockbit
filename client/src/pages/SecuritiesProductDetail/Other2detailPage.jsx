@@ -1,12 +1,13 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ReactComponent as LeftArrowIcon } from "../../icons/left-arrow.svg";
+import GlobalSecuritiesProductDetailForm from "../../components/GlobalComponents/GlobalSecuritiesProductDetailForm";
 
 const Other2detailPage = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { index, to, icon, title } = location.state;
-
+  const { index, to, icon, title, idAccSecurity, email, password, pin } = location.state;
+  console.log("damn:", to)
   return (
     <>
       <div className="bg-cuanbot-light h-screen">
@@ -19,14 +20,24 @@ const Other2detailPage = () => {
             <h1>{title} Detail</h1>
           </button>
         </div>
-        <div className="flex flex-col justify-start text-cuan mx-[22px] text-left">
-          <h1 className="text-pure-white mb-5 text-2xl font-semibold">Security Access</h1>
-          <p className="text-cuanbot-light-gray text-sm">
-            Please complete the access data for each security to be able to run the robot
-          </p>
+        <div className="flex flex-col justify-start mx-[24px] text-left">
+          <div className="flex flex-col items-center border-b-[1px] border-cuanbot-gray mx-auto">
+            <div className="bg-cuanbot-white rounded-xl w-max mb-4">
+              <img className="w-20 h-20" src={icon} alt={title} />
+            </div>
+            <h1 className="text-cuanbot-white text-md font-semibold">{title}</h1>
+          </div>
+          <GlobalSecuritiesProductDetailForm
+            index={index}
+            to={to}
+            icon={icon}
+            title={title}
+            idAccSecurity={idAccSecurity}
+            email={email}
+            password={password}
+            pin={pin}
+          />
         </div>
-        {/* <SettingsMenu /> */}
-        {/* <SecuritiesOptionMenu /> */}
       </div>
     </>
   );

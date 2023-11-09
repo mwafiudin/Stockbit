@@ -1,6 +1,7 @@
 import React from "react";
 import SecuritiesOptionMenuList from "./SecuritiesOptionMenuList";
 import { useSelector } from "react-redux";
+
 // import { stockBitIcon } from "../../icons/stockbit-logo.png";
 
 const SecuritiesOptionMenu = () => {
