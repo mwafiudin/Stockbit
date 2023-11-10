@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Form, Formik, useField, useFormikContext } from "formik";
+import { Form, Formik, useField, useFormik } from "formik";
 import * as Yup from "yup";
 import Swal from "sweetalert2";
 import { useDispatch } from "react-redux";
@@ -18,7 +18,8 @@ import {
 //? The Form Field //////////////////////////////////
 const SecuritiesEmail = ({ label, ...props }) => {
   const [field, meta] = useField(props);
-  console.log("allProps in emailForm:", field);
+  console.log("dirty in emailForm:", meta);
+  props.func("My name is Dean Winchester & this is my brother Sammie");
   // if (props.isReset === true) {
   //   field.value = props.email;
   //   props.setIsReset(false);
@@ -87,7 +88,10 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
   const [typed, setTyped] = useState("");
   const [showButton, setShowButton] = useState(false);
   const dispatch = useDispatch();
-  const formik = useFormikContext();
+  // const formik = useFormik();
+  const pull_data = (data) => {
+    console.log(data); // LOGS DATA FROM CHILD (My name is Dean Winchester... &)
+  };
 
   useEffect(() => {
     setFirst(true);
@@ -180,6 +184,8 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
             name="email"
             type="email"
             onInput={handleEmail}
+            func={pull_data}
+            // formik={formik}
             // isReset={isReset}
             // setIsReset={setIsReset}
             // email={email}
@@ -227,9 +233,29 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
           {console.log("email props:", email)} */}
           {console.log("emailevent:", emailEvent)}
           {console.log("emailprops:", email)}
-          {typed === "" ? (
+          {/* {typed === "" ? (
             <></>
           ) : (
+            <>
+              <div className="flex justify-between gap-6">
+                <button
+                  className="flex justify-center items-center py-4 mb-20 bg-cuanbot-gray rounded-xl text-lg text-cuanbot-white grow"
+                  onClick={() => setIsReset(true)}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  className="flex justify-center items-center py-4 mb-20 bg-cuanbot-green rounded-xl text-lg text-cuanbot-dark grow"
+                >
+                  Save Changes
+                </button>
+              </div>
+            </>
+          )} */}
+
+          {/* //! ///////////////////////////////////////////////////////////////////////////////////////////////////////// */}
+          {false && (
             <>
               <div className="flex justify-between gap-6">
                 <button
