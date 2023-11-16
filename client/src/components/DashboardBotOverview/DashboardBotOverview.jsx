@@ -13,7 +13,7 @@ const DashboardBotOverview = () => {
   return (
     <>
       <div className="flex flex-col mx-6 mb-5">
-        <GlobalTabMenu activeTab={activeTab} handleTabClick={handleTabClick} botTabItem={botTabItem} className="flex" />
+        <GlobalTabMenu activeTab={activeTab} handleTabClick={handleTabClick} tabItem={botTabItem} className="flex" />
         <DashboardBotOverviewMenu activeTab={activeTab} />
       </div>
     </>

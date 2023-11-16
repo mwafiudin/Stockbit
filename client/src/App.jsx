@@ -17,6 +17,7 @@ import FloatNavbar from "./components/FloatNavbar/FloatNavbar";
 //end import float navbar//
 
 //import user//
+import AuthenticationPage from "./pages/Authentication/AuthenticationPage";
 import UserSettingsPage from "./pages/UserSettings/UserSettingsPage";
 import UserProfilePage from "./pages/UserProfile/UserProfilePage";
 import UserSignInPage from "./pages/UserSignIn/UserSignInPage";
@@ -33,10 +34,10 @@ import Other2detailPage from "./pages/SecuritiesProductDetail/Other2detailPage";
 //end import securities product//
 
 //import dashboard menu//
-import ScreeningListPage from "./pages/ScreeningList/ScreeningListPage";
 import OrderListPage from "./pages/OrderList/OrderListPage";
 import PortfolioPage from "./pages/Portfolio/PortfolioPage";
 import TopNavbar from "./components/TopNavbar/TopNavbar";
+import OrderStatusPage from "./pages/OrderStatus/OrderStatusPage";
 //end import dashboard menu//
 
 function App() {
@@ -94,10 +95,11 @@ function App() {
         {/* end route main-------------------------------------------------------- */}
 
         {/* route user-------------------------------------------------------- */}
+        <Route path="/user/authentication" element={<AuthenticationPage />} />
         <Route path="/user/settings" element={<UserSettingsPage />} />
         <Route path="/user/profile" element={<UserProfilePage />} />
-        <Route path="/user/signin" element={<UserSignInPage />} />
-        <Route path="/user/signup" element={<UserSignUpPage />} />
+        {/* <Route path="/user/signin" element={<UserSignInPage />} /> */}
+        {/* <Route path="/user/signup" element={<UserSignUpPage />} /> */}
         <Route path="/user/currency" element={<UserCurrencyPage />} />
         <Route path="/user/language" element={<UserLanguagePage />} />
         {/* end route user-------------------------------------------------------- */}
@@ -107,11 +109,11 @@ function App() {
         <Route path="/securities/product/stockbit" element={<StockbitDetailPage />} />
         <Route path="/securities/product/other1" element={<Other1detailPage />} />
         <Route path="/securities/product/other2" element={<Other2detailPage />} />
-     
+
         {/* end route securities-------------------------------------------------------- */}
 
         {/* route dashboard menu-------------------------------------------------------- */}
-        <Route path="/screening-list" element={<ScreeningListPage />} />
+        <Route path="/order-status" element={<OrderStatusPage />} />
         <Route path="/order-list" element={<OrderListPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         {/* end route dashboard menu-------------------------------------------------------- */}

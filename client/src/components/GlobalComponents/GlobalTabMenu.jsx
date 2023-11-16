@@ -1,10 +1,10 @@
 import React from "react";
 
-const GlobalTabMenu = ({ activeTab, handleTabClick, botTabItem }) => {
+const GlobalTabMenu = ({ activeTab, handleTabClick, tabItem }) => {
   return (
     <>
       <div className="flex justify-center gap-2 bg-cuanbot-dark rounded-xl text-pure-white px-5">
-        {botTabItem.map((tab) => (
+        {tabItem.map((tab) => (
           <div
             key={tab}
             onClick={() => handleTabClick(tab)}

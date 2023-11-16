@@ -266,7 +266,7 @@ const GlobalSecuritiesProductDetailForm = ({ index, to, icon, title, idAccSecuri
               // onInput={handlePin}
               component={InputComponent}
               pull_dirty={pull_dirty}
-              isReset={isReset}
+              // isReset={isReset}
               // onFocus={focusEmail}
               // onBlur={blurEmail}
               //! Use conditional for placeholder base on actual data from props

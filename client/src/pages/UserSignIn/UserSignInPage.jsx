@@ -23,16 +23,16 @@ const UserSignInPage = () => {
     <>
       <div className="bg-cuanbot-light h-screen flex flex-col px-6">
         <div className="bg-cuanbot-light flex justify-between pt-10 px-[1px] pb-5">
-          <button onClick={() => navigate(-1)} className="text-cuanbot-light-gray font-semibold flex items-center">
+          {/* <button onClick={() => navigate(-1)} className="text-cuanbot-light-gray font-semibold flex items-center">
             <div className="pr-[10px]">
               <CloseIcon />
             </div>
-          </button>
+          </button> */}
         </div>
         <GlobalTabMenu
           activeTab={activeTab}
           handleTabClick={handleTabClick}
-          botTabItem={signInTabItem}
+          tabItem={signInTabItem}
           className="flex"
         />
         {isSignup ? <UserSignUpPage /> : <UserSignInForm />}
